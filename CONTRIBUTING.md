@@ -1,85 +1,37 @@
-# Contributing to DeployerX
+# Contributing
 
-**Mission:** Forward-deployed AI for the rest of the world — decisioning + playbooks + locale packs to e/acc.
+## Principles
 
-We cover Earth as a tree:
+1. Same folder contract for every country (`schema/hierarchy.md`)
+2. Playbooks are global; locales are deltas
+3. No PII in the repo
+4. Prefer clarity over slogans
 
-`_global` → **country (L1)** → **state/province (L2)** → **district (L3)**
+## Highest leverage
 
-India is first. Every other country follows the same shape.
+1. L3 locale pack — `locale-packs/_templates/l3/`
+2. Field note — `field-notes/_template.md`
+3. Glossary entries
+4. Playbook improvement + `_registry.yaml` update
 
-## Design rule (read this)
-
-| Do | Don't |
-|----|-------|
-| Put shared content at the highest true level | Copy a whole playbook into a district folder |
-| Add **deltas only** at L2/L3 | Duplicate global safety rules in every pack |
-| Use ISO country codes + kebab slugs | Invent a new folder layout per country |
-| Keep playbooks in `/playbooks` | Fork `whatsapp-shop-faq` per city |
-
-See [`schema/hierarchy.md`](schema/hierarchy.md).
-
-## Contribution ladder (impact order)
-
-1. **L3 pack** — your district/county  
-2. **Field note** — real deployment receipts  
-3. **Glossary** — jargon → plain local language  
-4. **L2 pack** — state/province meta + languages  
-5. **L1 country pack** — open a new country  
-6. **Global playbook** — new use case for everyone  
-
-## Add an L3 pack (any country)
+## L3 pack
 
 ```bash
-cc=in
-l2=uttar-pradesh
-l3=your-district
-
+cc=in l2=uttar-pradesh l3=your-district
 mkdir -p locale-packs/$cc/l2/$l2/l3/$l3
 cp locale-packs/_templates/l3/* locale-packs/$cc/l2/$l2/l3/$l3/
 ```
 
-Fill README / constraints / examples → PR titled:
+PR title: `locale(<cc>): add <L3>, <L2>`
 
-`locale(<cc>): add <L3>, <L2>`
+## Playbook
 
-## Open a country (L1)
+Copy `playbooks/_templates/playbook/`, register in `playbooks/_registry.yaml`.
 
-1. Copy `locale-packs/_templates/country/_meta.yaml` → `locale-packs/<cc>/_meta.yaml`
-2. Add `constraints.md` (deltas from `_global` only)
-3. Add `l2/_index.yaml` (full L2 list — goal)
-4. Register in `locale-packs/_registry.yaml`
-5. Seed one L3 example
-
-PR title: `locale: open <Country> (<cc>)`
-
-## Add a global playbook
-
-1. Copy `playbooks/_templates/playbook/`
-2. Required: `README.md`, `decide.md`, `deploy.md`, `cost.md`, `prompts/`, `evals/`
-3. Must include when *not* to use it
-4. Locale-specific prompts may live under the playbook as `prompts/system.<lang>.md` — still one playbook
-
-PR title: `playbook: <id>`
-
-## Website progress sync
-
-After locale / playbook / field-note changes:
+## Site data
 
 ```bash
-python3 scripts/generate_site_data.py
-python3 scripts/validate.py
+make site && make check
 ```
 
-Commit `docs/data/progress.json`. Do not hand-edit coverage numbers on the site.
-
-## Validation
-
-```bash
-python3 scripts/validate.py
-python3 -m decision.resolve in uttar-pradesh varanasi
-```
-
-## Code of conduct (short)
-
-Be kind. Optimize for non-engineer operators. Prefer clarity over cleverness. No PII in the repo.
+Commit `docs/data/progress.json` with coverage changes.

@@ -1,71 +1,42 @@
-# Locale hierarchy & cascade
+# Locale hierarchy
 
-DeployerX covers the world with a fixed three-level admin tree under each country:
+DeployerX uses one folder contract worldwide:
 
-| Level | Code | Meaning | Examples |
-|-------|------|---------|----------|
-| L0 | `_global` | Ship once for everyone | Safety defaults, contribution rules, base AI glossary |
-| L1 | ISO country | Country pack | `in`, `br`, `ng`, `us` |
-| L2 | admin level-2 | State / province / governorate | `uttar-pradesh`, `sao-paulo`, `california` |
-| L3 | admin level-3 | District / county / LGA | `varanasi`, `campinas`, `santa-clara` |
+| Level | Path | Role |
+|-------|------|------|
+| L0 | `locale-packs/_global/` | Shared safety + base glossary |
+| L1 | `locale-packs/<cc>/` | Country defaults (ISO 3166-1 alpha-2) |
+| L2 | `.../l2/<slug>/` | State / province / equivalent |
+| L3 | `.../l2/<slug>/l3/<slug>/` | District / county / equivalent |
 
-Country packs declare **local names** for L2/L3 (India: state/district; Brazil: estado/município) without changing the folder shape.
+Country `_meta.yaml` sets local labels (`state`/`district`, `estado`/`municipio`, …) without changing folder names.
 
-## Folder contract (every country)
+## Cascade
 
-```
-locale-packs/
-  _global/                      # L0 — common
-  _registry.yaml                # world index
-  <cc>/                         # L1
-    _meta.yaml                  # required
-    constraints.md              # country defaults
-    glossary/                   # language files
-    l2/
-      _index.yaml               # full L2 list (goal)
-      <l2-slug>/
-        _meta.yaml
-        constraints.md          # optional overrides
-        l3/
-          <l3-slug>/
-            README.md
-            constraints.md
-            examples.md
-```
-
-## Cascade (local wins)
-
-When resolving guidance for `in / uttar-pradesh / varanasi`:
+For `in/uttar-pradesh/varanasi`:
 
 ```
-_global  →  in  →  in/l2/uttar-pradesh  →  .../l3/varanasi
+_global → in → in/l2/uttar-pradesh → …/l3/varanasi
 ```
 
-Rules:
+Later layers override earlier ones. Missing L2/L3 is allowed; resolver falls back upward (`decision/resolve.py`).
 
-1. **Common ships once** at the highest true level (prefer `_global` or L1).
-2. **L2/L3 only store deltas** — language nuance, payments quirks, trust, seasons, examples.
-3. Missing optional files are OK; resolver falls back upward.
-4. Playbooks live in `/playbooks` (global). Locales may add overlays under `overlays/<playbook-id>/` later; do not fork entire playbooks per district.
+## Placement rules
 
-## What belongs where
+| Content | Where |
+|---------|--------|
+| Playbook recipes | `/playbooks` only |
+| Universal safety | L0 |
+| Payments, channels, legal | L1 |
+| Regional language notes | L2 |
+| Hyperlocal examples / trust | L3 |
 
-| Content | L0 | L1 | L2 | L3 |
-|---------|----|----|----|----|
-| Universal AI safety (“never invent prices”) | ✅ | | | |
-| Base jargon concepts (EN) | ✅ | | | |
-| Country payments / channels / legal | | ✅ | | |
-| Language glossaries | | ✅ | rare | rare |
-| Official/regional languages for a state | | | ✅ | |
-| Hyperlocal examples, festivals, trust | | | | ✅ |
-| Full playbook recipes | `/playbooks` only | | | |
+**L3 never forks a playbook.** It stores deltas only.
 
-## IDs
+## Stability
 
-- Country: ISO 3166-1 alpha-2 lowercase (`in`)
-- L2/L3: lowercase kebab-case slugs
-- Stable path id: `cc/l2-slug/l3-slug` → `in/uttar-pradesh/varanasi`
-
-## Status values
-
-`listed` → `seeded` → `verified` (see `_meta.yaml` fields)
+- Folder shape is identical for every country (`l2` / `l3` are universal; labels in `_meta.yaml` are local).
+- Playbook IDs are global and stable.
+- Locale IDs: `cc`, `cc/l2`, or `cc/l2/l3`.
+- Missing L2/L3 is allowed; resolver falls back upward.
+- `merged_constraints(ref)` concatenates constraint files root→leaf (append semantics).

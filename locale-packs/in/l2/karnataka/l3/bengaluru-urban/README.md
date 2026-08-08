@@ -5,7 +5,7 @@ l2: karnataka
 l3: bengaluru-urban
 languages: [kn, hi, en]
 maintainers: []
-status: seeded
+status: draft
 ---
 
 # Bengaluru Urban (L3)

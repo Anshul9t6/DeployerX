@@ -5,7 +5,7 @@ l2: delhi
 l3: new-delhi
 languages: [hi, en]
 maintainers: []
-status: seeded
+status: draft
 ---
 
 # New Delhi (L3)

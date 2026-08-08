@@ -13,11 +13,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Validate hierarchy + site data sync
-        run: python3 scripts/validate.py
+      - name: Validate
+        run: make check
       - name: Coverage report
-        run: python3 scripts/coverage.py
-      - name: Generate site data (smoke)
-        run: python3 scripts/generate_site_data.py
+        run: make coverage
+      - name: Site data smoke
+        run: make site
       - name: Resolver smoke
-        run: python3 -m decision.resolve in uttar-pradesh varanasi
+        run: make resolve ARGS="in uttar-pradesh varanasi"

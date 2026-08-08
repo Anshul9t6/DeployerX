@@ -1,50 +1,32 @@
-# Share / launch posts for DeployerX
+# Share copy
 
-Paste anywhere (GitHub Discussions, LinkedIn, X, Discord).  
-Replace `[metrics]` after your first real Path A field note.
+Use after the repo README. Add metrics only when a real field note exists.
 
----
-
-## Short (X / Discord)
+## Short
 
 ```
-DeployerX is open source: forward-deployed AI kits for operators outside English-default markets.
+DeployerX — open-source, locale-aware AI deployment kits for non-engineer operators.
 
-Decisioning → playbooks → locale packs (country → state → district).
-India first. Path A starts at ₹0.
+Playbooks (global) + locale packs (country → L2 → L3).
+India reference impl. Path A needs no paid API.
 
-Live atlas: https://anshul9t6.github.io/DeployerX/
-Repo: https://github.com/Anshul9t6/DeployerX
-
-Claim your district. Ship common once. Localize deltas.
+https://anshul9t6.github.io/DeployerX/
+https://github.com/Anshul9t6/DeployerX
 ```
 
----
-
-## Medium (LinkedIn / GitHub Discussion)
+## Longer
 
 ```
-I open-sourced DeployerX — a field kit to deploy AI where English jargon is the bottleneck.
+DeployerX is a field kit for deploying AI where English jargon blocks adoption.
 
-Mission: forward-deployed AI for the rest of the world — decisioning + playbooks + locale packs to e/acc.
-
-What’s in v1:
-• Global playbooks (shop FAQ + clinic FAQ) with human-approval Path A
-• World hierarchy: country → L2 → L3 (deltas only — no playbook forks per city)
-• India: all 36 states/UTs + major-city L3 packs
-• Brazil scaffold: all 27 estados/DF + Portuguese glossary
-• Live GitHub Pages atlas that auto-updates from the repo
+• Global playbooks with a zero-cost Path A (human approval)
+• Locale cascade: country → L2 → L3 (deltas only)
+• India + Brazil scaffolds; live atlas generated from the repo
 
 Site: https://anshul9t6.github.io/DeployerX/
 Repo: https://github.com/Anshul9t6/DeployerX
 
-If you speak a local language or run a shop/clinic, the highest-leverage PR is an L3 district pack.
+Highest-leverage PR: an L3 district pack in your language.
 
-[After first deployment, add: In [place], Path A cut reply time by [metrics] with zero invented prices in week one.]
+[Optional after field note: In <place>, Path A … <one metric>.]
 ```
-
----
-
-## After first real field note
-
-Add one line with receipts only — hours saved, wrong answers avoided, budget band. No vanity metrics.

@@ -1,15 +1,8 @@
-# DeployerX global pack (L0)
+# L0 global pack
 
-Ship-once defaults for every country. Local packs **override**; they should not copy these wholesale.
+Defaults for every country. Lower layers override; they should not duplicate these files.
 
-## Contains
-
-| Path | Purpose |
-|------|---------|
-| `constraints.md` | Universal deployment safety |
-| `glossary/en.yaml` | Base AI jargon → plain English |
-| `README.md` | This file |
-
-## Cascade
-
-Resolved first for every location. See [`schema/hierarchy.md`](../../schema/hierarchy.md).
+| Path | Role |
+|------|------|
+| `constraints.md` | Safety defaults |
+| `glossary/en.yaml` | Base jargon → plain English |

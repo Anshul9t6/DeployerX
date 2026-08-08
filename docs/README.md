@@ -1,14 +1,10 @@
-# docs/ — GitHub Pages site
+# docs/
 
-Public site: https://anshul9t6.github.io/DeployerX/
+GitHub Pages root: https://anshul9t6.github.io/DeployerX/
 
-## Auto progress
-
-| File | Edit? |
+| Path | Edit? |
 |------|-------|
-| `data/progress.json` | **No** — run `python3 scripts/generate_site_data.py` |
-| `index.html` / `styles.css` / `app.js` | Yes — UX only |
+| `data/progress.json` | No — `make site` |
+| `index.html` `app.js` `styles.css` | Yes |
 
-CI: `.github/workflows/sync-site-data.yml` refreshes progress.json on `main` when coverage sources change.
-
-Agents must follow `AGENTS.md`.
+`make check` fails if progress.json is stale.

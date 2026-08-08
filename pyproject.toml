@@ -1,0 +1,10 @@
+[project]
+name = "deployerx"
+version = "0.1.0"
+description = "Locale-aware playbooks for deploying AI with non-engineer operators"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[tool.setuptools.packages.find]
+include = ["decision*"]

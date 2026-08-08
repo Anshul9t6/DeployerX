@@ -6,7 +6,7 @@ admin_labels:
   l3: municipio
 languages_default: [pt]
 currency: BRL
-status: seeded
+status: draft
 maintainers: []
 priority: 2
 notes: Full L2 index (27) + pt glossary seeded. Município (L3) packs needed next.

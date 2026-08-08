@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Seed missing India L2 _meta.yaml stubs from l2/_index.yaml (no third-party deps)."""
+"""Seed missing India L2 _meta.yaml stubs from l2/_index.yaml (YAML-only, no prose)."""
 
 from __future__ import annotations
 
@@ -29,30 +29,17 @@ def parse_entries(text: str) -> list[dict[str, str]]:
 
 def render_meta(e: dict[str, str]) -> str:
     langs = e.get("languages", "[]")
-    return f"""level: 2
-country: in
-l2: {e['slug']}
-name: {e.get('name', e['slug'])}
-code: {e.get('code', '')}
-languages: {langs}
-status: listed
-maintainers: []
-
-# {e.get('name', e['slug'])} (L2)
-
-Status: **listed** — stub seeded from `l2/_index.yaml`.
-
-## Help wanted
-
-1. Upgrade `status` to `seeded` after adding regional notes
-2. Add L3 packs under `l3/` using `locale-packs/_templates/l3/`
-3. Target ~{e.get('l3_count', '?')} districts (approx; PRs welcome to correct)
-
-## Priority playbooks (global)
-
-- `whatsapp-shop-faq`
-- `clinic-whatsapp-faq`
-"""
+    return (
+        "level: 2\n"
+        "country: in\n"
+        f"l2: {e['slug']}\n"
+        f"name: {e.get('name', e['slug'])}\n"
+        f"code: {e.get('code', '')}\n"
+        f"languages: {langs}\n"
+        "status: listed\n"
+        "maintainers: []\n"
+        f"l3_target_approx: {e.get('l3_count', 'null')}\n"
+    )
 
 
 def main() -> None:

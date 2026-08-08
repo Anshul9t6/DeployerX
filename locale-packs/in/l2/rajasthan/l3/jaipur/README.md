@@ -5,7 +5,7 @@ l2: rajasthan
 l3: jaipur
 languages: [hi, en]
 maintainers: []
-status: seeded
+status: draft
 ---
 
 # Jaipur (L3)

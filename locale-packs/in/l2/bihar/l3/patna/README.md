@@ -5,7 +5,7 @@ l2: bihar
 l3: patna
 languages: [hi, en]
 maintainers: []
-status: seeded
+status: draft
 ---
 
 # Patna (L3)

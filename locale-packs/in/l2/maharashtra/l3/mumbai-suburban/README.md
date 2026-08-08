@@ -5,7 +5,7 @@ l2: maharashtra
 l3: mumbai-suburban
 languages: [mr, hi, en]
 maintainers: []
-status: seeded
+status: draft
 ---
 
 # Mumbai Suburban (L3)

@@ -1,28 +1,31 @@
 {
-  "generated_at": "2026-08-08T07:05:39Z",
+  "generated_at": "2026-08-08T07:32:29Z",
   "repo": "https://github.com/Anshul9t6/DeployerX",
   "site": "https://anshul9t6.github.io/DeployerX/",
   "copy": {
     "en": {
-      "mission": "Forward-deployed AI for the rest of the world — decisioning + playbooks + locale packs to e/acc.",
-      "lede": "The bottleneck isn’t the model. It’s jargon, missing Monday plans, and zero local context. Explore live coverage — then ship a workflow this week on tools people already use.",
-      "promise": "What you get in ~30 minutes: a working Path A reply loop with human approval — no paid API required."
+      "mission": "Locale-aware playbooks for deploying AI with non-engineer operators.",
+      "lede": "Global recipes. Local deltas. India as the reference implementation — same tree for every country.",
+      "promise": "Path A: ~30 minutes, browser model, human approval. No paid API required."
     },
     "hi": {
-      "mission": "बाकी दुनिया के लिए forward-deployed AI — निर्णय + प्लेबुक्स + लोकल पैक्स, e/acc के लिए।",
-      "lede": "रुकावट मॉडल नहीं है। रुकावट है अंग्रेज़ी jargon, सोमवार की साफ़ योजना की कमी, और लोकल संदर्भ का अभाव। कवरेज देखें — फिर इस हफ़्ते अपना वर्कफ़्लो चालू करें।",
-      "promise": "लगभग 30 मिनट में: Path A — ब्राउज़र AI + आपकी जाँच के बाद जवाब। कोई पेड API ज़रूरी नहीं।"
+      "mission": "बिना इंजीनियर वाले ऑपरेटर्स के लिए लोकल-भाषा AI डिप्लॉयमेंट किट।",
+      "lede": "ग्लोबल प्लेबुक्स। लोकल डेल्टा। भारत रेफ़रेंस — हर देश के लिए वही ढाँचा।",
+      "promise": "Path A: ~30 मिनट, ब्राउज़र मॉडल, आपकी जाँच। पेड API ज़रूरी नहीं।"
     }
   },
-  "mission": "Forward-deployed AI for the rest of the world — decisioning + playbooks + locale packs to e/acc.",
+  "mission": "Locale-aware playbooks for deploying AI with non-engineer operators.",
   "stats": {
     "countries": 2,
     "playbooks": 2,
     "india_l2": 36,
     "india_l2_seeded": 10,
     "india_l3": 11,
-    "glossaries": 7,
-    "field_notes": 3
+    "india_l3_seeded": 1,
+    "india_l3_draft": 10,
+    "glossaries": 3,
+    "glossaries_stub": 4,
+    "field_notes": 0
   },
   "playbooks": [
     {
@@ -81,9 +84,9 @@
       "name": "Brazil",
       "path": "locale-packs/br",
       "admin_labels_raw": "{ l2: estado, l3: municipio }",
-      "status": "seeded",
+      "status": "draft",
       "priority": "2",
-      "notes": "Full estado index (27) + pt glossary. Município L3 packs next.",
+      "notes": "L2 index + pt glossary scaffold. Município depth needs maintainers.",
       "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/br",
       "l2_index_count": 0,
       "l2_meta_count": 27,
@@ -95,14 +98,18 @@
     "l2_meta_count": 36,
     "l2_seeded_count": 10,
     "l3_count": 11,
+    "l3_seeded_count": 1,
+    "l3_draft_count": 10,
     "l3_goal": 780,
     "glossaries": [
+      "hi",
+      "mr",
+      "ta"
+    ],
+    "glossaries_stub": [
       "bn",
       "gu",
-      "hi",
       "kn",
-      "mr",
-      "ta",
       "te"
     ],
     "l2": [
@@ -365,7 +372,7 @@
         "l2_name": "Bihar",
         "slug": "patna",
         "name": "Patna",
-        "status": "seeded",
+        "status": "draft",
         "languages": "[hi, en]",
         "blurb": "Hindi-first. Coaching, clinics, retail. Shared Android phones and intermittent network are normal.",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/bihar/l3/patna"
@@ -375,7 +382,7 @@
         "l2_name": "Delhi (NCT)",
         "slug": "new-delhi",
         "name": "New Delhi",
-        "status": "seeded",
+        "status": "draft",
         "languages": "[hi, en]",
         "blurb": "Capital-region services, clinics, tuition, retail. Hinglish-heavy WhatsApp. Higher API readiness than most districts.",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/delhi/l3/new-delhi"
@@ -385,7 +392,7 @@
         "l2_name": "Gujarat",
         "slug": "ahmedabad",
         "name": "Ahmedabad",
-        "status": "seeded",
+        "status": "draft",
         "languages": "[gu, hi, en]",
         "blurb": "Gujarati + Hindi commerce. Strong retail/wholesale. Trust around correct rates is critical.",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/gujarat/l3/ahmedabad"
@@ -395,7 +402,7 @@
         "l2_name": "Karnataka",
         "slug": "bengaluru-urban",
         "name": "Bengaluru Urban",
-        "status": "seeded",
+        "status": "draft",
         "languages": "[kn, hi, en]",
         "blurb": "Dual track: Kannada-first local shops + English-heavy tech/services. Traffic/delivery timing is a common FAQ.",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/karnataka/l3/bengaluru-urban"
@@ -405,7 +412,7 @@
         "l2_name": "Maharashtra",
         "slug": "mumbai-suburban",
         "name": "Mumbai Suburban",
-        "status": "seeded",
+        "status": "draft",
         "languages": "[mr, hi, en]",
         "blurb": "Dense retail + services. Marathi + Hindi + English. Delivery expectations are high; wrong ETAs destroy trust.",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/maharashtra/l3/mumbai-suburban"
@@ -415,7 +422,7 @@
         "l2_name": "Maharashtra",
         "slug": "pune",
         "name": "Pune",
-        "status": "seeded",
+        "status": "draft",
         "languages": "[mr, hi, en]",
         "blurb": "Education + IT + local retail. Strong coaching/clinic demand. Marathi + Hinglish.",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/maharashtra/l3/pune"
@@ -425,7 +432,7 @@
         "l2_name": "Rajasthan",
         "slug": "jaipur",
         "name": "Jaipur",
-        "status": "seeded",
+        "status": "draft",
         "languages": "[hi, en]",
         "blurb": "Hindi-first retail, tourism-adjacent shops, clinics. Peak tourist seasons increase FAQ volume.",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/rajasthan/l3/jaipur"
@@ -435,7 +442,7 @@
         "l2_name": "Tamil Nadu",
         "slug": "chennai",
         "name": "Chennai",
-        "status": "seeded",
+        "status": "draft",
         "languages": "[ta, en]",
         "blurb": "Tamil-first. English jargon lands poorly. Strong clinic, textile, and grocery WhatsApp use.",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/tamil-nadu/l3/chennai"
@@ -445,7 +452,7 @@
         "l2_name": "Telangana",
         "slug": "hyderabad",
         "name": "Hyderabad",
-        "status": "seeded",
+        "status": "draft",
         "languages": "[te, hi, en]",
         "blurb": "Telugu + Hindi + English. Food, retail, clinics, coaching. Mixed-script WhatsApp messages common.",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/telangana/l3/hyderabad"
@@ -465,7 +472,7 @@
         "l2_name": "West Bengal",
         "slug": "kolkata",
         "name": "Kolkata",
-        "status": "seeded",
+        "status": "draft",
         "languages": "[bn, hi, en]",
         "blurb": "Bangla-first culture with Hindi/English mix in commerce. Puja season is a major FAQ spike.",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/west-bengal/l3/kolkata"
@@ -477,7 +484,7 @@
         "l2_name": "Bihar",
         "slug": "patna",
         "name": "Patna",
-        "status": "seeded",
+        "status": "draft",
         "languages": "[hi, en]",
         "blurb": "Hindi-first. Coaching, clinics, retail. Shared Android phones and intermittent network are normal.",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/bihar/l3/patna"
@@ -487,72 +494,44 @@
         "l2_name": "Rajasthan",
         "slug": "jaipur",
         "name": "Jaipur",
-        "status": "seeded",
+        "status": "draft",
         "languages": "[hi, en]",
         "blurb": "Hindi-first retail, tourism-adjacent shops, clinics. Peak tourist seasons increase FAQ volume.",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/rajasthan/l3/jaipur"
       },
       {
-        "l2": "gujarat",
-        "l2_name": "Gujarat",
-        "slug": "ahmedabad",
-        "name": "Ahmedabad",
-        "status": "seeded",
-        "languages": "[gu, hi, en]",
-        "blurb": "Gujarati + Hindi commerce. Strong retail/wholesale. Trust around correct rates is critical.",
-        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/gujarat/l3/ahmedabad"
+        "l2": "maharashtra",
+        "l2_name": "Maharashtra",
+        "slug": "pune",
+        "name": "Pune",
+        "status": "draft",
+        "languages": "[mr, hi, en]",
+        "blurb": "Education + IT + local retail. Strong coaching/clinic demand. Marathi + Hinglish.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/maharashtra/l3/pune"
       },
       {
-        "l2": "west-bengal",
-        "l2_name": "West Bengal",
-        "slug": "kolkata",
-        "name": "Kolkata",
-        "status": "seeded",
-        "languages": "[bn, hi, en]",
-        "blurb": "Bangla-first culture with Hindi/English mix in commerce. Puja season is a major FAQ spike.",
-        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/west-bengal/l3/kolkata"
+        "l2": "maharashtra",
+        "l2_name": "Maharashtra",
+        "slug": "mumbai-suburban",
+        "name": "Mumbai Suburban",
+        "status": "draft",
+        "languages": "[mr, hi, en]",
+        "blurb": "Dense retail + services. Marathi + Hindi + English. Delivery expectations are high; wrong ETAs destroy trust.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/maharashtra/l3/mumbai-suburban"
       },
       {
-        "l2": "telangana",
-        "l2_name": "Telangana",
-        "slug": "hyderabad",
-        "name": "Hyderabad",
-        "status": "seeded",
-        "languages": "[te, hi, en]",
-        "blurb": "Telugu + Hindi + English. Food, retail, clinics, coaching. Mixed-script WhatsApp messages common.",
-        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/telangana/l3/hyderabad"
+        "l2": "karnataka",
+        "l2_name": "Karnataka",
+        "slug": "bengaluru-urban",
+        "name": "Bengaluru Urban",
+        "status": "draft",
+        "languages": "[kn, hi, en]",
+        "blurb": "Dual track: Kannada-first local shops + English-heavy tech/services. Traffic/delivery timing is a common FAQ.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/karnataka/l3/bengaluru-urban"
       }
     ]
   },
-  "field_notes": [
-    {
-      "id": "_template",
-      "title": "YYYY-MM-DD — short title",
-      "locale": "in/<l2>/<l3>",
-      "playbook": "whatsapp-shop-faq | clinic-whatsapp-faq",
-      "excerpt": "Device / channel:",
-      "url": "https://github.com/Anshul9t6/DeployerX/blob/main/field-notes/_template.md",
-      "featured": true
-    },
-    {
-      "id": "FIRST_DEPLOYMENT",
-      "title": "First Path A deployment kit (high value)",
-      "locale": "",
-      "playbook": "",
-      "excerpt": "",
-      "url": "https://github.com/Anshul9t6/DeployerX/blob/main/field-notes/FIRST_DEPLOYMENT.md",
-      "featured": false
-    },
-    {
-      "id": "2026-08-08-varanasi-template",
-      "title": "2026-08-08 — template field note (replace with real deployments)",
-      "locale": "in/uttar-pradesh/varanasi",
-      "playbook": "whatsapp-shop-faq",
-      "excerpt": "Single Android phone shared at counter",
-      "url": "https://github.com/Anshul9t6/DeployerX/blob/main/field-notes/2026-08-08-varanasi-template.md",
-      "featured": false
-    }
-  ],
+  "field_notes": [],
   "path_a": {
     "steps": [
       {

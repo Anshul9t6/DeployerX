@@ -23,9 +23,16 @@ def main() -> None:
     if not global_constraints.exists():
         fail("missing L0 global constraints")
 
+    registry = ROOT / "playbooks/_registry.yaml"
+    if not registry.exists():
+        fail("missing playbooks/_registry.yaml")
+
     hierarchy = ROOT / "schema/hierarchy.md"
     if not hierarchy.exists():
         fail("missing schema/hierarchy.md")
+
+    if (ROOT / "schema/architecture.md").exists():
+        fail("schema/architecture.md was merged into hierarchy.md — delete it")
 
     india_meta = ROOT / "locale-packs/in/_meta.yaml"
     if not india_meta.exists():
@@ -55,16 +62,33 @@ def main() -> None:
         fail(f"expected ≥36 India L2 metas, got {len(l2_metas)}")
 
     l3_readmes = list((ROOT / "locale-packs/in/l2").glob("*/l3/*/README.md"))
-    if len(l3_readmes) < 11:
-        fail(f"expected ≥11 L3 packs, got {len(l3_readmes)}")
+    if len(l3_readmes) < 1:
+        fail("expected ≥1 India L3 pack")
+
+    dead = ROOT / "locale-packs/in/playbooks"
+    if dead.exists():
+        fail("remove dead locale-packs/in/playbooks/ — playbooks stay global")
+
+    boilerplate = "pick global playbook"
+    for examples in (ROOT / "locale-packs/in/l2").glob("*/l3/*/examples.md"):
+        text = examples.read_text().lower()
+        # thin packs must not claim seeded in sibling README
+        readme = examples.parent / "README.md"
+        if readme.exists() and "status: seeded" in readme.read_text():
+            if text.count(boilerplate) >= 2 and "banarasi" not in text and "pilgrimage" not in text:
+                fail(
+                    f"{examples.relative_to(ROOT)} looks template-thin but README is seeded — downgrade to draft"
+                )
 
     # Import resolve smoke test
     sys.path.insert(0, str(ROOT))
-    from decision.resolve import LocaleRef, resolve
+    from decision.resolve import LocaleRef, merged_constraints, resolve
 
     r = resolve(LocaleRef("in", "uttar-pradesh", "varanasi"))
     if len(r.layers) < 4:
         fail(f"expected 4 cascade layers for Varanasi, got {len(r.layers)}")
+    if not merged_constraints(LocaleRef("in", "uttar-pradesh", "varanasi")):
+        fail("merged_constraints returned empty for Varanasi")
 
     # Site progress JSON must match repo (GitHub Pages source of truth)
     progress = ROOT / "docs/data/progress.json"

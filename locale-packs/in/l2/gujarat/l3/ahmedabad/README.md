@@ -5,7 +5,7 @@ l2: gujarat
 l3: ahmedabad
 languages: [gu, hi, en]
 maintainers: []
-status: seeded
+status: draft
 ---
 
 # Ahmedabad (L3)

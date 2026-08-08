@@ -5,7 +5,7 @@ l2: telangana
 l3: hyderabad
 languages: [te, hi, en]
 maintainers: []
-status: seeded
+status: draft
 ---
 
 # Hyderabad (L3)

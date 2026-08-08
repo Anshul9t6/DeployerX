@@ -1,24 +1,22 @@
-# Global constraints (L0) — ship once
+# Global constraints (L0)
 
-These rules apply everywhere unless a country pack explicitly tightens them.
+Apply everywhere unless a country pack tightens them.
 
-## Safety (non-negotiable defaults)
-
-1. Never invent prices, stock, discounts, legal/medical/tax advice, or delivery promises.
-2. Prefer human approval for customer-facing answers until evals pass.
-3. Minimize logging of personal data (phones, addresses, IDs).
-4. Document “bot must never…” in the operator’s language.
+1. Do not invent prices, stock, discounts, delivery promises, or medical/legal/tax advice.
+2. Keep human approval on customer-facing replies until evals pass.
+3. Minimize logging of personal data.
+4. Write “bot must never…” rules in the operator’s language.
 5. Optimize for operators who are not engineers.
 
-## Product rules
+## Product
 
-- Playbooks live globally in `/playbooks` — do not fork per district.
-- Locales add language, channel, payment, and trust context only.
-- Time-to-first-win target: ≤ 30 minutes on the Zero/Low budget path.
-- Always include **when NOT to use** a playbook.
+- Playbooks live in `/playbooks` only.
+- Locales add language, channel, payment, and trust context.
+- Path A target: ≤30 minutes on zero/low budget.
+- Every playbook documents when **not** to use it.
 
-## Contribution rules
+## Contribution
 
-- Put content at the **highest true level** (global > country > L2 > L3).
-- L3 packs are for hyperlocal deltas + examples, not rewritten playbooks.
-- No private phone numbers, customer PII, or secrets in the repo.
+- Place content at the highest true level.
+- L3 packs are hyperlocal deltas, not rewritten playbooks.
+- No secrets or customer PII in the repo.

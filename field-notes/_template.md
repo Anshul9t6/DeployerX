@@ -1,33 +1,31 @@
-# YYYY-MM-DD — short title
+# Field note template
 
-**Locale id:** `in/<l2>/<l3>`  
-**Playbook (global):** whatsapp-shop-faq | clinic-whatsapp-faq  
-**Language:** hi | en | …  
-**Budget band:** Zero | Low | Mid
+Copy to `field-notes/YYYY-MM-DD-<locale-id>-<topic>.md`. No PII.
+
+```markdown
+# YYYY-MM-DD — <place> / <playbook>
+
+**Locale id:** `cc/l2/l3`  
+**Playbook:** `<id>`  
+**Language:**  
+**Budget band:** Zero | Low | Mid  
 
 ## Constraints
+- 
 
-- Device / channel:
-- Trust fear:
-- Language mix:
-- Other:
-
-## What we shipped
-
-- Path A steps actually used:
-- Approval mode duration:
+## Shipped
+- Path A / tools used:
 
 ## Results
+- Hours saved / day:
+- Wrong-answer incidents (week 1):
+- Owner continue? (1–5):
 
-- Messages assisted / day:
-- Hours saved / day (estimate OK):
-- Wrong-answer / invented-price incidents:
-- Owner willingness to continue (1–5):
-
-## What broke
-
-- …
+## Broke
+- 
 
 ## Next
+- 
+```
 
-- …
+Checklist before customer-facing use: [`FIRST_DEPLOYMENT.md`](FIRST_DEPLOYMENT.md)

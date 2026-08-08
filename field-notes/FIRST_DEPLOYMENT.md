@@ -1,50 +1,24 @@
-# First Path A deployment kit (high value)
+# First deployment checklist (Path A)
 
-Use this checklist to produce the hiring-grade proof DeployerX needs: a real field note with receipts.
+Goal: one real operator loop in ≤30 minutes. No paid APIs.
 
-## 0) Pick a target (today)
+## 1. Pick
 
-- [ ] One shop **or** one clinic you can visit / WhatsApp with
-- [ ] Locale id: `in/<state>/<district>` (create L3 pack if missing)
 - [ ] Playbook: `whatsapp-shop-faq` or `clinic-whatsapp-faq`
-- [ ] Budget band: **Zero** (browser AI + human approval)
+- [ ] Locale: `locale-packs/<cc>/l2/<l2>/l3/<l3>/` (create if missing)
+- [ ] Language prompt under `playbooks/<id>/prompts/`
 
-## 1) Before customer-facing (30–60 min)
+## 2. Run
 
-- [ ] Write FAQ sheet (prices/hours/booking rules only)
-- [ ] Copy `prompts/system.hi.md` or `system.en.md`
-- [ ] Run eval examples in `evals/`
-- [ ] Agree: human approval ON for 7 days
-- [ ] Read L3 `constraints.md` for local “bot must never…”
+- [ ] Write FAQ source (Sheet / note)
+- [ ] Paste system prompt + FAQ into a browser model
+- [ ] Human approval on every outbound message (7 days)
+- [ ] Walk eval cases in `playbooks/<id>/evals/`
 
-## 2) Run Path A for 7 days
+## 3. Record
 
-- [ ] Paste each customer message → AI draft → **you** send
-- [ ] Log invented-answer catches (should be 0 for prices/medical)
-- [ ] Add missing FAQ lines when questions repeat
+- [ ] Copy [`_template.md`](_template.md) → dated field note
+- [ ] Fill results with real numbers only
+- [ ] `make site && make check`
 
-## 3) Write the field note
-
-Copy `field-notes/_template.md` → `field-notes/YYYY-MM-DD-<place>-<topic>.md`
-
-Must include:
-
-- Locale id + playbook + language + budget
-- Constraints (device, trust fear, channel)
-- What shipped
-- Results with numbers (even rough)
-- What broke
-- Next step
-
-## 4) Refresh the site
-
-```bash
-python3 scripts/generate_site_data.py
-python3 scripts/validate.py
-```
-
-Commit the field note + `docs/data/progress.json`.
-
-## 5) Share
-
-Use `SHARE.md` — add the one metrics line only after the field note exists.
+Do not invent metrics for `SHARE.md` until the field note exists.

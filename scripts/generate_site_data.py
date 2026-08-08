@@ -194,20 +194,33 @@ def _india() -> dict:
                 }
             )
 
-    glossaries = (
-        sorted(p.stem for p in (LOCALE / "in" / "glossary").glob("*.yaml"))
+    glossaries_all = (
+        sorted((LOCALE / "in" / "glossary").glob("*.yaml"))
         if (LOCALE / "in" / "glossary").exists()
         else []
     )
+    glossaries_seeded = []
+    glossaries_stub = []
+    for g in glossaries_all:
+        text = g.read_text()
+        if "status: stub" in text:
+            glossaries_stub.append(g.stem)
+        else:
+            glossaries_seeded.append(g.stem)
     recent = sorted(l3_items, key=lambda x: x["mtime"], reverse=True)[:5]
+    l3_seeded = sum(1 for i in l3_items if i["status"] == "seeded")
+    l3_draft = sum(1 for i in l3_items if i["status"] == "draft")
 
     return {
         "l2_index_count": _count_slugs(l2_root / "_index.yaml") if l2_root.exists() else 0,
         "l2_meta_count": len(l2_dirs),
         "l2_seeded_count": seeded_l2,
         "l3_count": len(l3_items),
+        "l3_seeded_count": l3_seeded,
+        "l3_draft_count": l3_draft,
         "l3_goal": 780,
-        "glossaries": glossaries,
+        "glossaries": glossaries_seeded,
+        "glossaries_stub": glossaries_stub,
         "l2": sorted(l2_items, key=lambda x: (-x["l3_count"], x["name"])),
         "l3": sorted(l3_items, key=lambda x: (x["l2"], x["slug"])),
         "recent_l3": [
@@ -217,12 +230,34 @@ def _india() -> dict:
     }
 
 
+def _is_real_field_note(path: Path) -> bool:
+    name = path.name.lower()
+    if name.startswith("_") or name in {"first_deployment.md", "readme.md"}:
+        return False
+    if "template" in name:
+        return False
+    text = path.read_text()
+    if "First deployment checklist" in text or "Copy to `field-notes/" in text:
+        return False
+    # Real notes must include Results with at least one non-empty value line
+    if "## Results" not in text:
+        return False
+    block = text.split("## Results", 1)[1].split("\n## ", 1)[0]
+    for ln in block.splitlines():
+        if ":" in ln and not ln.strip().endswith(":"):
+            val = ln.split(":", 1)[1].strip()
+            if val and val not in {"…", "...", "(fill)", "TBD"}:
+                return True
+    return False
+
 def _field_notes() -> list[dict]:
     notes = []
     root = ROOT / "field-notes"
     if not root.exists():
         return notes
     for p in sorted(root.glob("*.md"), reverse=True):
+        if not _is_real_field_note(p):
+            continue
         text = p.read_text()
         title = p.stem
         for line in text.splitlines():
@@ -250,13 +285,11 @@ def _field_notes() -> list[dict]:
                 "playbook": playbook,
                 "excerpt": excerpt,
                 "url": f"{REPO}/blob/main/field-notes/{p.name}",
-                "featured": True,
+                "featured": False,
             }
         )
     if notes:
         notes[0]["featured"] = True
-        for n in notes[1:]:
-            n["featured"] = False
     return notes
 
 
@@ -277,24 +310,27 @@ def build() -> dict:
         "site": SITE,
         "copy": {
             "en": {
-                "mission": "Forward-deployed AI for the rest of the world — decisioning + playbooks + locale packs to e/acc.",
-                "lede": "The bottleneck isn’t the model. It’s jargon, missing Monday plans, and zero local context. Explore live coverage — then ship a workflow this week on tools people already use.",
-                "promise": "What you get in ~30 minutes: a working Path A reply loop with human approval — no paid API required.",
+                "mission": "Locale-aware playbooks for deploying AI with non-engineer operators.",
+                "lede": "Global recipes. Local deltas. India as the reference implementation — same tree for every country.",
+                "promise": "Path A: ~30 minutes, browser model, human approval. No paid API required.",
             },
             "hi": {
-                "mission": "बाकी दुनिया के लिए forward-deployed AI — निर्णय + प्लेबुक्स + लोकल पैक्स, e/acc के लिए।",
-                "lede": "रुकावट मॉडल नहीं है। रुकावट है अंग्रेज़ी jargon, सोमवार की साफ़ योजना की कमी, और लोकल संदर्भ का अभाव। कवरेज देखें — फिर इस हफ़्ते अपना वर्कफ़्लो चालू करें।",
-                "promise": "लगभग 30 मिनट में: Path A — ब्राउज़र AI + आपकी जाँच के बाद जवाब। कोई पेड API ज़रूरी नहीं।",
+                "mission": "बिना इंजीनियर वाले ऑपरेटर्स के लिए लोकल-भाषा AI डिप्लॉयमेंट किट।",
+                "lede": "ग्लोबल प्लेबुक्स। लोकल डेल्टा। भारत रेफ़रेंस — हर देश के लिए वही ढाँचा।",
+                "promise": "Path A: ~30 मिनट, ब्राउज़र मॉडल, आपकी जाँच। पेड API ज़रूरी नहीं।",
             },
         },
-        "mission": "Forward-deployed AI for the rest of the world — decisioning + playbooks + locale packs to e/acc.",
+        "mission": "Locale-aware playbooks for deploying AI with non-engineer operators.",
         "stats": {
             "countries": len(countries),
             "playbooks": len(playbooks),
             "india_l2": india["l2_meta_count"],
             "india_l2_seeded": india["l2_seeded_count"],
             "india_l3": india["l3_count"],
+            "india_l3_seeded": india["l3_seeded_count"],
+            "india_l3_draft": india["l3_draft_count"],
             "glossaries": len(india["glossaries"]),
+            "glossaries_stub": len(india["glossaries_stub"]),
             "field_notes": len(notes),
         },
         "playbooks": playbooks,

@@ -1,21 +1,23 @@
-# Locale pack meta schema
+# Meta schemas
 
-## L1 `_meta.yaml`
+Prose lives in `README.md`. `_meta.yaml` is **data only** (no Markdown body).
+
+## L1
 
 ```yaml
 level: 1
 country: in
 name: India
 admin_labels:
-  l2: state          # or province, governorate, region...
-  l3: district       # or county, municipality, LGA...
+  l2: state
+  l3: district
 languages_default: [hi, en]
 currency: INR
-status: seeded       # listed | seeded | verified
+status: seeded
 maintainers: []
 ```
 
-## L2 `_meta.yaml`
+## L2
 
 ```yaml
 level: 2
@@ -27,9 +29,7 @@ status: seeded
 maintainers: []
 ```
 
-## L3 pack
-
-L3 uses README frontmatter:
+## L3 README frontmatter
 
 ```yaml
 level: 3
@@ -40,3 +40,7 @@ languages: [hi, bho]
 status: seeded
 maintainers: []
 ```
+
+## Playbooks
+
+Index: `playbooks/_registry.yaml`. Required files: README, decide, deploy, cost, prompts/, evals/.

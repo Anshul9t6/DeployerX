@@ -1,0 +1,16 @@
+# Canonical playbook index (CLI + site). Keep ids stable.
+
+playbooks:
+  - id: whatsapp-shop-faq
+    title: WhatsApp shop FAQ
+    path: playbooks/whatsapp-shop-faq/
+    when: Repeat customer questions on chat for a shop or local service
+    use_cases: [shop_faq, retail, kirana]
+    channels: [whatsapp]
+
+  - id: clinic-whatsapp-faq
+    title: Clinic WhatsApp FAQ
+    path: playbooks/clinic-whatsapp-faq/
+    when: Non-clinical clinic or lab FAQs — never medical advice
+    use_cases: [clinic, lab, diagnostic]
+    channels: [whatsapp]

@@ -55,12 +55,12 @@ function applyCopy() {
 
 function renderStats(stats) {
   const items = [
-    [stats.countries, "Countries"],
-    [stats.playbooks, "Playbooks"],
-    [stats.india_l2, "India L2"],
     [stats.india_l2_seeded, "L2 seeded"],
-    [stats.india_l3, "India L3"],
+    [stats.india_l3_seeded ?? 0, "L3 seeded"],
+    [stats.india_l3_draft ?? stats.india_l3, "L3 draft"],
+    [stats.playbooks, "Playbooks"],
     [stats.glossaries, "Glossaries"],
+    [stats.field_notes, "Field notes"],
   ];
   $("stat-grid").innerHTML = items
     .map(
@@ -74,16 +74,18 @@ function renderStats(stats) {
 }
 
 function renderIndiaProgress(india) {
-  const l2Pct = pct(india.l2_seeded_count, india.l2_meta_count || 36);
+  const l2Pct = pct(india.l2_seeded_count, india.l2_index_count || india.l2_meta_count || 36);
   const goal = india.l3_goal || 780;
-  const l3Pct = pct(india.l3_count, goal);
+  const seeded = india.l3_seeded_count ?? 0;
+  const draft = india.l3_draft_count ?? 0;
+  const l3Pct = pct(seeded, goal);
   $("india-progress").innerHTML = `
     <div class="bar-block">
-      <div class="row"><span>India L2 seeded</span><span>${india.l2_seeded_count}/${india.l2_meta_count}</span></div>
+      <div class="row"><span>India L2 seeded (not stubs)</span><span>${india.l2_seeded_count}/${india.l2_index_count || india.l2_meta_count}</span></div>
       <div class="bar-track"><div class="bar-fill" style="width:${l2Pct}%"></div></div>
     </div>
     <div class="bar-block">
-      <div class="row"><span>India L3 packs</span><span>${india.l3_count} / ~${goal}</span></div>
+      <div class="row"><span>India L3 seeded</span><span>${seeded} seeded · ${draft} draft · ~${goal} goal</span></div>
       <div class="bar-track"><div class="bar-fill" style="width:${l3Pct}%"></div></div>
     </div>`;
 }
@@ -96,11 +98,15 @@ function renderStory() {
     $("featured-note").innerHTML = `
       <p class="eyebrow">Field note</p>
       <h2>${esc(featured.title)}</h2>
-      <p class="section-lede">${esc(featured.excerpt || "Real deployment constraints from the field.")}</p>
+      <p class="section-lede">${esc(featured.excerpt || "Deployment receipt from the field.")}</p>
       <p class="fine">${esc(featured.locale || "")} · ${esc(featured.playbook || "")}</p>
       <a class="btn ghost" href="${esc(featured.url)}" rel="noopener">Read note</a>`;
   } else {
-    $("featured-note").innerHTML = `<p class="empty">No field notes yet.</p>`;
+    $("featured-note").innerHTML = `
+      <p class="eyebrow">Field notes</p>
+      <h2>None published yet</h2>
+      <p class="section-lede">Stats stay at zero until a real Path A note lands with Results filled in.</p>
+      <a class="btn ghost" href="https://github.com/Anshul9t6/DeployerX/blob/main/field-notes/FIRST_DEPLOYMENT.md" rel="noopener">First deployment checklist</a>`;
   }
 
   const recent = state.data.india?.recent_l3 || [];
@@ -110,7 +116,7 @@ function renderStory() {
           (r) => `<li><a href="${esc(r.url)}" rel="noopener"><strong>${esc(r.name)}</strong> · ${esc(r.l2_name)} · ${esc(r.status)}</a></li>`
         )
         .join("")
-    : `<li class="empty">No L3 activity yet. <a href="${esc(claim)}">Claim a district</a></li>`;
+    : `<li class="empty">No L3 packs yet. <a href="${esc(claim)}">Open an L3 issue</a></li>`;
 }
 
 function renderCountries(countries) {

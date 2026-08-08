@@ -5,7 +5,7 @@ l2: tamil-nadu
 l3: chennai
 languages: [ta, en]
 maintainers: []
-status: seeded
+status: draft
 ---
 
 # Chennai (L3)

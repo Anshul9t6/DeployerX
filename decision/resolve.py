@@ -45,7 +45,6 @@ def _layer_paths(ref: LocaleRef) -> list[tuple[str, Path]]:
 
 
 def resolve(ref: LocaleRef) -> ResolvedLocale:
-    """Return existing cascade layers and constraint files (root → leaf)."""
     out = ResolvedLocale(ref=ref)
     for label, path in _layer_paths(ref):
         if path.exists():
@@ -58,27 +57,32 @@ def resolve(ref: LocaleRef) -> ResolvedLocale:
     return out
 
 
+def merged_constraints(ref: LocaleRef) -> str:
+    """Concatenate constraint files root→leaf. Later files override by appending."""
+    r = resolve(ref)
+    parts: list[str] = []
+    for path in r.constraints_files:
+        body = path.read_text().strip()
+        if not body:
+            continue
+        rel = path.relative_to(ROOT)
+        parts.append(f"<!-- {rel} -->\n{body}")
+    return "\n\n".join(parts)
+
+
 def explain(ref: LocaleRef) -> str:
     r = resolve(ref)
-    lines = [
-        f"## Locale resolve: `{r.id}`",
-        "",
-        "Cascade (root → leaf; local wins):",
-    ]
+    lines = [f"resolve {r.id}", "cascade:"]
     for p in r.layers:
-        lines.append(f"- `{p.relative_to(ROOT)}`")
+        lines.append(f"  {p.relative_to(ROOT)}")
     if r.constraints_files:
-        lines.append("")
-        lines.append("Constraints merged from:")
+        lines.append("constraints (root→leaf, concatenated):")
         for p in r.constraints_files:
-            lines.append(f"- `{p.relative_to(ROOT)}`")
+            lines.append(f"  {p.relative_to(ROOT)}")
     if r.missing:
-        lines.append("")
-        lines.append("Missing (fallback upward is OK):")
+        lines.append("missing (fallback OK):")
         for m in r.missing:
-            lines.append(f"- {m}")
-    lines.append("")
-    lines.append("Playbooks stay global under `playbooks/` — locales only overlay context.")
+            lines.append(f"  {m}")
     return "\n".join(lines)
 
 
@@ -88,4 +92,8 @@ if __name__ == "__main__":
     country = sys.argv[1] if len(sys.argv) > 1 else "in"
     l2 = sys.argv[2] if len(sys.argv) > 2 else None
     l3 = sys.argv[3] if len(sys.argv) > 3 else None
-    print(explain(LocaleRef(country=country, l2=l2, l3=l3)))
+    ref = LocaleRef(country=country, l2=l2, l3=l3)
+    print(explain(ref))
+    if "--merge" in sys.argv:
+        print("\n--- merged constraints ---\n")
+        print(merged_constraints(ref))

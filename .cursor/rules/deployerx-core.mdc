@@ -1,13 +1,12 @@
 ---
-description: DeployerX core architecture and contribution rules for all agents
+description: DeployerX architecture and contribution contract
 alwaysApply: true
 ---
 
 # DeployerX
 
-Mission: Forward-deployed AI for the rest of the world — decisioning + playbooks + locale packs to e/acc.
-
-- Locale cascade: `_global` → L1 country → L2 → L3. Local wins. Deltas only at lower levels.
-- Playbooks stay global under `playbooks/`. Never fork per district.
+- Cascade: `_global` → L1 → L2 → L3. Local wins. L3 = deltas only.
+- Playbooks: `/playbooks` + `_registry.yaml`. Never fork per city.
+- After locale/playbook/field-note edits: `make site && make check`
+- Tone: precise engineering docs. No slogan spam in schemas or code comments.
 - Read `AGENTS.md` and `schema/hierarchy.md` before structural changes.
-- After locale/playbook/field-note edits: `python3 scripts/generate_site_data.py` then validate.

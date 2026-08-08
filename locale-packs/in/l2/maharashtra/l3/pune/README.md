@@ -5,7 +5,7 @@ l2: maharashtra
 l3: pune
 languages: [mr, hi, en]
 maintainers: []
-status: seeded
+status: draft
 ---
 
 # Pune (L3)

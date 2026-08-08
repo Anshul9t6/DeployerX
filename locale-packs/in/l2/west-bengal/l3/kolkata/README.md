@@ -5,7 +5,7 @@ l2: west-bengal
 l3: kolkata
 languages: [bn, hi, en]
 maintainers: []
-status: seeded
+status: draft
 ---
 
 # Kolkata (L3)

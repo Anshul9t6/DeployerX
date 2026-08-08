@@ -5,6 +5,7 @@ version: 1
 language: hi
 language_name: Hindi
 country: in
+status: seeded
 
 terms:
   - en: AI / artificial intelligence
