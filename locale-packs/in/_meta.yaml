@@ -1,0 +1,12 @@
+level: 1
+country: in
+name: India
+admin_labels:
+  l2: state
+  l3: district
+languages_default: [hi, en]
+currency: INR
+status: seeded
+maintainers: []
+priority: 1
+notes: First country. Goal — every state/UT (L2) and every district (L3).

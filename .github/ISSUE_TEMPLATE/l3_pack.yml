@@ -1,0 +1,49 @@
+name: Add L3 locale pack
+description: District / county / municipality pack (any country)
+title: "locale(cc): add <L3>, <L2>"
+labels: ["locale", "l3"]
+body:
+  - type: input
+    id: country
+    attributes:
+      label: Country code (ISO)
+      placeholder: in
+    validations:
+      required: true
+  - type: input
+    id: l2
+    attributes:
+      label: L2 slug (state / province)
+      placeholder: uttar-pradesh
+    validations:
+      required: true
+  - type: input
+    id: l3
+    attributes:
+      label: L3 slug (district / county)
+      placeholder: varanasi
+    validations:
+      required: true
+  - type: input
+    id: languages
+    attributes:
+      label: Customer languages
+      placeholder: hi, bho
+    validations:
+      required: true
+  - type: textarea
+    id: insight
+    attributes:
+      label: Local deltas only
+      description: What should deployers know that country/L2 packs do not already cover?
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I will use locale-packs/_templates/l3/ (deltas only, no playbook fork)
+          required: true
+        - label: No private phone numbers or personal data
+          required: true

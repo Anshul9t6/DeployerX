@@ -1,0 +1,20 @@
+# Tamil stub — extend via PR
+version: 1
+language: ta
+language_name: Tamil
+country: in
+status: stub
+
+terms:
+  - en: chatbot
+    ta: தானியங்கி பதில் உதவியாளர்
+    say: "வாடிக்கையாளர் செய்திகளுக்கு தயார் பதில் தரும் உதவியாளர்"
+  - en: prompt
+    ta: அறிவுறுத்தல்
+    say: "போட் எப்படி பதிலளிக்க வேண்டும் என்ற தெளிவான அறிவுறுத்தல்"
+  - en: hallucination
+    ta: தவறான / புனைந்த பதில்
+    say: "போட் தவறான விலையைச் சொல்லும்போது"
+  - en: human-in-the-loop
+    ta: முதலில் நீங்கள் சரிபாருங்கள்
+    say: "வாடிக்கையாளருக்கு அனுப்பும் முன் உரிமையாளர் பதிலைப் பார்க்கவும்"

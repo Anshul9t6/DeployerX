@@ -1,0 +1,191 @@
+# L2 index for India (states + UTs). l3_count ≈ districts.
+# Complete index of Indian states and union territories for DeployerX coverage.
+# district_count is approximate administrative districts (changes over time — PRs welcome).
+
+country: in
+goal: every-l2-every-l3
+updated: 2026-08-08
+
+l2:
+  - slug: andhra-pradesh
+    name: Andhra Pradesh
+    code: AP
+    languages: [te, hi, en]
+    l3_count: 26
+  - slug: arunachal-pradesh
+    name: Arunachal Pradesh
+    code: AR
+    languages: [en, hi]
+    l3_count: 26
+  - slug: assam
+    name: Assam
+    code: AS
+    languages: [as, bn, hi, en]
+    l3_count: 35
+  - slug: bihar
+    name: Bihar
+    code: BR
+    languages: [hi, mai, ur]
+    l3_count: 38
+  - slug: chhattisgarh
+    name: Chhattisgarh
+    code: CG
+    languages: [hi]
+    l3_count: 33
+  - slug: goa
+    name: Goa
+    code: GA
+    languages: [kok, mr, hi, en]
+    l3_count: 2
+  - slug: gujarat
+    name: Gujarat
+    code: GJ
+    languages: [gu, hi, en]
+    l3_count: 33
+  - slug: haryana
+    name: Haryana
+    code: HR
+    languages: [hi, en]
+    l3_count: 22
+  - slug: himachal-pradesh
+    name: Himachal Pradesh
+    code: HP
+    languages: [hi, en]
+    l3_count: 12
+  - slug: jharkhand
+    name: Jharkhand
+    code: JH
+    languages: [hi, en]
+    l3_count: 24
+  - slug: karnataka
+    name: Karnataka
+    code: KA
+    languages: [kn, hi, en]
+    l3_count: 31
+  - slug: kerala
+    name: Kerala
+    code: KL
+    languages: [ml, en]
+    l3_count: 14
+  - slug: madhya-pradesh
+    name: Madhya Pradesh
+    code: MP
+    languages: [hi, en]
+    l3_count: 55
+  - slug: maharashtra
+    name: Maharashtra
+    code: MH
+    languages: [mr, hi, en]
+    l3_count: 36
+  - slug: manipur
+    name: Manipur
+    code: MN
+    languages: [mni, en, hi]
+    l3_count: 16
+  - slug: meghalaya
+    name: Meghalaya
+    code: ML
+    languages: [en, hi]
+    l3_count: 12
+  - slug: mizoram
+    name: Mizoram
+    code: MZ
+    languages: [lus, en, hi]
+    l3_count: 11
+  - slug: nagaland
+    name: Nagaland
+    code: NL
+    languages: [en, hi]
+    l3_count: 16
+  - slug: odisha
+    name: Odisha
+    code: OD
+    languages: [or, hi, en]
+    l3_count: 30
+  - slug: punjab
+    name: Punjab
+    code: PB
+    languages: [pa, hi, en]
+    l3_count: 23
+  - slug: rajasthan
+    name: Rajasthan
+    code: RJ
+    languages: [hi, en]
+    l3_count: 50
+  - slug: sikkim
+    name: Sikkim
+    code: SK
+    languages: [ne, en, hi]
+    l3_count: 6
+  - slug: tamil-nadu
+    name: Tamil Nadu
+    code: TN
+    languages: [ta, en]
+    l3_count: 38
+  - slug: telangana
+    name: Telangana
+    code: TS
+    languages: [te, hi, en]
+    l3_count: 33
+  - slug: tripura
+    name: Tripura
+    code: TR
+    languages: [bn, kok, hi, en]
+    l3_count: 8
+  - slug: uttar-pradesh
+    name: Uttar Pradesh
+    code: UP
+    languages: [hi, ur, en]
+    l3_count: 75
+  - slug: uttarakhand
+    name: Uttarakhand
+    code: UK
+    languages: [hi, en]
+    l3_count: 13
+  - slug: west-bengal
+    name: West Bengal
+    code: WB
+    languages: [bn, hi, en]
+    l3_count: 23
+
+l2_union_territories:
+  - slug: andaman-and-nicobar-islands
+    name: Andaman and Nicobar Islands
+    code: AN
+    languages: [hi, en]
+    l3_count: 3
+  - slug: chandigarh
+    name: Chandigarh
+    code: CH
+    languages: [hi, pa, en]
+    l3_count: 1
+  - slug: dadra-and-nagar-haveli-and-daman-and-diu
+    name: Dadra and Nagar Haveli and Daman and Diu
+    code: DH
+    languages: [gu, hi, en]
+    l3_count: 3
+  - slug: delhi
+    name: Delhi (NCT)
+    code: DL
+    languages: [hi, en, ur, pa]
+    l3_count: 11
+  - slug: jammu-and-kashmir
+    name: Jammu and Kashmir
+    code: JK
+    languages: [ur, hi, ks, dog, en]
+    l3_count: 20
+  - slug: ladakh
+    name: Ladakh
+    code: LA
+    languages: [hi, en]
+    l3_count: 2
+  - slug: lakshadweep
+    name: Lakshadweep
+    code: LD
+    languages: [ml, en]
+    l3_count: 1
+  - slug: puducherry
+    name: Puducherry
+    code: PY
+    languages: [ta, te, ml, en]
+    l3_count: 4

@@ -1,0 +1,16 @@
+level: 2
+country: in
+l2: tamil-nadu
+name: Tamil Nadu
+code: TN
+languages: [ta, en]
+status: seeded
+maintainers: []
+
+# Tamil Nadu (L2)
+
+Tamil-first. Strong preference for Tamil customer-facing copy.
+
+## L3
+
+Add under `l3/` (e.g. `chennai`, `coimbatore`, `madurai`).

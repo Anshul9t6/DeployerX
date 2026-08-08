@@ -1,0 +1,23 @@
+level: 2
+country: in
+l2: manipur
+name: Manipur
+code: MN
+languages: [mni, en, hi]
+status: listed
+maintainers: []
+
+# Manipur (L2)
+
+Status: **listed** — stub seeded from `l2/_index.yaml`.
+
+## Help wanted
+
+1. Upgrade `status` to `seeded` after adding regional notes
+2. Add L3 packs under `l3/` using `locale-packs/_templates/l3/`
+3. Target ~16 districts (approx; PRs welcome to correct)
+
+## Priority playbooks (global)
+
+- `whatsapp-shop-faq`
+- `clinic-whatsapp-faq`

@@ -1,0 +1,12 @@
+level: 1
+country: br
+name: Brazil
+admin_labels:
+  l2: estado
+  l3: municipio
+languages_default: [pt]
+currency: BRL
+status: draft
+maintainers: []
+priority: 2
+notes: Second country scaffold. WhatsApp-heavy SMB market. Needs L2 index + first município packs.

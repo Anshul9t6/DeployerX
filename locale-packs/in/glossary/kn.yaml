@@ -1,0 +1,20 @@
+# Kannada stub — extend via PR
+version: 1
+language: kn
+language_name: Kannada
+country: in
+status: stub
+
+terms:
+  - en: chatbot
+    kn: ಸ್ವಯಂ ಉತ್ತರ ಸಹಾಯಕ
+    say: "ಗ್ರಾಹಕ ಸಂದೇಶಗಳಿಗೆ ಸಿದ್ಧ ಉತ್ತರ ಕಳುಹಿಸುವ ಸಹಾಯಕ"
+  - en: prompt
+    kn: ಸೂಚನೆ
+    say: "ಬಾಟ್ ಹೇಗೆ ಉತ್ತರಿಸಬೇಕು ಎಂಬ ಸ್ಪಷ್ಟ ಸೂಚನೆ"
+  - en: hallucination
+    kn: ತಪ್ಪು / ಕಲ್ಪಿತ ಉತ್ತರ
+    say: "ಬಾಟ್ ತಪ್ಪು ಬೆಲೆ ಹೇಳಿದಾಗ"
+  - en: human-in-the-loop
+    kn: ಮೊದಲು ನೀವು ಪರಿಶೀಲಿಸಿ
+    say: "ಗ್ರಾಹಕರಿಗೆ ಕಳುಹಿಸುವ ಮೊದಲು ಮಾಲೀಕರು ಉತ್ತರ ನೋಡಿ"

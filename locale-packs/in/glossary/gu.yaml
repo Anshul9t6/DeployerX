@@ -1,0 +1,20 @@
+# Gujarati stub — extend via PR
+version: 1
+language: gu
+language_name: Gujarati
+country: in
+status: stub
+
+terms:
+  - en: chatbot
+    gu: ઓટો જવાબ હેલ્પર
+    say: "ગ્રાહકના મેસેજનો તૈયાર જવાબ આપનાર હેલ્પર"
+  - en: prompt
+    gu: સૂચના
+    say: "બોટને કેવી રીતે જવાબ આપવો તેની સ્પષ્ટ સૂચના"
+  - en: hallucination
+    gu: ખોટો / બનાવટી જવાબ
+    say: "જ્યારે બોટ ખોટી કિંમત કહે"
+  - en: human-in-the-loop
+    gu: પહેલા તમે તપાસો
+    say: "ગ્રાહકને મોકલતા પહેલા માલિક જવાબ જુએ"

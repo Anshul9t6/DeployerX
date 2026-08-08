@@ -1,0 +1,9 @@
+# Examples (L3)
+
+## 1) …
+
+**DeployerX path:** global playbook id + language + approval rules
+
+## 2) …
+
+## 3) …

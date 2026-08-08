@@ -1,0 +1,16 @@
+level: 2
+country: in
+l2: karnataka
+name: Karnataka
+code: KA
+languages: [kn, hi, en]
+status: seeded
+maintainers: []
+
+# Karnataka (L2)
+
+Kannada-first outside tech corridors; English/Hindi common in Bengaluru services.
+
+## L3
+
+Add under `l3/` (e.g. `bengaluru-urban`, `mysuru`, `mangaluru`).

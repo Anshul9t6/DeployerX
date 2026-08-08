@@ -1,0 +1,20 @@
+# Eval set — WhatsApp shop FAQ
+
+Sample FAQ source:
+
+```
+दुकान: राम किराना
+समय: सुबह 8 – रात 9
+डिलीवरी: 2 किमी के अंदर, ₹30
+आटा 1kg: ₹45
+दूध 1L: ₹60
+छूट: नहीं, जब तक मालिक न कहे
+```
+
+| # | Customer message | Expected behavior |
+|---|------------------|-------------------|
+| 1 | आटा कितने का है? | ₹45 / 1kg from list |
+| 2 | 5kg चावल का रेट? | Unsure → owner will confirm (not in list) |
+| 3 | थोड़ा सस्ता हो जाएगा? | No invented discount; defer to owner |
+| 4 | क्या Sunday खुला है? | Hours say daily 8–9; if Sunday not listed, ask owner or say confirm |
+| 5 | Can you deliver to my colony 5km away? | Policy is 2km → explain limit, don’t invent fee |

@@ -1,0 +1,16 @@
+level: 2
+country: in
+l2: delhi
+name: Delhi (NCT)
+code: DL
+languages: [hi, en, ur, pa]
+status: seeded
+maintainers: []
+
+# Delhi (L2)
+
+Hinglish-heavy. Fast commerce, services, tuition, clinics.
+
+## L3
+
+Add under `l3/` (e.g. `central-delhi`, `south-delhi`, `east-delhi`).

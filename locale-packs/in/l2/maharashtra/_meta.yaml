@@ -1,0 +1,22 @@
+level: 2
+country: in
+l2: maharashtra
+name: Maharashtra
+code: MH
+languages: [mr, hi, en]
+status: seeded
+maintainers: []
+
+# Maharashtra (L2)
+
+Marathi + Hindi + English. Strong SMB retail, manufacturing MSMEs, metro services (Mumbai/Pune).
+
+## Priority playbooks
+
+1. `whatsapp-shop-faq` (Marathi/Hindi overlays welcome)
+2. MSME quotation FAQ with human approval (upcoming)
+3. Clinic appointment FAQ (upcoming)
+
+## L3
+
+Add under `l3/` (e.g. `mumbai-suburban`, `pune`, `nagpur`).

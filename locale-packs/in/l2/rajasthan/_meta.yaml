@@ -1,0 +1,23 @@
+level: 2
+country: in
+l2: rajasthan
+name: Rajasthan
+code: RJ
+languages: [hi, en]
+status: seeded
+maintainers: []
+
+# Rajasthan (L2)
+
+Status: **listed** — stub seeded from `l2/_index.yaml`.
+
+## Help wanted
+
+1. Upgrade `status` to `seeded` after adding regional notes
+2. Add L3 packs under `l3/` using `locale-packs/_templates/l3/`
+3. Target ~50 districts (approx; PRs welcome to correct)
+
+## Priority playbooks (global)
+
+- `whatsapp-shop-faq`
+- `clinic-whatsapp-faq`

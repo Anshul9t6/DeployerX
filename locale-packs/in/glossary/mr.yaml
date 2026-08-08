@@ -1,0 +1,20 @@
+# Marathi stub — extend via PR (plain shop-floor words)
+version: 1
+language: mr
+language_name: Marathi
+country: in
+status: stub
+
+terms:
+  - en: chatbot
+    mr: ऑटो उत्तर / WhatsApp हेल्पर
+    say: "ग्राहकांच्या मेसेजला तयार उत्तर देणारा हेल्पर"
+  - en: prompt
+    mr: सूचना
+    say: "बॉटला कसे उत्तर द्यायचे याच्या स्पष्ट सूचना"
+  - en: hallucination
+    mr: चुकीचे / बनावट उत्तर
+    say: "जेव्हा बॉट चुकीचा दर सांगतो"
+  - en: human-in-the-loop
+    mr: आधी तुम्ही तपासा
+    say: "ग्राहकाला पाठवण्यापूर्वी मालक उत्तर तपासा"

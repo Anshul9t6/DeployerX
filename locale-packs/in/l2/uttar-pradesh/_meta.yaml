@@ -1,0 +1,22 @@
+level: 2
+country: in
+l2: uttar-pradesh
+name: Uttar Pradesh
+code: UP
+languages: [hi, ur, en]
+status: seeded
+maintainers: []
+
+# Uttar Pradesh (L2)
+
+Large, diverse market. Hindi-first. Strong kirana / wholesale / wedding / education / pilgrimage commerce.
+
+## Priority playbooks (global)
+
+1. `whatsapp-shop-faq`
+2. Clinic / coaching FAQ (upcoming)
+3. Invoice / rate-list Q&A (upcoming)
+
+## L3 district packs
+
+See `l3/`. Seeded example: `varanasi`.

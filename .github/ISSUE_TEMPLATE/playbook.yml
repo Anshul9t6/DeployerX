@@ -1,0 +1,33 @@
+name: Add playbook
+description: Propose or track a new deployment playbook
+title: "playbook: <name>"
+labels: ["playbook"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Playbook id (slug)
+      placeholder: clinic-whatsapp-faq
+    validations:
+      required: true
+  - type: textarea
+    id: audience
+    attributes:
+      label: Who is this for in India?
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints (budget, language, channel, no-engineer?)
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: Includes decide / deploy / cost / prompts / evals
+          required: true
+        - label: Documents when NOT to use it
+          required: true

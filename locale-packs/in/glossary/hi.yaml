@@ -1,0 +1,93 @@
+# Hindi jargon glossary — plain language for operators
+# Keep entries short. Prefer shop-floor words over textbook Sanskritized Hindi.
+
+version: 1
+language: hi
+language_name: Hindi
+country: in
+
+terms:
+  - en: AI / artificial intelligence
+    hi: कंप्यूटर की स्मार्ट मदद
+    say: "एक स्मार्ट हेल्पर जो आपके सवालों के जवाब लिखने में मदद करता है"
+    avoid: "आर्टिफिशियल इंटेलिजेंस / मशीन लर्निंग (बिना उदाहरण के)"
+
+  - en: chatbot
+    hi: ऑटो जवाब / व्हाट्सऐप हेल्पर
+    say: "ग्राहक के मैसेज का तैयार जवाब भेजने वाला हेल्पर"
+    avoid: "चैटबॉट / एजेंटिक वर्कफ़्लो"
+
+  - en: prompt
+    hi: हिदायत / निर्देश
+    say: "आप बॉट को जो साफ़ निर्देश देते हैं कि कैसे जवाब देना है"
+    avoid: "प्रॉम्प्ट इंजीनियरिंग"
+
+  - en: LLM / large language model
+    hi: स्मार्ट लेखन मॉडल
+    say: "ChatGPT / Claude जैसा टूल जो टेक्स्ट समझता और लिखता है"
+    avoid: "फाउंडेशन मॉडल / ट्रांसफॉर्मर"
+
+  - en: API
+    hi: कनेक्शन / जोड़
+    say: "दो सॉफ़्टवेयर को जोड़ने का रास्ता (जैसे व्हाट्सऐप को AI से जोड़ना)"
+    avoid: "REST API / एंडपॉइंट"
+
+  - en: hallucination
+    hi: गलत/बनावटी जवाब
+    say: "जब बॉट गलत दाम या झूठी बात लिख दे"
+    avoid: "हैलुसिनेशन"
+
+  - en: human-in-the-loop
+    hi: पहले आप जाँचें
+    say: "बॉट जवाब तैयार करे, भेजने से पहले आप OK दें"
+    avoid: "HITL / approval workflow"
+
+  - en: deployment
+    hi: चालू करना
+    say: "सिस्टम को रोज़ के काम में लगा देना"
+    avoid: "प्रोडक्शन डिप्लॉयमेंट"
+
+  - en: latency
+    hi: जवाब में देरी
+    say: "जवाब आने में कितना समय लगता है"
+    avoid: "p99 लेटेंसी"
+
+  - en: token / tokens
+    hi: शब्द-हिस्से (बिलिंग यूनिट)
+    say: "AI इस्तेमाल का मीटर — जितना ज़्यादा लिखा/पढ़ा, उतना ख़र्च"
+    avoid: "टोकन विंडो"
+
+  - en: fine-tuning
+    hi: ख़ास ट्रेनिंग
+    say: "आमतौर पर शुरू में ज़रूरी नहीं; अच्छे निर्देश और उदाहरण काफी"
+    avoid: "फ़ाइन-ट्यून / LoRA"
+
+  - en: RAG / retrieval
+    hi: अपनी फ़ाइल से जवाब
+    say: "बॉट आपकी प्राइस लिस्ट/मेनू पढ़कर जवाब दे"
+    avoid: "वेक्टर डेटाबेस / एम्बेडिंग"
+
+  - en: on-prem
+    hi: अपने कंप्यूटर/ऑफ़िस में
+    say: "डेटा बाहर क्लाउड न भेजना — ज़्यादातर दुकानों के लिए अभी ज़रूरी नहीं"
+    avoid: "ऑन-प्रिम / एयर-गैप्ड"
+
+  - en: WhatsApp Business API
+    hi: व्हाट्सऐप बिज़नेस कनेक्शन (पेड)
+    say: "ऑफ़िशियल तरीका जिससे सॉफ़्टवेयर आपके बिज़नेस नंबर पर जवाब भेजे"
+    avoid: "WABA / BSP"
+
+  - en: UPI
+    hi: UPI (फ़ोन से पेमेंट)
+    say: "PhonePe / GPay / Paytm से पेमेंट"
+    avoid: "पेमेंट गेटवे (जब UPI ही चाहिए)"
+
+  - en: eval / evaluation
+    hi: जाँच सूची
+    say: "नमूना सवालों पर बॉट के जवाब सही हैं या नहीं — टेस्ट"
+    avoid: "एवल हार्नेस / ग्राउंड ट्रुथ"
+
+  - en: forward deployed engineer
+    hi: मैदान में बैठकर लगाने वाला इंजीनियर
+    say: "ग्राहक के पास जाकर AI सिस्टम चालू करने वाला व्यक्ति"
+    avoid: "FDE (बिना मतलब के)"

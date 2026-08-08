@@ -1,0 +1,29 @@
+# World registry — countries in DeployerX
+# Add a country row when L1 pack is opened. L2/L3 progress lives in each country.
+
+version: 1
+goal: every-country / every-l2 / every-l3
+updated: 2026-08-08
+
+countries:
+  - code: in
+    name: India
+    path: locale-packs/in
+    admin_labels: { l2: state, l3: district }
+    status: seeded
+    priority: 1
+    notes: First country. Cover all states/UTs then all districts.
+  - code: br
+    name: Brazil
+    path: locale-packs/br
+    admin_labels: { l2: estado, l3: municipio }
+    status: draft
+    priority: 2
+    notes: Scaffold opened. Needs full estado index + município packs + pt glossary.
+
+# Next targets (not seeded yet) — open L1 packs via PR
+pipeline:
+  - { code: ng, name: Nigeria, reason: "English/Pidgin + mobile-first commerce" }
+  - { code: id, name: Indonesia, reason: "WhatsApp-heavy, Bahasa first" }
+  - { code: mx, name: Mexico, reason: "Spanish SMB scale" }
+  - { code: eg, name: Egypt, reason: "Arabic + large informal retail" }

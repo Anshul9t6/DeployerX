@@ -1,0 +1,18 @@
+level: 1
+country: xx
+name: Country Name
+admin_labels:
+  l2: state          # province | governorate | region | estado | ...
+  l3: district       # county | municipality | LGA | município | ...
+languages_default: []
+currency: XXX
+status: draft
+maintainers: []
+
+# How to open a country
+
+1. Copy this file to `locale-packs/<cc>/_meta.yaml`
+2. Add country constraints (deltas from `_global` only)
+3. Add `l2/_index.yaml` with the full L2 list (goal)
+4. Register the country in `locale-packs/_registry.yaml`
+5. Seed 1–2 L2 metas + one example L3 pack

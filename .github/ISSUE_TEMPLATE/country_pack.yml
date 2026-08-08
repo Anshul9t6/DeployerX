@@ -1,0 +1,42 @@
+name: Open a country (L1)
+description: Start locale coverage for a new country
+title: "locale: open <Country> (<cc>)"
+labels: ["locale", "l1", "country"]
+body:
+  - type: input
+    id: country
+    attributes:
+      label: Country code (ISO)
+      placeholder: br
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Country name
+      placeholder: Brazil
+    validations:
+      required: true
+  - type: input
+    id: labels
+    attributes:
+      label: Local names for L2 / L3
+      placeholder: "L2=estado, L3=município"
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this country next?
+      description: Channels, languages, SMB reality, your ability to maintain.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: Will follow locale-packs/_templates/country/ + schema/hierarchy.md
+          required: true
+        - label: Will register in locale-packs/_registry.yaml
+          required: true

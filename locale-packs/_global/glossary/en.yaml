@@ -1,0 +1,48 @@
+# Base AI jargon → plain English (global)
+# Country glossaries translate these concepts further.
+
+version: 1
+language: en
+language_name: English
+level: 0
+
+terms:
+  - en: AI / artificial intelligence
+    plain: A smart helper that can draft answers and text from instructions you give it
+    avoid: "Buzzwords without an example"
+
+  - en: chatbot
+    plain: A helper that drafts replies to customer messages
+    avoid: "Agentic workflow / autonomous swarm"
+
+  - en: prompt
+    plain: The clear instructions you give the helper
+    avoid: "Prompt engineering flexing"
+
+  - en: LLM / large language model
+    plain: Tools like ChatGPT or Claude that read and write text
+    avoid: "Foundation model / transformer"
+
+  - en: API
+    plain: A connection that lets two softwares talk
+    avoid: "REST endpoint soup"
+
+  - en: hallucination
+    plain: When the helper makes up a wrong fact
+    avoid: Leaving this unexplained to operators
+
+  - en: human-in-the-loop
+    plain: You check the answer before the customer sees it
+    avoid: "HITL" alone
+
+  - en: deployment
+    plain: Turning the helper on in daily work
+    avoid: "Prod rollout" without steps
+
+  - en: RAG / retrieval
+    plain: Answering from YOUR files (price list, FAQ) instead of guessing
+    avoid: "Vector DB" as the first explanation
+
+  - en: eval / evaluation
+    plain: A test list of sample questions with expected good answers
+    avoid: Shipping with zero tests

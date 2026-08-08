@@ -1,0 +1,24 @@
+# Brazil L2 index (estados) — incomplete draft
+# Contributors: replace this with the full list of estados + DF.
+
+country: br
+goal: every-l2-every-l3
+updated: 2026-08-08
+status: draft
+
+l2:
+  - slug: sao-paulo
+    name: São Paulo
+    code: SP
+    languages: [pt]
+    l3_count: null
+  - slug: rio-de-janeiro
+    name: Rio de Janeiro
+    code: RJ
+    languages: [pt]
+    l3_count: null
+  - slug: minas-gerais
+    name: Minas Gerais
+    code: MG
+    languages: [pt]
+    l3_count: null

@@ -1,0 +1,20 @@
+# Bangla stub — extend via PR
+version: 1
+language: bn
+language_name: Bangla
+country: in
+status: stub
+
+terms:
+  - en: chatbot
+    bn: অটো জবাব সহায়ক
+    say: "গ্রাহকের মেসেজের তৈরি জবাব দেওয়া সহায়ক"
+  - en: prompt
+    bn: নির্দেশ
+    say: "বটকে কীভাবে জবাব দিতে হবে তার স্পষ্ট নির্দেশ"
+  - en: hallucination
+    bn: ভুল / বানানো জবাব
+    say: "যখন বট ভুল দাম বলে"
+  - en: human-in-the-loop
+    bn: আগে আপনি দেখুন
+    say: "গ্রাহককে পাঠানোর আগে মালিক জবাব দেখবেন"

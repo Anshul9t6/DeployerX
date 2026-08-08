@@ -1,0 +1,20 @@
+# Telugu stub — extend via PR
+version: 1
+language: te
+language_name: Telugu
+country: in
+status: stub
+
+terms:
+  - en: chatbot
+    te: ఆటో సమాధాన సహాయకుడు
+    say: "కస్టమర్ మెసేజ్‌లకు సిద్ధ సమాధానం ఇచ్చే సహాయకుడు"
+  - en: prompt
+    te: సూచన
+    say: "బాట్ ఎలా సమాధానం ఇవ్వాలో స్పష్టమైన సూచన"
+  - en: hallucination
+    te: తప్పు / కల్పిత సమాధానం
+    say: "బాట్ తప్పు ధర చెప్పినప్పుడు"
+  - en: human-in-the-loop
+    te: ముందు మీరు చూడండి
+    say: "కస్టమర్‌కు పంపే ముందు యజమాని సమాధానం చూడాలి"
