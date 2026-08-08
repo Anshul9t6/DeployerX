@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Maintain the site — DeployerX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@700;800&family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <header class="top">
+      <a class="brand" href="./">DeployerX</a>
+      <nav>
+        <a class="nav-cta" href="./">Back to site</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" style="padding-bottom: 1rem">
+        <p class="eyebrow">GitHub Pages · $0</p>
+        <h1 style="font-size: clamp(2.2rem, 7vw, 3.4rem)">Maintain this site</h1>
+        <p class="lede">
+          The website is static files in <code>docs/</code>. Edit HTML/CSS in the
+          repo, push to <code>main</code>, Pages updates automatically once enabled.
+        </p>
+      </section>
+
+      <section class="band">
+        <h2>Enable once (GitHub UI)</h2>
+        <ol class="steps">
+          <li>
+            Open
+            <a href="https://github.com/Anshul9t6/DeployerX/settings/pages"
+              >Repo → Settings → Pages</a
+            >
+          </li>
+          <li>Under <strong>Build and deployment</strong>, set Source to <strong>Deploy from a branch</strong></li>
+          <li>Branch: <strong>main</strong> · folder: <strong>/docs</strong> · Save</li>
+          <li>
+            Site URL will be
+            <code>https://anshul9t6.github.io/DeployerX/</code>
+          </li>
+        </ol>
+      </section>
+
+      <section class="band">
+        <h2>Edit content</h2>
+        <ol class="steps">
+          <li>Change copy in <code>docs/index.html</code></li>
+          <li>Change look in <code>docs/styles.css</code></li>
+          <li>Preview locally: open <code>docs/index.html</code> in a browser</li>
+          <li>Commit + push — Pages rebuilds in ~1 minute</li>
+        </ol>
+        <p class="fine">
+          Keep deep docs in the GitHub repo (playbooks, locale packs). This site
+          is the front door only — less to maintain.
+        </p>
+      </section>
+
+      <section class="band">
+        <h2>What you do not need</h2>
+        <p class="section-lede">
+          No Vercel/Netlify bill, no custom domain required, no Node build for
+          v1. GitHub Pro is optional for this — public Pages works on free plans
+          too.
+        </p>
+      </section>
+    </main>
+    <footer>
+      <p><a href="./">← DeployerX</a></p>
+    </footer>
+  </body>
+</html>

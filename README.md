@@ -52,6 +52,14 @@ Full contract: [`schema/hierarchy.md`](schema/hierarchy.md)
 | L2 index | [`locale-packs/in/l2/_index.yaml`](locale-packs/in/l2/_index.yaml) | All states/UTs listed |
 | L3 example | `.../l2/uttar-pradesh/l3/varanasi/` | Seeded |
 
+## Website (GitHub Pages · free)
+
+Static site in [`docs/`](docs/). After you enable Pages (`Settings → Pages` → branch `main` → `/docs`):
+
+**https://anshul9t6.github.io/DeployerX/**
+
+How to edit: [`docs/maintain.html`](docs/maintain.html) / [`docs/README.md`](docs/README.md).
+
 ## Quick start
 
 ```bash

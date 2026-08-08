@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DeployerX — Forward-deployed AI for the rest of the world</title>
+    <meta
+      name="description"
+      content="Decisioning + playbooks + locale packs to e/acc. India first, then every country → state → district."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+
+    <header class="top">
+      <a class="brand" href="./">DeployerX</a>
+      <nav>
+        <a href="#how">How it works</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#start">Start</a>
+        <a
+          class="nav-cta"
+          href="https://github.com/Anshul9t6/DeployerX"
+          rel="noopener"
+          >GitHub</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Open source · India first · then the world</p>
+        <h1>DeployerX</h1>
+        <p class="mission">
+          Forward-deployed AI for the rest of the world — decisioning + playbooks
+          + locale packs to e/acc.
+        </p>
+        <p class="lede">
+          Help a local operator go from “I heard of AI” to a working workflow in
+          their language, on their tools, this week — without English jargon as
+          the wall.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://github.com/Anshul9t6/DeployerX"
+            >View the repo</a
+          >
+          <a
+            class="btn ghost"
+            href="https://github.com/Anshul9t6/DeployerX/blob/main/CONTRIBUTING.md"
+            >Claim a district</a
+          >
+        </div>
+      </section>
+
+      <section id="how" class="band">
+        <h2>Ship common once. Localize deltas.</h2>
+        <p class="section-lede">
+          Global playbooks stay global. Places only add what is truly local.
+        </p>
+        <ol class="cascade">
+          <li>
+            <span class="tag">L0</span>
+            <strong>Playbooks + global safety</strong>
+            <span>Recipes everyone can reuse</span>
+          </li>
+          <li>
+            <span class="tag">L1</span>
+            <strong>Country</strong>
+            <span>Payments, channels, languages</span>
+          </li>
+          <li>
+            <span class="tag">L2</span>
+            <strong>State / province</strong>
+            <span>Regional language &amp; ops notes</span>
+          </li>
+          <li>
+            <span class="tag">L3</span>
+            <strong>District / county</strong>
+            <span>Hyperlocal trust &amp; examples</span>
+          </li>
+        </ol>
+      </section>
+
+      <section id="coverage" class="band">
+        <h2>Coverage model</h2>
+        <p class="section-lede">
+          Every country → every L2 → every L3. Contributors own places; maintainers
+          keep the cascade honest.
+        </p>
+        <div class="stat-line" role="list">
+          <div role="listitem">
+            <span class="num">36</span>
+            <span class="label">India L2 metas</span>
+          </div>
+          <div role="listitem">
+            <span class="num">11</span>
+            <span class="label">L3 city packs seeded</span>
+          </div>
+          <div role="listitem">
+            <span class="num">2</span>
+            <span class="label">Global playbooks</span>
+          </div>
+          <div role="listitem">
+            <span class="num">₹0</span>
+            <span class="label">To start Path A</span>
+          </div>
+        </div>
+        <p class="fine">
+          Numbers drift as PRs land — source of truth lives in the repo
+          (<code>scripts/coverage.py</code>.
+        </p>
+      </section>
+
+      <section id="start" class="band">
+        <h2>Start this week (no paid stack)</h2>
+        <ol class="steps">
+          <li>Clone the repo and run <code>python3 -m decision.cli</code></li>
+          <li>
+            Open a playbook:
+            <a
+              href="https://github.com/Anshul9t6/DeployerX/tree/main/playbooks/whatsapp-shop-faq"
+              >shop FAQ</a
+            >
+            or
+            <a
+              href="https://github.com/Anshul9t6/DeployerX/tree/main/playbooks/clinic-whatsapp-faq"
+              >clinic FAQ</a
+            >
+          </li>
+          <li>
+            Path A: browser AI + your FAQ sheet + human approval on the chat
+            channel you already use
+          </li>
+          <li>
+            Add or improve your
+            <a
+              href="https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in"
+              >district pack</a
+            >
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <strong>DeployerX</strong> — MIT licensed.
+        <a href="https://github.com/Anshul9t6/DeployerX">GitHub</a>
+        ·
+        <a href="./maintain.html">Maintain this site</a>
+      </p>
+    </footer>
+  </body>
+</html>
