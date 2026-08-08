@@ -1,0 +1,19 @@
+---
+description: Session loop — read STATUS/ROADMAP; update before ending
+alwaysApply: true
+---
+
+# Development loop
+
+Every session:
+
+1. Read `STATUS.md` and `ROADMAP.md` first.
+2. Work the ordered **Next** items / open Phase checkboxes — do not freestyle a new product surface unless STATUS says so.
+3. Before finishing:
+   - Update `STATUS.md` (date, Where we are, In progress, Next, Session log)
+   - Tick/untick `ROADMAP.md` to match reality
+   - Run `make status` (refreshes metrics block from `progress.json`)
+   - If coverage sources changed: `make site && make check`
+4. Tell the human in one sentence: current phase + next action.
+
+Do not leave STATUS stale. A new chat must be able to continue from STATUS alone.

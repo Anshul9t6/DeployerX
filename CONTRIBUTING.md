@@ -7,12 +7,12 @@
 3. No PII in the repo
 4. Prefer clarity over slogans
 
-## Highest leverage
+## Contribute
 
-1. L3 locale pack — `locale-packs/_templates/l3/`
-2. Field note — `field-notes/_template.md`
-3. Glossary entries
-4. Playbook improvement + `_registry.yaml` update
+1. Read [STATUS.md](STATUS.md) / [ROADMAP.md](ROADMAP.md) so you know current phase
+2. Highest leverage: **L3 locale pack** — `locale-packs/_templates/l3/`
+3. Field note — `field-notes/_template.md`
+4. After coverage edits: `make status && make site && make check`
 
 ## L3 pack
 

@@ -5,8 +5,8 @@ alwaysApply: true
 
 # DeployerX
 
+- Session orientation: `STATUS.md` + `ROADMAP.md` (see session-loop rule).
 - Cascade: `_global` → L1 → L2 → L3. Local wins. L3 = deltas only.
 - Playbooks: `/playbooks` + `_registry.yaml`. Never fork per city.
 - After locale/playbook/field-note edits: `make site && make check`
 - Tone: precise engineering docs. No slogan spam in schemas or code comments.
-- Read `AGENTS.md` and `schema/hierarchy.md` before structural changes.

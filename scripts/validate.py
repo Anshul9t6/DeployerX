@@ -94,6 +94,15 @@ def main() -> None:
     progress = ROOT / "docs/data/progress.json"
     if not progress.exists():
         fail("missing docs/data/progress.json — run python3 scripts/generate_site_data.py")
+
+    for required_doc in ("STATUS.md", "ROADMAP.md"):
+        path = ROOT / required_doc
+        if not path.exists():
+            fail(f"missing {required_doc}")
+    status_text = (ROOT / "STATUS.md").read_text()
+    if "<!-- status:metrics -->" not in status_text or "<!-- /status:metrics -->" not in status_text:
+        fail("STATUS.md missing status:metrics markers")
+
     for required in (
         "docs/index.html",
         "docs/app.js",

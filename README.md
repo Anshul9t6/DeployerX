@@ -19,10 +19,13 @@ India is the reference implementation. The same tree shape applies to every coun
 ## Quick start
 
 ```bash
+make status                 # where we are + refresh STATUS.md metrics
 python3 -m decision.cli
 python3 -m decision.resolve in uttar-pradesh varanasi
 make check
 ```
+
+**Session tracking:** [`STATUS.md`](STATUS.md) (today) · [`ROADMAP.md`](ROADMAP.md) (targets)
 
 Path A (no paid APIs): open a playbook → browser model → human approval on the chat channel you already use.
 
@@ -66,13 +69,17 @@ make check    # validate hierarchy + stale site data
 Highest leverage: **L3 locale pack** for your district.  
 See [CONTRIBUTING.md](CONTRIBUTING.md). Issue templates cover L3, country, and playbook PRs.
 
+Project state for contributors/agents: [STATUS.md](STATUS.md) · [ROADMAP.md](ROADMAP.md)
+
 ## Ops
 
 | Doc | Purpose |
 |-----|---------|
+| [STATUS.md](STATUS.md) | Where we are today / next |
+| [ROADMAP.md](ROADMAP.md) | Phased targets |
 | [AGENTS.md](AGENTS.md) | Rules for automated contributors |
 | [field-notes/](field-notes/) | Deployment receipts |
-| [SHARE.md](SHARE.md) | Launch copy (add metrics only after a real field note) |
+| [SHARE.md](SHARE.md) | Launch copy (after a real field note) |
 
 ## License
 
