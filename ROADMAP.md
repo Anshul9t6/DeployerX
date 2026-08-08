@@ -21,10 +21,11 @@ Locale-aware playbooks so non-engineer operators can run AI workflows in their l
 
 ## Phase 1 — Proof (hiring-grade)
 
-- [ ] One real Path A field note with **Results** filled (`field-notes/`)
+- [ ] One real Path A field note with **Results** filled (`field-notes/`) — **Jaipur recommended**
 - [ ] Upgrade that locale’s L3 to `verified` after the note
 - [ ] Share post only after the field note (`SHARE.md`)
 - [ ] Repo About → Website set to Pages URL
+- [x] City start guide + top-50 deployment catalog (`guides/`)
 
 ## Phase 2 — India depth
 

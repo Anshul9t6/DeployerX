@@ -29,7 +29,7 @@ Scaffold is professional and metrics are honest. Public site + India/Brazil tree
 
 <!-- status:metrics -->
 ```
-generated_at:     2026-08-08T07:36:02Z
+generated_at:     2026-08-08T07:54:16Z
 countries:        2
 playbooks:        2
 india_l2_seeded:  10 / index 36
@@ -42,29 +42,28 @@ field_notes:      0  ← must be >0 before Phase 1 complete
 
 ## In progress
 
-- (none — ready for Phase 1 field deployment)
+- Jaipur field deployment (AM) — follow `guides/city-start.md`
 
 ## Blocked / waiting on human
 
-- Real shop/clinic Path A (cannot invent Results)
-- Push commits if remote behind
+- Real Path A Results (cannot invent)
 - GitHub repo About → Website URL
 
 ## Next (do in order)
 
-1. Run Path A with [`field-notes/FIRST_DEPLOYMENT.md`](field-notes/FIRST_DEPLOYMENT.md)
-2. Publish dated field note with filled Results → `make site && make check`
-3. Mark that L3 `verified`; tick Phase 1 items in `ROADMAP.md`
-4. Deepen home-district L3 (Phase 2)
+1. Pick a Jaipur P0 operator from [`guides/deployments-50.md`](guides/deployments-50.md) (kirana / coaching / clinic / guest house)
+2. Run [`guides/city-start.md`](guides/city-start.md) + [`field-notes/FIRST_DEPLOYMENT.md`](field-notes/FIRST_DEPLOYMENT.md)
+3. Field note `field-notes/YYYY-MM-DD-in-rajasthan-jaipur-<topic>.md` with Results
+4. `make site && make check && make status`; mark Jaipur L3 verified when earned
 
 ## Session log (newest first)
 
 | Date | What landed |
 |------|-------------|
-| 2026-08-08 | Dev loop: STATUS.md + ROADMAP.md + `make status` + session-loop agent rule |
+| 2026-08-08 | City start guide + top-50 deployments; Jaipur L3 deepened for field work |
+| 2026-08-08 | Dev loop: STATUS.md + ROADMAP.md + `make status` |
 | 2026-08-08 | Honest metrics, playbook registry, professional README, Pages atlas |
-| 2026-08-08 | Initial scaffold: hierarchy, India/Brazil packs, two playbooks |
-
+| 2026-08-08 | Initial scaffold |
 ## Agent checklist (end of session)
 
 - [ ] `ROADMAP.md` checkboxes match reality

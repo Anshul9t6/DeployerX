@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T07:39:56Z",
+  "generated_at": "2026-08-08T07:54:16Z",
   "repo": "https://github.com/Anshul9t6/DeployerX",
   "site": "https://anshul9t6.github.io/DeployerX/",
   "copy": {
@@ -434,7 +434,7 @@
         "name": "Jaipur",
         "status": "draft",
         "languages": "[hi, en]",
-        "blurb": "Hindi-first retail, tourism-adjacent shops, clinics. Peak tourist seasons increase FAQ volume.",
+        "blurb": "Hindi / Hinglish default. Strong corridors: neighborhood retail, coaching belts, clinic lanes, tourism/hospitality (old city, MI Road, Bani Park), jewelry & han",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/rajasthan/l3/jaipur"
       },
       {
@@ -480,54 +480,54 @@
     ],
     "recent_l3": [
       {
-        "l2": "west-bengal",
-        "l2_name": "West Bengal",
-        "slug": "kolkata",
-        "name": "Kolkata",
-        "status": "draft",
-        "languages": "[bn, hi, en]",
-        "blurb": "Bangla-first culture with Hindi/English mix in commerce. Puja season is a major FAQ spike.",
-        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/west-bengal/l3/kolkata"
-      },
-      {
-        "l2": "uttar-pradesh",
-        "l2_name": "Uttar Pradesh",
-        "slug": "varanasi",
-        "name": "Varanasi",
-        "status": "seeded",
-        "languages": "[hi, bho]",
-        "blurb": "Pilgrimage + local retail + hospitality. Customers message in Hindi / Bhojpuri / Hinglish. Peak seasons spike FAQs on timings, rates, availability.",
-        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/uttar-pradesh/l3/varanasi"
-      },
-      {
-        "l2": "telangana",
-        "l2_name": "Telangana",
-        "slug": "hyderabad",
-        "name": "Hyderabad",
-        "status": "draft",
-        "languages": "[te, hi, en]",
-        "blurb": "Telugu + Hindi + English. Food, retail, clinics, coaching. Mixed-script WhatsApp messages common.",
-        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/telangana/l3/hyderabad"
-      },
-      {
-        "l2": "tamil-nadu",
-        "l2_name": "Tamil Nadu",
-        "slug": "chennai",
-        "name": "Chennai",
-        "status": "draft",
-        "languages": "[ta, en]",
-        "blurb": "Tamil-first. English jargon lands poorly. Strong clinic, textile, and grocery WhatsApp use.",
-        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/tamil-nadu/l3/chennai"
-      },
-      {
         "l2": "rajasthan",
         "l2_name": "Rajasthan",
         "slug": "jaipur",
         "name": "Jaipur",
         "status": "draft",
         "languages": "[hi, en]",
-        "blurb": "Hindi-first retail, tourism-adjacent shops, clinics. Peak tourist seasons increase FAQ volume.",
+        "blurb": "Hindi / Hinglish default. Strong corridors: neighborhood retail, coaching belts, clinic lanes, tourism/hospitality (old city, MI Road, Bani Park), jewelry & han",
         "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/rajasthan/l3/jaipur"
+      },
+      {
+        "l2": "bihar",
+        "l2_name": "Bihar",
+        "slug": "patna",
+        "name": "Patna",
+        "status": "draft",
+        "languages": "[hi, en]",
+        "blurb": "Hindi-first. Coaching, clinics, retail. Shared Android phones and intermittent network are normal.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/bihar/l3/patna"
+      },
+      {
+        "l2": "maharashtra",
+        "l2_name": "Maharashtra",
+        "slug": "pune",
+        "name": "Pune",
+        "status": "draft",
+        "languages": "[mr, hi, en]",
+        "blurb": "Education + IT + local retail. Strong coaching/clinic demand. Marathi + Hinglish.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/maharashtra/l3/pune"
+      },
+      {
+        "l2": "maharashtra",
+        "l2_name": "Maharashtra",
+        "slug": "mumbai-suburban",
+        "name": "Mumbai Suburban",
+        "status": "draft",
+        "languages": "[mr, hi, en]",
+        "blurb": "Dense retail + services. Marathi + Hindi + English. Delivery expectations are high; wrong ETAs destroy trust.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/maharashtra/l3/mumbai-suburban"
+      },
+      {
+        "l2": "karnataka",
+        "l2_name": "Karnataka",
+        "slug": "bengaluru-urban",
+        "name": "Bengaluru Urban",
+        "status": "draft",
+        "languages": "[kn, hi, en]",
+        "blurb": "Dual track: Kannada-first local shops + English-heavy tech/services. Traffic/delivery timing is a common FAQ.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/karnataka/l3/bengaluru-urban"
       }
     ]
   },

@@ -25,7 +25,8 @@ python3 -m decision.resolve in uttar-pradesh varanasi
 make check
 ```
 
-**Session tracking:** [`STATUS.md`](STATUS.md) (today) · [`ROADMAP.md`](ROADMAP.md) (targets)
+**Session tracking:** [`STATUS.md`](STATUS.md) (today) · [`ROADMAP.md`](ROADMAP.md) (targets)  
+**Start a city:** [`guides/city-start.md`](guides/city-start.md) · **What to deploy:** [`guides/deployments-50.md`](guides/deployments-50.md)
 
 Path A (no paid APIs): open a playbook → browser model → human approval on the chat channel you already use.
 

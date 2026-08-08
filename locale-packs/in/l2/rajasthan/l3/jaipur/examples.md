@@ -1,13 +1,25 @@
 # Jaipur — examples
 
-## 1) Shop FAQ
+## 1) Kirana in a residential colony
 
-**DeployerX path:** pick global playbook (`whatsapp-shop-faq` or `clinic-whatsapp-faq`) + language + human approval.
+Repeat: “दूध है?”, hours, delivery in colony.
 
-## 2) Guest-house / tourism FAQ with approved facts only
+**Path:** `whatsapp-shop-faq` + hi prompt + Sheet rate card + approval 7 days.
 
-**DeployerX path:** pick global playbook (`whatsapp-shop-faq` or `clinic-whatsapp-faq`) + language + human approval.
+## 2) Coaching desk (exam season)
 
-## 3) Clinic FAQ
+Repeat: fees, batch timing, demo class.
 
-**DeployerX path:** pick global playbook (`whatsapp-shop-faq` or `clinic-whatsapp-faq`) + language + human approval.
+**Path:** `whatsapp-shop-faq`. Never guarantee results.
+
+## 3) Guest house near old city
+
+Repeat: check-in time, AC room rate, “how far from X.”
+
+**Path:** `whatsapp-shop-faq` with **only** owner-approved location answers — no invented aarti/tour facts.
+
+## 4) Clinic reception
+
+Repeat: Sunday open?, how to book, fasting for lipid profile.
+
+**Path:** `clinic-whatsapp-faq`. Escalate all symptom questions.

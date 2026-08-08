@@ -10,13 +10,28 @@ status: draft
 
 # Jaipur (L3)
 
-Hindi-first retail, tourism-adjacent shops, clinics. Peak tourist seasons increase FAQ volume.
+Hindi / Hinglish default. Strong corridors: neighborhood retail, coaching belts, clinic lanes, tourism/hospitality (old city, MI Road, Bani Park), jewelry & handicraft.
 
-## Top AI use cases (local)
+**Start guide:** [`guides/city-start.md`](../../../../../../guides/city-start.md)  
+**Catalog:** [`guides/deployments-50.md`](../../../../../../guides/deployments-50.md)
 
-1. Shop FAQ
-2. Guest-house / tourism FAQ with approved facts only
-3. Clinic FAQ
+## First five deployments (P0)
+
+1. Kirana / general store — `whatsapp-shop-faq`
+2. Coaching / tuition desk — `whatsapp-shop-faq`
+3. Clinic reception (non-clinical) — `clinic-whatsapp-faq`
+4. Guest house FAQ (approved facts only) — `whatsapp-shop-faq`
+5. Sweet shop or salon — `whatsapp-shop-faq`
+
+## Later (after one field note)
+
+- Handicraft / blue pottery (strict price bands)
+- Jewelry (making-charge rules only — no investment tips)
+- Heritage hotel / tour desk (owner-approved copy only)
+
+## Never Path A here
+
+Medical advice, loan tips, astrology/ritual instructions, unverified tourist “facts.”
 
 ## Inherits
 

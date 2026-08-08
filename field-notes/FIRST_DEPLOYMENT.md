@@ -2,10 +2,15 @@
 
 Goal: one real operator loop in ≤30 minutes. No paid APIs.
 
+**City playbook:** [`guides/city-start.md`](../guides/city-start.md)  
+**What to pick:** [`guides/deployments-50.md`](../guides/deployments-50.md) (P0 rows)  
+**Jaipur locale:** `in/rajasthan/jaipur`
+
 ## 1. Pick
 
+- [ ] Deployment type from P0 list (Jaipur: kirana, coaching, clinic desk, guest house…)
 - [ ] Playbook: `whatsapp-shop-faq` or `clinic-whatsapp-faq`
-- [ ] Locale: `locale-packs/<cc>/l2/<l2>/l3/<l3>/` (create if missing)
+- [ ] Locale pack updated with real notes
 - [ ] Language prompt under `playbooks/<id>/prompts/`
 
 ## 2. Run
@@ -19,6 +24,6 @@ Goal: one real operator loop in ≤30 minutes. No paid APIs.
 
 - [ ] Copy [`_template.md`](_template.md) → dated field note
 - [ ] Fill results with real numbers only
-- [ ] `make site && make check`
+- [ ] `make site && make check && make status`
 
 Do not invent metrics for `SHARE.md` until the field note exists.
