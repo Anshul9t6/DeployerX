@@ -1,0 +1,17 @@
+---
+description: Keep GitHub Pages progress.json in sync when coverage changes
+globs: locale-packs/**/*,playbooks/**/*,field-notes/**/*,docs/**/*,scripts/generate_site_data.py
+alwaysApply: false
+---
+
+# Site progress sync
+
+When you change locale packs, playbooks, field notes, or the site generator:
+
+1. Run `python3 scripts/generate_site_data.py`
+2. Run `python3 scripts/validate.py`
+3. Include updated `docs/data/progress.json` in the same change set
+
+Do **not** hardcode coverage counts in `docs/index.html`. The page loads live data from `docs/data/progress.json` via `docs/app.js`.
+
+CI also auto-commits a refresh on `main` via `.github/workflows/sync-site-data.yml`, but agents must still regenerate locally so PRs are not stale.

@@ -66,10 +66,44 @@ def main() -> None:
     if len(r.layers) < 4:
         fail(f"expected 4 cascade layers for Varanasi, got {len(r.layers)}")
 
+    # Site progress JSON must match repo (GitHub Pages source of truth)
+    progress = ROOT / "docs/data/progress.json"
+    if not progress.exists():
+        fail("missing docs/data/progress.json — run python3 scripts/generate_site_data.py")
+    for required in (
+        "docs/index.html",
+        "docs/app.js",
+        "docs/styles.css",
+        "docs/favicon.svg",
+        "docs/assets/og.jpg",
+    ):
+        if not (ROOT / required).exists():
+            fail(f"missing {required}")
+
+    import importlib.util
+    import json
+
+    gen_path = ROOT / "scripts/generate_site_data.py"
+    spec = importlib.util.spec_from_file_location("generate_site_data", gen_path)
+    if spec is None or spec.loader is None:
+        fail("cannot load scripts/generate_site_data.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    expected = mod.build()
+    actual = json.loads(progress.read_text())
+    # Ignore generated_at timestamp drift for equality of payload shape
+    exp = {k: v for k, v in expected.items() if k != "generated_at"}
+    act = {k: v for k, v in actual.items() if k != "generated_at"}
+    if exp != act:
+        fail(
+            "docs/data/progress.json is stale — run: python3 scripts/generate_site_data.py"
+        )
+
     print("OK: DeployerX world hierarchy validated")
     print(f"ROOT={ROOT}")
     print(f"India L2 metas={len(l2_metas)} L3 packs={len(l3_readmes)}")
     print(f"resolve(in/uttar-pradesh/varanasi) layers={len(r.layers)}")
+    print("OK: docs/data/progress.json in sync")
 
 
 if __name__ == "__main__":

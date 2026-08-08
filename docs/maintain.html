@@ -22,53 +22,64 @@
     </header>
     <main>
       <section class="hero" style="padding-bottom: 1rem">
-        <p class="eyebrow">GitHub Pages · $0</p>
+        <p class="eyebrow">GitHub Pages · $0 · auto progress</p>
         <h1 style="font-size: clamp(2.2rem, 7vw, 3.4rem)">Maintain this site</h1>
         <p class="lede">
-          The website is static files in <code>docs/</code>. Edit HTML/CSS in the
-          repo, push to <code>main</code>, Pages updates automatically once enabled.
+          UX lives in HTML/CSS/JS. <strong>Coverage numbers are generated</strong> into
+          <code>docs/data/progress.json</code> from the repo — never type them by hand.
         </p>
       </section>
 
       <section class="band">
-        <h2>Enable once (GitHub UI)</h2>
+        <h2>Regenerate progress (required)</h2>
         <ol class="steps">
           <li>
-            Open
-            <a href="https://github.com/Anshul9t6/DeployerX/settings/pages"
-              >Repo → Settings → Pages</a
-            >
+            After changing <code>locale-packs/</code>, <code>playbooks/</code>, or
+            <code>field-notes/</code>:
           </li>
-          <li>Under <strong>Build and deployment</strong>, set Source to <strong>Deploy from a branch</strong></li>
-          <li>Branch: <strong>main</strong> · folder: <strong>/docs</strong> · Save</li>
           <li>
-            Site URL will be
-            <code>https://anshul9t6.github.io/DeployerX/</code>
+            Run
+            <code>python3 scripts/generate_site_data.py</code>
           </li>
-        </ol>
-      </section>
-
-      <section class="band">
-        <h2>Edit content</h2>
-        <ol class="steps">
-          <li>Change copy in <code>docs/index.html</code></li>
-          <li>Change look in <code>docs/styles.css</code></li>
-          <li>Preview locally: open <code>docs/index.html</code> in a browser</li>
-          <li>Commit + push — Pages rebuilds in ~1 minute</li>
+          <li>Run <code>python3 scripts/validate.py</code></li>
+          <li>Commit the updated <code>docs/data/progress.json</code></li>
         </ol>
         <p class="fine">
-          Keep deep docs in the GitHub repo (playbooks, locale packs). This site
-          is the front door only — less to maintain.
+          On <code>main</code>, GitHub Action
+          <code>sync-site-data.yml</code> also refreshes and pushes progress.json
+          automatically.
         </p>
       </section>
 
       <section class="band">
-        <h2>What you do not need</h2>
-        <p class="section-lede">
-          No Vercel/Netlify bill, no custom domain required, no Node build for
-          v1. GitHub Pro is optional for this — public Pages works on free plans
-          too.
+        <h2>Edit look &amp; explore UX</h2>
+        <ol class="steps">
+          <li><code>docs/index.html</code> — sections / structure</li>
+          <li><code>docs/styles.css</code> — visual design</li>
+          <li><code>docs/app.js</code> — how JSON becomes UI</li>
+          <li>Preview: open <code>docs/index.html</code> via a local static server if fetch is blocked</li>
+        </ol>
+        <p class="fine">
+          Tip: <code>python3 -m http.server 8080 --directory docs</code> then open
+          <code>http://localhost:8080</code> (file:// may block fetch).
         </p>
+      </section>
+
+      <section class="band">
+        <h2>Agent / contributor rules</h2>
+        <p class="section-lede">
+          See <code>AGENTS.md</code> and <code>.cursor/rules/site-progress.mdc</code>.
+          Agents must regenerate progress.json when coverage sources change.
+        </p>
+      </section>
+
+      <section class="band">
+        <h2>Pages enable (once)</h2>
+        <ol class="steps">
+          <li>Repo Settings → Pages</li>
+          <li>Branch <code>main</code> · folder <code>/docs</code></li>
+          <li>Site: <code>https://anshul9t6.github.io/DeployerX/</code></li>
+        </ol>
       </section>
     </main>
     <footer>

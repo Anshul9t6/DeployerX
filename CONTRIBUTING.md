@@ -62,6 +62,17 @@ PR title: `locale: open <Country> (<cc>)`
 
 PR title: `playbook: <id>`
 
+## Website progress sync
+
+After locale / playbook / field-note changes:
+
+```bash
+python3 scripts/generate_site_data.py
+python3 scripts/validate.py
+```
+
+Commit `docs/data/progress.json`. Do not hand-edit coverage numbers on the site.
+
 ## Validation
 
 ```bash

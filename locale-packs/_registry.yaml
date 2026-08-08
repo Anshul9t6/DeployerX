@@ -17,9 +17,9 @@ countries:
     name: Brazil
     path: locale-packs/br
     admin_labels: { l2: estado, l3: municipio }
-    status: draft
+    status: seeded
     priority: 2
-    notes: Scaffold opened. Needs full estado index + município packs + pt glossary.
+    notes: Full estado index (27) + pt glossary. Município L3 packs next.
 
 # Next targets (not seeded yet) — open L1 packs via PR
 pipeline:

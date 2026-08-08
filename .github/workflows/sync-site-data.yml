@@ -1,0 +1,42 @@
+name: Sync site progress
+
+# Regenerates docs/data/progress.json when coverage sources change,
+# then commits so GitHub Pages stays live without hand-editing numbers.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "locale-packs/**"
+      - "playbooks/**"
+      - "field-notes/**"
+      - "scripts/generate_site_data.py"
+      - "locale-packs/_registry.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate progress.json
+        run: python3 scripts/generate_site_data.py
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- docs/data/progress.json; then
+            echo "progress.json already up to date"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/progress.json
+          git commit -m "chore(site): refresh progress.json from repo coverage"
+          git push

@@ -1,24 +1,36 @@
-# Brazil L2 index (estados) — incomplete draft
-# Contributors: replace this with the full list of estados + DF.
+# Brazil L2 index — all estados + DF
+# L3 (municípios) added via community PRs.
 
 country: br
 goal: every-l2-every-l3
 updated: 2026-08-08
-status: draft
+status: seeded
 
 l2:
-  - slug: sao-paulo
-    name: São Paulo
-    code: SP
-    languages: [pt]
-    l3_count: null
-  - slug: rio-de-janeiro
-    name: Rio de Janeiro
-    code: RJ
-    languages: [pt]
-    l3_count: null
-  - slug: minas-gerais
-    name: Minas Gerais
-    code: MG
-    languages: [pt]
-    l3_count: null
+  - { slug: acre, name: Acre, code: AC, languages: [pt], l3_count: null }
+  - { slug: alagoas, name: Alagoas, code: AL, languages: [pt], l3_count: null }
+  - { slug: amapa, name: Amapá, code: AP, languages: [pt], l3_count: null }
+  - { slug: amazonas, name: Amazonas, code: AM, languages: [pt], l3_count: null }
+  - { slug: bahia, name: Bahia, code: BA, languages: [pt], l3_count: null }
+  - { slug: ceara, name: Ceará, code: CE, languages: [pt], l3_count: null }
+  - { slug: distrito-federal, name: Distrito Federal, code: DF, languages: [pt], l3_count: null }
+  - { slug: espirito-santo, name: Espírito Santo, code: ES, languages: [pt], l3_count: null }
+  - { slug: goias, name: Goiás, code: GO, languages: [pt], l3_count: null }
+  - { slug: maranhao, name: Maranhão, code: MA, languages: [pt], l3_count: null }
+  - { slug: mato-grosso, name: Mato Grosso, code: MT, languages: [pt], l3_count: null }
+  - { slug: mato-grosso-do-sul, name: Mato Grosso do Sul, code: MS, languages: [pt], l3_count: null }
+  - { slug: minas-gerais, name: Minas Gerais, code: MG, languages: [pt], l3_count: null }
+  - { slug: para, name: Pará, code: PA, languages: [pt], l3_count: null }
+  - { slug: paraiba, name: Paraíba, code: PB, languages: [pt], l3_count: null }
+  - { slug: parana, name: Paraná, code: PR, languages: [pt], l3_count: null }
+  - { slug: pernambuco, name: Pernambuco, code: PE, languages: [pt], l3_count: null }
+  - { slug: piaui, name: Piauí, code: PI, languages: [pt], l3_count: null }
+  - { slug: rio-de-janeiro, name: Rio de Janeiro, code: RJ, languages: [pt], l3_count: null }
+  - { slug: rio-grande-do-norte, name: Rio Grande do Norte, code: RN, languages: [pt], l3_count: null }
+  - { slug: rio-grande-do-sul, name: Rio Grande do Sul, code: RS, languages: [pt], l3_count: null }
+  - { slug: rondonia, name: Rondônia, code: RO, languages: [pt], l3_count: null }
+  - { slug: roraima, name: Roraima, code: RR, languages: [pt], l3_count: null }
+  - { slug: santa-catarina, name: Santa Catarina, code: SC, languages: [pt], l3_count: null }
+  - { slug: sao-paulo, name: São Paulo, code: SP, languages: [pt], l3_count: null }
+  - { slug: sergipe, name: Sergipe, code: SE, languages: [pt], l3_count: null }
+  - { slug: tocantins, name: Tocantins, code: TO, languages: [pt], l3_count: null }

@@ -6,7 +6,7 @@ admin_labels:
   l3: municipio
 languages_default: [pt]
 currency: BRL
-status: draft
+status: seeded
 maintainers: []
 priority: 2
-notes: Second country scaffold. WhatsApp-heavy SMB market. Needs L2 index + first município packs.
+notes: Full L2 index (27) + pt glossary seeded. Município (L3) packs needed next.

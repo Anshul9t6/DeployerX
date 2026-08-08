@@ -1,20 +1,94 @@
-# Marathi stub — extend via PR (plain shop-floor words)
+# Marathi jargon glossary — plain language for operators
+# Prefer shop-floor Marathi / common Hinglish mixes over textbook words.
+
 version: 1
 language: mr
 language_name: Marathi
 country: in
-status: stub
+status: seeded
 
 terms:
+  - en: AI / artificial intelligence
+    mr: स्मार्ट संगणक मदत
+    say: "एक स्मार्ट हेल्पर जो तुमच्या प्रश्नांची उत्तरे लिहिण्यास मदत करतो"
+    avoid: "आर्टिफिशियल इंटेलिजेंस (उदाहरणाशिवाय)"
+
   - en: chatbot
     mr: ऑटो उत्तर / WhatsApp हेल्पर
     say: "ग्राहकांच्या मेसेजला तयार उत्तर देणारा हेल्पर"
+    avoid: "चॅटबॉट / एजेंटिक वर्कफ्लो"
+
   - en: prompt
-    mr: सूचना
+    mr: सूचना / हिदायत
     say: "बॉटला कसे उत्तर द्यायचे याच्या स्पष्ट सूचना"
+    avoid: "प्रॉम्प्ट इंजिनिअरिंग"
+
+  - en: LLM / large language model
+    mr: स्मार्ट लेखन मॉडेल
+    say: "ChatGPT / Claude सारखे टेक्स्ट समजणारे आणि लिहिणारे टूल"
+    avoid: "फाउंडेशन मॉडेल"
+
+  - en: API
+    mr: कनेक्शन / जोड
+    say: "दोन सॉफ्टवेअर जोडण्याचा मार्ग (उदा. WhatsApp ला AI शी जोडणे)"
+    avoid: "REST API / एंडपॉइंट"
+
   - en: hallucination
     mr: चुकीचे / बनावट उत्तर
-    say: "जेव्हा बॉट चुकीचा दर सांगतो"
+    say: "जेव्हा बॉट चुकीचा दर किंवा खोटी माहिती सांगतो"
+    avoid: "हॅलुसिनेशन"
+
   - en: human-in-the-loop
     mr: आधी तुम्ही तपासा
     say: "ग्राहकाला पाठवण्यापूर्वी मालक उत्तर तपासा"
+    avoid: "HITL"
+
+  - en: deployment
+    mr: चालू करणे
+    say: "सिस्टम रोजच्या कामात लावणे"
+    avoid: "प्रॉडक्शन डिप्लॉयमेंट"
+
+  - en: latency
+    mr: उत्तरात उशीर
+    say: "उत्तर येण्यासाठी किती वेळ लागतो"
+    avoid: "p99 लेटन्सी"
+
+  - en: token / tokens
+    mr: बिलिंग युनिट / शब्द-भाग
+    say: "AI वापराचा मीटर — जितके जास्त वाचन/लेखन तितका खर्च"
+    avoid: "टोकन विंडो"
+
+  - en: fine-tuning
+    mr: खास ट्रेनिंग
+    say: "सुरुवातीला सहसा गरजेचे नाही; चांगल्या सूचना पुरेसे"
+    avoid: "फाइन-ट्यून / LoRA"
+
+  - en: RAG / retrieval
+    mr: स्वतःच्या फाइलमधून उत्तर
+    say: "बॉट तुमची किंमत यादी/FAQ वाचून उत्तर देतो"
+    avoid: "व्हेक्टर डेटाबेस"
+
+  - en: on-prem
+    mr: स्वतःच्या संगणकावर / ऑफिसमध्ये
+    say: "डेटा बाहेर क्लाउडमध्ये न पाठवणे — बहुतेक दुकानांसाठी अजून गरजेचे नाही"
+    avoid: "ऑन-प्रिम"
+
+  - en: WhatsApp Business API
+    mr: WhatsApp बिझनेस कनेक्शन (पेड)
+    say: "अधिकृत मार्ग ज्याने सॉफ्टवेअर तुमच्या बिझनेस नंबरवर उत्तर पाठवते"
+    avoid: "WABA / BSP"
+
+  - en: UPI
+    mr: UPI (फोनने पेमेंट)
+    say: "PhonePe / GPay / Paytm ने पेमेंट"
+    avoid: "पेमेंट गेटवे (जेव्हा UPI पुरेसे)"
+
+  - en: eval / evaluation
+    mr: तपास यादी
+    say: "नमुना प्रश्नांवर बॉटचे उत्तर बरोबर आहे का — टेस्ट"
+    avoid: "एव्हल हार्नेस"
+
+  - en: forward deployed engineer
+    mr: जागेवर बसून सिस्टम लावणारा इंजिनिअर
+    say: "ग्राहकाकडे जाऊन AI सिस्टम चालू करणारी व्यक्ती"
+    avoid: "FDE (अर्थ न सांगता)"

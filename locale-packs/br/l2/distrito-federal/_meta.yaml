@@ -1,0 +1,23 @@
+level: 2
+country: br
+l2: distrito-federal
+name: Distrito Federal
+code: DF
+languages: [pt]
+status: listed
+maintainers: []
+
+# Distrito Federal (L2)
+
+Status: **listed** — stub from full Brazil L2 index.
+
+## Help wanted
+
+1. Upgrade to `seeded` with regional notes (Pix, WhatsApp norms, local language mix)
+2. Add L3 município packs under `l3/` using `locale-packs/_templates/l3/`
+3. Portuguese glossary: `locale-packs/br/glossary/pt.yaml`
+
+## Priority playbooks (global)
+
+- `whatsapp-shop-faq`
+- `clinic-whatsapp-faq`

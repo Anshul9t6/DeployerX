@@ -1,23 +1,14 @@
 # docs/ — GitHub Pages site
 
-Public site root for **DeployerX** (static HTML/CSS, $0).
+Public site: https://anshul9t6.github.io/DeployerX/
 
-## Enable
+## Auto progress
 
-1. GitHub → **Settings → Pages**
-2. Source: **Deploy from a branch**
-3. Branch: `main` / folder: `/docs`
+| File | Edit? |
+|------|-------|
+| `data/progress.json` | **No** — run `python3 scripts/generate_site_data.py` |
+| `index.html` / `styles.css` / `app.js` | Yes — UX only |
 
-URL: https://anshul9t6.github.io/DeployerX/
+CI: `.github/workflows/sync-site-data.yml` refreshes progress.json on `main` when coverage sources change.
 
-## Maintain
-
-| File | Purpose |
-|------|---------|
-| `index.html` | Landing page copy |
-| `styles.css` | Visual design |
-| `maintain.html` | How-to for contributors |
-
-Preview: open `index.html` locally. No build step.
-
-Deep content stays in the repo (`playbooks/`, `locale-packs/`) — link out instead of duplicating.
+Agents must follow `AGENTS.md`.

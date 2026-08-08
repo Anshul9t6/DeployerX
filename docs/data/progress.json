@@ -1,0 +1,586 @@
+{
+  "generated_at": "2026-08-08T07:05:39Z",
+  "repo": "https://github.com/Anshul9t6/DeployerX",
+  "site": "https://anshul9t6.github.io/DeployerX/",
+  "copy": {
+    "en": {
+      "mission": "Forward-deployed AI for the rest of the world — decisioning + playbooks + locale packs to e/acc.",
+      "lede": "The bottleneck isn’t the model. It’s jargon, missing Monday plans, and zero local context. Explore live coverage — then ship a workflow this week on tools people already use.",
+      "promise": "What you get in ~30 minutes: a working Path A reply loop with human approval — no paid API required."
+    },
+    "hi": {
+      "mission": "बाकी दुनिया के लिए forward-deployed AI — निर्णय + प्लेबुक्स + लोकल पैक्स, e/acc के लिए।",
+      "lede": "रुकावट मॉडल नहीं है। रुकावट है अंग्रेज़ी jargon, सोमवार की साफ़ योजना की कमी, और लोकल संदर्भ का अभाव। कवरेज देखें — फिर इस हफ़्ते अपना वर्कफ़्लो चालू करें।",
+      "promise": "लगभग 30 मिनट में: Path A — ब्राउज़र AI + आपकी जाँच के बाद जवाब। कोई पेड API ज़रूरी नहीं।"
+    }
+  },
+  "mission": "Forward-deployed AI for the rest of the world — decisioning + playbooks + locale packs to e/acc.",
+  "stats": {
+    "countries": 2,
+    "playbooks": 2,
+    "india_l2": 36,
+    "india_l2_seeded": 10,
+    "india_l3": 11,
+    "glossaries": 7,
+    "field_notes": 3
+  },
+  "playbooks": [
+    {
+      "id": "clinic-whatsapp-faq",
+      "title": "Clinic WhatsApp FAQ",
+      "blurb": "Help a clinic / diagnostic lab answer repeat questions on WhatsApp — hours, booking process, test prep — **without giving medical advice**.",
+      "status": "seeded",
+      "time_to_first_win": "~30 minutes",
+      "audience": "clinic, diagnostic-lab, pharmacy-counter",
+      "min_budget_inr": 0,
+      "budget_label": "₹0",
+      "channels": [
+        "whatsapp"
+      ],
+      "path": "playbooks/clinic-whatsapp-faq/",
+      "url": "https://github.com/Anshul9t6/DeployerX/tree/main/playbooks/clinic-whatsapp-faq",
+      "prompt_hi": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/prompts/system.hi.md",
+      "prompt_en": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/prompts/system.en.md",
+      "deploy_url": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/deploy.md"
+    },
+    {
+      "id": "whatsapp-shop-faq",
+      "title": "WhatsApp shop FAQ",
+      "blurb": "Help a shop owner answer repeat customer questions on WhatsApp — in Hindi/Hinglish — without inventing prices.",
+      "status": "seeded",
+      "time_to_first_win": "~30 minutes (copy-paste + approval mode)",
+      "audience": "retail, kirana, local-services",
+      "min_budget_inr": 0,
+      "budget_label": "₹0",
+      "channels": [
+        "whatsapp"
+      ],
+      "path": "playbooks/whatsapp-shop-faq/",
+      "url": "https://github.com/Anshul9t6/DeployerX/tree/main/playbooks/whatsapp-shop-faq",
+      "prompt_hi": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/prompts/system.hi.md",
+      "prompt_en": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/prompts/system.en.md",
+      "deploy_url": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/deploy.md"
+    }
+  ],
+  "countries": [
+    {
+      "code": "in",
+      "name": "India",
+      "path": "locale-packs/in",
+      "admin_labels_raw": "{ l2: state, l3: district }",
+      "status": "seeded",
+      "priority": "1",
+      "notes": "First country. Cover all states/UTs then all districts.",
+      "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in",
+      "l2_index_count": 36,
+      "l2_meta_count": 36,
+      "l3_count": 11
+    },
+    {
+      "code": "br",
+      "name": "Brazil",
+      "path": "locale-packs/br",
+      "admin_labels_raw": "{ l2: estado, l3: municipio }",
+      "status": "seeded",
+      "priority": "2",
+      "notes": "Full estado index (27) + pt glossary. Município L3 packs next.",
+      "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/br",
+      "l2_index_count": 0,
+      "l2_meta_count": 27,
+      "l3_count": 1
+    }
+  ],
+  "india": {
+    "l2_index_count": 36,
+    "l2_meta_count": 36,
+    "l2_seeded_count": 10,
+    "l3_count": 11,
+    "l3_goal": 780,
+    "glossaries": [
+      "bn",
+      "gu",
+      "hi",
+      "kn",
+      "mr",
+      "ta",
+      "te"
+    ],
+    "l2": [
+      {
+        "slug": "maharashtra",
+        "name": "Maharashtra",
+        "status": "seeded",
+        "l3_count": 2,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/maharashtra"
+      },
+      {
+        "slug": "bihar",
+        "name": "Bihar",
+        "status": "seeded",
+        "l3_count": 1,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/bihar"
+      },
+      {
+        "slug": "delhi",
+        "name": "Delhi (NCT)",
+        "status": "seeded",
+        "l3_count": 1,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/delhi"
+      },
+      {
+        "slug": "gujarat",
+        "name": "Gujarat",
+        "status": "seeded",
+        "l3_count": 1,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/gujarat"
+      },
+      {
+        "slug": "karnataka",
+        "name": "Karnataka",
+        "status": "seeded",
+        "l3_count": 1,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/karnataka"
+      },
+      {
+        "slug": "rajasthan",
+        "name": "Rajasthan",
+        "status": "seeded",
+        "l3_count": 1,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/rajasthan"
+      },
+      {
+        "slug": "tamil-nadu",
+        "name": "Tamil Nadu",
+        "status": "seeded",
+        "l3_count": 1,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/tamil-nadu"
+      },
+      {
+        "slug": "telangana",
+        "name": "Telangana",
+        "status": "seeded",
+        "l3_count": 1,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/telangana"
+      },
+      {
+        "slug": "uttar-pradesh",
+        "name": "Uttar Pradesh",
+        "status": "seeded",
+        "l3_count": 1,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/uttar-pradesh"
+      },
+      {
+        "slug": "west-bengal",
+        "name": "West Bengal",
+        "status": "seeded",
+        "l3_count": 1,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/west-bengal"
+      },
+      {
+        "slug": "andaman-and-nicobar-islands",
+        "name": "Andaman and Nicobar Islands",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/andaman-and-nicobar-islands"
+      },
+      {
+        "slug": "andhra-pradesh",
+        "name": "Andhra Pradesh",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/andhra-pradesh"
+      },
+      {
+        "slug": "arunachal-pradesh",
+        "name": "Arunachal Pradesh",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/arunachal-pradesh"
+      },
+      {
+        "slug": "assam",
+        "name": "Assam",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/assam"
+      },
+      {
+        "slug": "chandigarh",
+        "name": "Chandigarh",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/chandigarh"
+      },
+      {
+        "slug": "chhattisgarh",
+        "name": "Chhattisgarh",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/chhattisgarh"
+      },
+      {
+        "slug": "dadra-and-nagar-haveli-and-daman-and-diu",
+        "name": "Dadra and Nagar Haveli and Daman and Diu",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/dadra-and-nagar-haveli-and-daman-and-diu"
+      },
+      {
+        "slug": "goa",
+        "name": "Goa",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/goa"
+      },
+      {
+        "slug": "haryana",
+        "name": "Haryana",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/haryana"
+      },
+      {
+        "slug": "himachal-pradesh",
+        "name": "Himachal Pradesh",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/himachal-pradesh"
+      },
+      {
+        "slug": "jammu-and-kashmir",
+        "name": "Jammu and Kashmir",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/jammu-and-kashmir"
+      },
+      {
+        "slug": "jharkhand",
+        "name": "Jharkhand",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/jharkhand"
+      },
+      {
+        "slug": "kerala",
+        "name": "Kerala",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/kerala"
+      },
+      {
+        "slug": "ladakh",
+        "name": "Ladakh",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/ladakh"
+      },
+      {
+        "slug": "lakshadweep",
+        "name": "Lakshadweep",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/lakshadweep"
+      },
+      {
+        "slug": "madhya-pradesh",
+        "name": "Madhya Pradesh",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/madhya-pradesh"
+      },
+      {
+        "slug": "manipur",
+        "name": "Manipur",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/manipur"
+      },
+      {
+        "slug": "meghalaya",
+        "name": "Meghalaya",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/meghalaya"
+      },
+      {
+        "slug": "mizoram",
+        "name": "Mizoram",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/mizoram"
+      },
+      {
+        "slug": "nagaland",
+        "name": "Nagaland",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/nagaland"
+      },
+      {
+        "slug": "odisha",
+        "name": "Odisha",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/odisha"
+      },
+      {
+        "slug": "puducherry",
+        "name": "Puducherry",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/puducherry"
+      },
+      {
+        "slug": "punjab",
+        "name": "Punjab",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/punjab"
+      },
+      {
+        "slug": "sikkim",
+        "name": "Sikkim",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/sikkim"
+      },
+      {
+        "slug": "tripura",
+        "name": "Tripura",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/tripura"
+      },
+      {
+        "slug": "uttarakhand",
+        "name": "Uttarakhand",
+        "status": "listed",
+        "l3_count": 0,
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/uttarakhand"
+      }
+    ],
+    "l3": [
+      {
+        "l2": "bihar",
+        "l2_name": "Bihar",
+        "slug": "patna",
+        "name": "Patna",
+        "status": "seeded",
+        "languages": "[hi, en]",
+        "blurb": "Hindi-first. Coaching, clinics, retail. Shared Android phones and intermittent network are normal.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/bihar/l3/patna"
+      },
+      {
+        "l2": "delhi",
+        "l2_name": "Delhi (NCT)",
+        "slug": "new-delhi",
+        "name": "New Delhi",
+        "status": "seeded",
+        "languages": "[hi, en]",
+        "blurb": "Capital-region services, clinics, tuition, retail. Hinglish-heavy WhatsApp. Higher API readiness than most districts.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/delhi/l3/new-delhi"
+      },
+      {
+        "l2": "gujarat",
+        "l2_name": "Gujarat",
+        "slug": "ahmedabad",
+        "name": "Ahmedabad",
+        "status": "seeded",
+        "languages": "[gu, hi, en]",
+        "blurb": "Gujarati + Hindi commerce. Strong retail/wholesale. Trust around correct rates is critical.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/gujarat/l3/ahmedabad"
+      },
+      {
+        "l2": "karnataka",
+        "l2_name": "Karnataka",
+        "slug": "bengaluru-urban",
+        "name": "Bengaluru Urban",
+        "status": "seeded",
+        "languages": "[kn, hi, en]",
+        "blurb": "Dual track: Kannada-first local shops + English-heavy tech/services. Traffic/delivery timing is a common FAQ.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/karnataka/l3/bengaluru-urban"
+      },
+      {
+        "l2": "maharashtra",
+        "l2_name": "Maharashtra",
+        "slug": "mumbai-suburban",
+        "name": "Mumbai Suburban",
+        "status": "seeded",
+        "languages": "[mr, hi, en]",
+        "blurb": "Dense retail + services. Marathi + Hindi + English. Delivery expectations are high; wrong ETAs destroy trust.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/maharashtra/l3/mumbai-suburban"
+      },
+      {
+        "l2": "maharashtra",
+        "l2_name": "Maharashtra",
+        "slug": "pune",
+        "name": "Pune",
+        "status": "seeded",
+        "languages": "[mr, hi, en]",
+        "blurb": "Education + IT + local retail. Strong coaching/clinic demand. Marathi + Hinglish.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/maharashtra/l3/pune"
+      },
+      {
+        "l2": "rajasthan",
+        "l2_name": "Rajasthan",
+        "slug": "jaipur",
+        "name": "Jaipur",
+        "status": "seeded",
+        "languages": "[hi, en]",
+        "blurb": "Hindi-first retail, tourism-adjacent shops, clinics. Peak tourist seasons increase FAQ volume.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/rajasthan/l3/jaipur"
+      },
+      {
+        "l2": "tamil-nadu",
+        "l2_name": "Tamil Nadu",
+        "slug": "chennai",
+        "name": "Chennai",
+        "status": "seeded",
+        "languages": "[ta, en]",
+        "blurb": "Tamil-first. English jargon lands poorly. Strong clinic, textile, and grocery WhatsApp use.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/tamil-nadu/l3/chennai"
+      },
+      {
+        "l2": "telangana",
+        "l2_name": "Telangana",
+        "slug": "hyderabad",
+        "name": "Hyderabad",
+        "status": "seeded",
+        "languages": "[te, hi, en]",
+        "blurb": "Telugu + Hindi + English. Food, retail, clinics, coaching. Mixed-script WhatsApp messages common.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/telangana/l3/hyderabad"
+      },
+      {
+        "l2": "uttar-pradesh",
+        "l2_name": "Uttar Pradesh",
+        "slug": "varanasi",
+        "name": "Varanasi",
+        "status": "seeded",
+        "languages": "[hi, bho]",
+        "blurb": "Pilgrimage + local retail + hospitality. Customers message in Hindi / Bhojpuri / Hinglish. Peak seasons spike FAQs on timings, rates, availability.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/uttar-pradesh/l3/varanasi"
+      },
+      {
+        "l2": "west-bengal",
+        "l2_name": "West Bengal",
+        "slug": "kolkata",
+        "name": "Kolkata",
+        "status": "seeded",
+        "languages": "[bn, hi, en]",
+        "blurb": "Bangla-first culture with Hindi/English mix in commerce. Puja season is a major FAQ spike.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/west-bengal/l3/kolkata"
+      }
+    ],
+    "recent_l3": [
+      {
+        "l2": "bihar",
+        "l2_name": "Bihar",
+        "slug": "patna",
+        "name": "Patna",
+        "status": "seeded",
+        "languages": "[hi, en]",
+        "blurb": "Hindi-first. Coaching, clinics, retail. Shared Android phones and intermittent network are normal.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/bihar/l3/patna"
+      },
+      {
+        "l2": "rajasthan",
+        "l2_name": "Rajasthan",
+        "slug": "jaipur",
+        "name": "Jaipur",
+        "status": "seeded",
+        "languages": "[hi, en]",
+        "blurb": "Hindi-first retail, tourism-adjacent shops, clinics. Peak tourist seasons increase FAQ volume.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/rajasthan/l3/jaipur"
+      },
+      {
+        "l2": "gujarat",
+        "l2_name": "Gujarat",
+        "slug": "ahmedabad",
+        "name": "Ahmedabad",
+        "status": "seeded",
+        "languages": "[gu, hi, en]",
+        "blurb": "Gujarati + Hindi commerce. Strong retail/wholesale. Trust around correct rates is critical.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/gujarat/l3/ahmedabad"
+      },
+      {
+        "l2": "west-bengal",
+        "l2_name": "West Bengal",
+        "slug": "kolkata",
+        "name": "Kolkata",
+        "status": "seeded",
+        "languages": "[bn, hi, en]",
+        "blurb": "Bangla-first culture with Hindi/English mix in commerce. Puja season is a major FAQ spike.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/west-bengal/l3/kolkata"
+      },
+      {
+        "l2": "telangana",
+        "l2_name": "Telangana",
+        "slug": "hyderabad",
+        "name": "Hyderabad",
+        "status": "seeded",
+        "languages": "[te, hi, en]",
+        "blurb": "Telugu + Hindi + English. Food, retail, clinics, coaching. Mixed-script WhatsApp messages common.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/telangana/l3/hyderabad"
+      }
+    ]
+  },
+  "field_notes": [
+    {
+      "id": "_template",
+      "title": "YYYY-MM-DD — short title",
+      "locale": "in/<l2>/<l3>",
+      "playbook": "whatsapp-shop-faq | clinic-whatsapp-faq",
+      "excerpt": "Device / channel:",
+      "url": "https://github.com/Anshul9t6/DeployerX/blob/main/field-notes/_template.md",
+      "featured": true
+    },
+    {
+      "id": "FIRST_DEPLOYMENT",
+      "title": "First Path A deployment kit (high value)",
+      "locale": "",
+      "playbook": "",
+      "excerpt": "",
+      "url": "https://github.com/Anshul9t6/DeployerX/blob/main/field-notes/FIRST_DEPLOYMENT.md",
+      "featured": false
+    },
+    {
+      "id": "2026-08-08-varanasi-template",
+      "title": "2026-08-08 — template field note (replace with real deployments)",
+      "locale": "in/uttar-pradesh/varanasi",
+      "playbook": "whatsapp-shop-faq",
+      "excerpt": "Single Android phone shared at counter",
+      "url": "https://github.com/Anshul9t6/DeployerX/blob/main/field-notes/2026-08-08-varanasi-template.md",
+      "featured": false
+    }
+  ],
+  "path_a": {
+    "steps": [
+      {
+        "id": "use_case",
+        "title": "Pick a use case",
+        "hint": "Shop FAQ or clinic FAQ"
+      },
+      {
+        "id": "language",
+        "title": "Pick language",
+        "hint": "Hindi / English prompts included"
+      },
+      {
+        "id": "playbook",
+        "title": "Open the playbook",
+        "hint": "Follow Path A in deploy.md"
+      },
+      {
+        "id": "prompt",
+        "title": "Copy the system prompt",
+        "hint": "Paste FAQ · approve before send"
+      }
+    ]
+  },
+  "links": {
+    "contribute": "https://github.com/Anshul9t6/DeployerX/blob/main/CONTRIBUTING.md",
+    "hierarchy": "https://github.com/Anshul9t6/DeployerX/blob/main/schema/hierarchy.md",
+    "claim_l3": "https://github.com/Anshul9t6/DeployerX/issues/new?template=l3_pack.yml",
+    "open_country": "https://github.com/Anshul9t6/DeployerX/issues/new?template=country_pack.yml"
+  }
+}

@@ -6,7 +6,31 @@
     <title>DeployerX — Forward-deployed AI for the rest of the world</title>
     <meta
       name="description"
-      content="Decisioning + playbooks + locale packs to e/acc. India first, then every country → state → district."
+      content="Decisioning + playbooks + locale packs to e/acc. Explore live India→world coverage. Path A starts at ₹0."
+    />
+    <meta name="theme-color" content="#0b1210" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DeployerX" />
+    <meta
+      property="og:description"
+      content="Forward-deployed AI for the rest of the world — decisioning + playbooks + locale packs to e/acc."
+    />
+    <meta property="og:url" content="https://anshul9t6.github.io/DeployerX/" />
+    <meta
+      property="og:image"
+      content="https://anshul9t6.github.io/DeployerX/assets/og.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DeployerX" />
+    <meta
+      name="twitter:description"
+      content="Forward-deployed AI for the rest of the world. India first, then Earth."
+    />
+    <meta
+      name="twitter:image"
+      content="https://anshul9t6.github.io/DeployerX/assets/og.jpg"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,58 +41,202 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="atmosphere" aria-hidden="true"></div>
+    <div class="scanline" aria-hidden="true"></div>
 
     <header class="top">
       <a class="brand" href="./">DeployerX</a>
       <nav>
-        <a href="#how">How it works</a>
-        <a href="#coverage">Coverage</a>
+        <a href="#explore">Explore</a>
+        <a href="#path-a">Path A</a>
+        <a href="#playbooks">Playbooks</a>
         <a href="#start">Start</a>
-        <a
-          class="nav-cta"
-          href="https://github.com/Anshul9t6/DeployerX"
-          rel="noopener"
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-pressed="false">
+          हिं
+        </button>
+        <a class="nav-cta" href="https://github.com/Anshul9t6/DeployerX" rel="noopener"
           >GitHub</a
         >
       </nav>
     </header>
 
-    <main>
+    <main id="main">
       <section class="hero">
-        <p class="eyebrow">Open source · India first · then the world</p>
+        <p class="eyebrow">Open source field kit · India first · then Earth</p>
         <h1>DeployerX</h1>
-        <p class="mission">
-          Forward-deployed AI for the rest of the world — decisioning + playbooks
-          + locale packs to e/acc.
-        </p>
-        <p class="lede">
-          Help a local operator go from “I heard of AI” to a working workflow in
-          their language, on their tools, this week — without English jargon as
-          the wall.
-        </p>
+        <p class="mission" id="mission">Loading mission…</p>
+        <p class="lede" id="lede">Loading…</p>
+        <p class="promise" id="promise"></p>
         <div class="cta-row">
-          <a class="btn primary" href="https://github.com/Anshul9t6/DeployerX"
-            >View the repo</a
-          >
+          <a class="btn primary" href="#path-a">Start Path A</a>
+          <a class="btn ghost" href="#explore">Explore India</a>
           <a
-            class="btn ghost"
+            class="btn text"
+            id="claim-link"
             href="https://github.com/Anshul9t6/DeployerX/blob/main/CONTRIBUTING.md"
             >Claim a district</a
           >
         </div>
+        <p class="live-pill">
+          <span class="pulse" aria-hidden="true"></span>
+          Live from repo · updated <time id="generated-at">…</time>
+        </p>
+      </section>
+
+      <section class="stats-band" aria-label="Live progress">
+        <div class="stat-grid" id="stat-grid">
+          <div class="stat skeleton"><span class="sk"></span><span class="sk thin"></span></div>
+          <div class="stat skeleton"><span class="sk"></span><span class="sk thin"></span></div>
+          <div class="stat skeleton"><span class="sk"></span><span class="sk thin"></span></div>
+          <div class="stat skeleton"><span class="sk"></span><span class="sk thin"></span></div>
+          <div class="stat skeleton"><span class="sk"></span><span class="sk thin"></span></div>
+          <div class="stat skeleton"><span class="sk"></span><span class="sk thin"></span></div>
+        </div>
+      </section>
+
+      <section id="story" class="band story-band">
+        <div class="story-grid">
+          <article class="feature-card" id="featured-note">
+            <div class="skeleton-block"></div>
+          </article>
+          <div>
+            <h2 class="subhead tight">Recent locale activity</h2>
+            <ul class="activity" id="recent-activity">
+              <li class="skeleton-line"></li>
+              <li class="skeleton-line"></li>
+              <li class="skeleton-line"></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="explore" class="band">
+        <div class="band-head">
+          <div>
+            <h2>Coverage atlas</h2>
+            <p class="section-lede">
+              Click a state to drill into its districts. Filter and sort without leaving
+              the page — then open GitHub to contribute.
+            </p>
+          </div>
+          <div class="progress-stack" id="india-progress"></div>
+        </div>
+
+        <div class="countries" id="countries"></div>
+
+        <div class="explore-panel">
+          <div class="explore-toolbar">
+            <div class="toolbar-left">
+              <label class="search-wrap">
+                <span class="sr-only">Filter districts</span>
+                <input
+                  id="l3-filter"
+                  type="search"
+                  placeholder="Filter districts — press / to focus"
+                  autocomplete="off"
+                />
+              </label>
+              <div class="filter-row" role="group" aria-label="Status filter">
+                <button type="button" class="chip-btn active" data-status="all">All</button>
+                <button type="button" class="chip-btn" data-status="seeded">Seeded</button>
+                <button type="button" class="chip-btn" data-status="draft">Draft</button>
+                <button type="button" class="chip-btn" data-l2-only="1">Has L3</button>
+              </div>
+            </div>
+            <div class="toolbar-right">
+              <label class="sort-label">
+                Sort
+                <select id="l3-sort">
+                  <option value="complete">Most complete</option>
+                  <option value="name">Name</option>
+                  <option value="state">State</option>
+                </select>
+              </label>
+              <button type="button" class="chip-btn" id="clear-l2" hidden>Clear state</button>
+              <p class="fine" id="l3-count-label"></p>
+            </div>
+          </div>
+          <p class="drill-hint" id="drill-hint">Showing all India L3 packs. Click an L2 pill to focus.</p>
+          <div class="l3-grid" id="l3-grid">
+            <div class="l3-card skeleton"><span class="sk"></span><span class="sk thin"></span></div>
+            <div class="l3-card skeleton"><span class="sk"></span><span class="sk thin"></span></div>
+            <div class="l3-card skeleton"><span class="sk"></span><span class="sk thin"></span></div>
+          </div>
+        </div>
+
+        <div class="l2-strip-wrap">
+          <h3 class="subhead">India L2 — click to drill down</h3>
+          <div class="l2-strip" id="l2-strip"></div>
+        </div>
+      </section>
+
+      <section id="path-a" class="band">
+        <h2>Path A — interactive Monday flow</h2>
+        <p class="section-lede">
+          No paid stack. Pick options below; we’ll deep-link the right playbook and prompt.
+        </p>
+        <div class="path-flow" id="path-flow">
+          <div class="path-step active" data-step="0">
+            <span class="step-num">1</span>
+            <div>
+              <strong>Use case</strong>
+              <div class="choice-row" id="choice-use">
+                <button type="button" class="choice" data-use="shop_faq">Shop / kirana FAQ</button>
+                <button type="button" class="choice" data-use="clinic">Clinic / lab FAQ</button>
+              </div>
+            </div>
+          </div>
+          <div class="path-step" data-step="1">
+            <span class="step-num">2</span>
+            <div>
+              <strong>Language</strong>
+              <div class="choice-row" id="choice-lang">
+                <button type="button" class="choice" data-lang="hi">Hindi</button>
+                <button type="button" class="choice" data-lang="en">English</button>
+              </div>
+            </div>
+          </div>
+          <div class="path-step" data-step="2">
+            <span class="step-num">3</span>
+            <div>
+              <strong>Open playbook</strong>
+              <p class="fine" id="path-playbook-label">Select a use case first</p>
+              <a class="btn ghost" id="path-playbook-link" href="#playbooks">Choose playbook</a>
+            </div>
+          </div>
+          <div class="path-step" data-step="3">
+            <span class="step-num">4</span>
+            <div>
+              <strong>Copy system prompt</strong>
+              <p class="fine" id="path-prompt-label">Then paste your FAQ and approve before send</p>
+              <a class="btn primary" id="path-prompt-link" href="#playbooks">Open prompt</a>
+            </div>
+          </div>
+        </div>
+        <ol class="checklist" id="path-check">
+          <li><label><input type="checkbox" /> FAQ sheet ready</label></li>
+          <li><label><input type="checkbox" /> Human approval ON for 7 days</label></li>
+          <li><label><input type="checkbox" /> Never invent prices / medical advice</label></li>
+        </ol>
+      </section>
+
+      <section id="playbooks" class="band">
+        <h2>Global playbooks</h2>
+        <p class="section-lede">
+          Ship once. Locales only add language and trust deltas.
+        </p>
+        <div class="playbook-grid" id="playbook-grid"></div>
       </section>
 
       <section id="how" class="band">
-        <h2>Ship common once. Localize deltas.</h2>
-        <p class="section-lede">
-          Global playbooks stay global. Places only add what is truly local.
-        </p>
+        <h2>How the system scales</h2>
+        <p class="section-lede">Common ships once. Local development lands as deltas.</p>
         <ol class="cascade">
           <li>
             <span class="tag">L0</span>
             <strong>Playbooks + global safety</strong>
-            <span>Recipes everyone can reuse</span>
+            <span>Recipes + never-invent rules</span>
           </li>
           <li>
             <span class="tag">L1</span>
@@ -78,7 +246,7 @@
           <li>
             <span class="tag">L2</span>
             <strong>State / province</strong>
-            <span>Regional language &amp; ops notes</span>
+            <span>Regional language &amp; ops</span>
           </li>
           <li>
             <span class="tag">L3</span>
@@ -88,74 +256,38 @@
         </ol>
       </section>
 
-      <section id="coverage" class="band">
-        <h2>Coverage model</h2>
-        <p class="section-lede">
-          Every country → every L2 → every L3. Contributors own places; maintainers
-          keep the cascade honest.
-        </p>
-        <div class="stat-line" role="list">
-          <div role="listitem">
-            <span class="num">36</span>
-            <span class="label">India L2 metas</span>
-          </div>
-          <div role="listitem">
-            <span class="num">11</span>
-            <span class="label">L3 city packs seeded</span>
-          </div>
-          <div role="listitem">
-            <span class="num">2</span>
-            <span class="label">Global playbooks</span>
-          </div>
-          <div role="listitem">
-            <span class="num">₹0</span>
-            <span class="label">To start Path A</span>
-          </div>
-        </div>
-        <p class="fine">
-          Numbers drift as PRs land — source of truth lives in the repo
-          (<code>scripts/coverage.py</code>.
-        </p>
-      </section>
-
       <section id="start" class="band">
-        <h2>Start this week (no paid stack)</h2>
+        <h2>Start this week — ₹0</h2>
         <ol class="steps">
-          <li>Clone the repo and run <code>python3 -m decision.cli</code></li>
-          <li>
-            Open a playbook:
-            <a
-              href="https://github.com/Anshul9t6/DeployerX/tree/main/playbooks/whatsapp-shop-faq"
-              >shop FAQ</a
-            >
-            or
-            <a
-              href="https://github.com/Anshul9t6/DeployerX/tree/main/playbooks/clinic-whatsapp-faq"
-              >clinic FAQ</a
-            >
-          </li>
-          <li>
-            Path A: browser AI + your FAQ sheet + human approval on the chat
-            channel you already use
-          </li>
-          <li>
-            Add or improve your
-            <a
-              href="https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in"
-              >district pack</a
+          <li>Clone and run <code>python3 -m decision.cli</code></li>
+          <li>Complete Path A above</li>
+          <li>Add your district ·
+            <a id="issue-l3" href="https://github.com/Anshul9t6/DeployerX/issues/new?template=l3_pack.yml"
+              >open L3 issue</a
             >
           </li>
         </ol>
       </section>
     </main>
 
+    <nav class="mobile-dock" aria-label="Mobile">
+      <a href="#explore">Explore</a>
+      <a href="#path-a">Path A</a>
+      <a href="https://github.com/Anshul9t6/DeployerX">GitHub</a>
+    </nav>
+
     <footer>
       <p>
-        <strong>DeployerX</strong> — MIT licensed.
-        <a href="https://github.com/Anshul9t6/DeployerX">GitHub</a>
-        ·
-        <a href="./maintain.html">Maintain this site</a>
+        <strong>DeployerX</strong> — MIT ·
+        <a href="https://github.com/Anshul9t6/DeployerX">GitHub</a> ·
+        <a href="./maintain.html">Maintain</a>
+      </p>
+      <p class="fine">
+        Progress:
+        <a href="./data/progress.json"><code>docs/data/progress.json</code></a>
       </p>
     </footer>
+
+    <script src="app.js" defer></script>
   </body>
 </html>

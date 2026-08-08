@@ -2,10 +2,14 @@
 
 **Forward-deployed AI for the rest of the world — decisioning + playbooks + locale packs to e/acc.**
 
+[![DeployerX coverage atlas](docs/assets/atlas.jpg)](https://anshul9t6.github.io/DeployerX/)
+
 DeployerX helps a local operator go from *“I heard of AI”* to *a working AI workflow in their language, on their tools, this week*.
 
 **Coverage model:** every country (L1) → every state/province (L2) → every district/county (L3).  
 **India first.** Then the world — by contribution, not by one person.
+
+**Live site:** https://anshul9t6.github.io/DeployerX/ · **Share kit:** [`SHARE.md`](SHARE.md) · **First deployment:** [`field-notes/FIRST_DEPLOYMENT.md`](field-notes/FIRST_DEPLOYMENT.md)
 
 ## Mission
 
@@ -50,15 +54,21 @@ Full contract: [`schema/hierarchy.md`](schema/hierarchy.md)
 | Global pack | [`locale-packs/_global/`](locale-packs/_global/) | Seeded |
 | India L1 | [`locale-packs/in/`](locale-packs/in/) | Seeded |
 | L2 index | [`locale-packs/in/l2/_index.yaml`](locale-packs/in/l2/_index.yaml) | All states/UTs listed |
-| L3 example | `.../l2/uttar-pradesh/l3/varanasi/` | Seeded |
+| L3 examples | India major cities + `br/.../sao-paulo` | Seeded |
+| Glossaries | `hi` + full `mr`/`ta` · Brazil `pt` | Seeded |
 
-## Website (GitHub Pages · free)
-
-Static site in [`docs/`](docs/). After you enable Pages (`Settings → Pages` → branch `main` → `/docs`):
+## Website (GitHub Pages · free · live progress)
 
 **https://anshul9t6.github.io/DeployerX/**
 
-How to edit: [`docs/maintain.html`](docs/maintain.html) / [`docs/README.md`](docs/README.md).
+Static site in [`docs/`](docs/). Coverage stats/lists load from generated [`docs/data/progress.json`](docs/data/progress.json).
+
+```bash
+python3 scripts/generate_site_data.py   # refresh site data after locale/playbook changes
+python3 scripts/validate.py             # fails if progress.json is stale
+```
+
+Agents: see [`AGENTS.md`](AGENTS.md). Maintainers: [`docs/maintain.html`](docs/maintain.html).
 
 ## Quick start
 

@@ -1,0 +1,68 @@
+# Portuguese (Brazil) jargon glossary — plain language for operators
+
+version: 1
+language: pt
+language_name: Português (Brasil)
+country: br
+status: seeded
+
+terms:
+  - en: AI / artificial intelligence
+    pt: ajuda inteligente do computador
+    say: "Um ajudante inteligente que redige respostas a partir das suas instruções"
+    avoid: "inteligência artificial sem exemplo"
+
+  - en: chatbot
+    pt: respostas automáticas / auxiliar do WhatsApp
+    say: "Ajudante que prepara respostas para mensagens de clientes"
+    avoid: "agente autônomo / workflow agentic"
+
+  - en: prompt
+    pt: instrução
+    say: "As orientações claras que você dá ao auxiliar sobre como responder"
+    avoid: "prompt engineering"
+
+  - en: LLM / large language model
+    pt: modelo de texto inteligente
+    say: "Ferramentas como ChatGPT ou Claude que leem e escrevem texto"
+    avoid: "foundation model"
+
+  - en: API
+    pt: conexão
+    say: "Caminho que liga dois softwares (ex.: WhatsApp à IA)"
+    avoid: "endpoint REST"
+
+  - en: hallucination
+    pt: resposta inventada / errada
+    say: "Quando o auxiliar inventa preço ou fato falso"
+    avoid: "alucinação (sem explicar)"
+
+  - en: human-in-the-loop
+    pt: você revisa antes
+    say: "O auxiliar redige; o dono aprova antes de enviar ao cliente"
+    avoid: "HITL"
+
+  - en: deployment
+    pt: colocar para rodar
+    say: "Ligar o sistema no trabalho do dia a dia"
+    avoid: "deploy em produção (sem passos)"
+
+  - en: RAG / retrieval
+    pt: responder a partir dos seus arquivos
+    say: "O auxiliar lê sua lista de preços/FAQ em vez de chutar"
+    avoid: "banco vetorial"
+
+  - en: eval / evaluation
+    pt: lista de testes
+    say: "Perguntas de exemplo com respostas esperadas"
+    avoid: "eval harness"
+
+  - en: Pix
+    pt: Pix
+    say: "Pagamento instantâneo comum no Brasil — não assuma cartão internacional primeiro"
+    avoid: "gateway Stripe-first"
+
+  - en: WhatsApp Business API
+    pt: conexão oficial do WhatsApp Business (paga)
+    say: "Jeito oficial de um software responder no número comercial"
+    avoid: "WABA / BSP sem explicar"
