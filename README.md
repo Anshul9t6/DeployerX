@@ -8,21 +8,27 @@ Locale-aware playbooks for deploying AI with non-engineer operators.
 
 ## What it is
 
-DeployerX is an open-source field kit:
+The barrier to AI adoption for a kirana owner or a small clinic isn't model
+capability — it's language, trust, and local context. DeployerX is an
+open-source field kit that packages those three things:
 
 1. **Playbooks** — reusable deployment recipes (global)
 2. **Locale packs** — country → admin L2 → admin L3 context (local deltas)
 3. **Decisioning** — constraint questionnaire → recommended playbook + locale path
+4. **Evals** — machine-checkable behavior tests per playbook (never invent a
+   price, escalate when unsure, never give medical advice)
 
 India is the reference implementation. The same tree shape applies to every country.
 
 ## Quick start
 
 ```bash
-make status                 # where we are + refresh STATUS.md metrics
-python3 -m decision.cli
+make status                                          # where we are + refresh STATUS.md metrics
+python3 -m decision.cli                              # constraints → recommended playbook + locale
 python3 -m decision.resolve in uttar-pradesh varanasi
-make check
+python3 -m evals.run api whatsapp-shop-faq --locale in/rajasthan/jaipur   # eval scorecard via Claude API
+python3 -m evals.run prepare whatsapp-shop-faq       # zero-cost eval bundle (browser model)
+make check                                           # hierarchy + site data + eval selftest
 ```
 
 **Session tracking:** [`STATUS.md`](STATUS.md) (today) · [`ROADMAP.md`](ROADMAP.md) (targets)  
@@ -35,16 +41,39 @@ Path A (no paid APIs): open a playbook → browser model → human approval on t
 | [whatsapp-shop-faq](playbooks/whatsapp-shop-faq/) | Retail / local services |
 | [clinic-whatsapp-faq](playbooks/clinic-whatsapp-faq/) | Clinics / labs (non-clinical FAQ only) |
 
+## Evals
+
+Every playbook ships a machine-checkable eval suite
+(`playbooks/<id>/evals/cases.json`). The checks encode the deployment
+contract: answer only from the owner's FAQ, **never invent prices or
+discounts**, escalate to the owner when unsure, and (for clinics) never
+diagnose, prescribe, or interpret reports.
+
+Three ways to run them — scoring is deterministic, so all three grade
+against the same rules:
+
+| Mode | Command | Cost |
+|------|---------|------|
+| API | `python3 -m evals.run api <playbook> [--locale in/rajasthan/jaipur]` | Anthropic API |
+| Path A (manual) | `python3 -m evals.run prepare <playbook>` → paste into a browser model → `score` | zero |
+| Selftest (CI) | `python3 -m evals.run selftest` — grades bundled fixtures | zero, no network |
+
+The system prompt under test is assembled the same way an operator does it
+in `deploy.md`: playbook prompt + FAQ + the merged locale cascade. Run evals
+before any customer-facing use.
+
 ## Architecture
 
 ```
 playbooks/          # global recipes (do not fork per city)
+  <id>/evals/       # cases.json + fixtures (runnable)
 locale-packs/
   _global/          # L0 defaults
   <cc>/             # L1 country
     l2/<slug>/      # L2 state/province/…
       l3/<slug>/    # L3 district/county/…  (deltas only)
 decision/           # resolver + CLI
+evals/              # eval runner + deterministic checks
 docs/               # GitHub Pages (reads docs/data/progress.json)
 ```
 

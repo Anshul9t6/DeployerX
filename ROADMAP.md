@@ -19,7 +19,7 @@ Locale-aware playbooks so non-engineer operators can run AI workflows in their l
 - [x] India L2 index (36) + Brazil L2 index (27)
 - [x] Makefile / AGENTS / professional README
 
-## Phase 1 — Proof (hiring-grade)
+## Phase 1 — Proof (first real deployment)
 
 - [ ] One real Path A field note with **Results** filled (`field-notes/`) — **Jaipur recommended**
 - [ ] Upgrade that locale’s L3 to `verified` after the note
@@ -31,7 +31,7 @@ Locale-aware playbooks so non-engineer operators can run AI workflows in their l
 
 - [ ] ≥5 L3 packs at `seeded` (real local examples, not boilerplate)
 - [ ] Glossaries: promote stubs (`bn` `gu` `kn` `te`) or remove from claims
-- [ ] One additional playbook **or** major upgrade to an existing playbook (evals + Path A)
+- [x] One additional playbook **or** major upgrade to an existing playbook (evals + Path A) — runnable eval harness for both playbooks: `cases.json` + deterministic checks, API / zero-cost Path A / CI selftest modes
 - [ ] Home-district L3 owned by maintainer (AM or local contributor)
 
 ## Phase 3 — Multi-country

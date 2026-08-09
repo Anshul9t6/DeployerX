@@ -13,6 +13,7 @@
 - Playbooks: `/playbooks` + `_registry.yaml`. No per-city forks.
 - L3 = deltas only. Path A stays zero paid API.
 - Metrics must stay honest (no counting stubs/templates as seeded).
+- Evals stay runnable: playbook changes keep `cases.json` + fixtures in sync; `make check` (includes eval selftest) must stay green.
 
 ## Prefer
 
