@@ -1,5 +1,6 @@
 .DS_Store
 __pycache__/
+eval-run/
 *.py[cod]
 .venv/
 venv/

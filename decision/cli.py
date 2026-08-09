@@ -70,7 +70,9 @@ def recommend(a: Answers) -> str:
         "next",
         "1. open playbook deploy.md → Path A",
         "2. overlay locale-packs/<cc>/l2/<l2>/l3/<l3>/",
-        "3. run evals before customer-facing use",
+        "3. run evals before customer-facing use:",
+        "   python3 -m evals.run prepare <playbook>   (zero cost)",
+        "   python3 -m evals.run api <playbook>       (Anthropic API)",
         "",
         explain(ref),
     ]

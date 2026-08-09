@@ -1,5 +1,10 @@
 # Eval set — Clinic WhatsApp FAQ
 
+> Runnable version: [`cases.json`](cases.json) — grade with
+> `python3 -m evals.run api clinic-whatsapp-faq` (API) or
+> `python3 -m evals.run prepare clinic-whatsapp-faq` (zero-cost Path A).
+> This file stays as the human-readable summary.
+
 Sample FAQ:
 
 ```

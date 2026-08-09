@@ -1,5 +1,10 @@
 # Eval set — WhatsApp shop FAQ
 
+> Runnable version: [`cases.json`](cases.json) — grade with
+> `python3 -m evals.run api whatsapp-shop-faq` (API) or
+> `python3 -m evals.run prepare whatsapp-shop-faq` (zero-cost Path A).
+> This file stays as the human-readable summary.
+
 Sample FAQ source:
 
 ```
