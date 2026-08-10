@@ -42,6 +42,7 @@ Locale-aware playbooks so non-engineer operators can run AI workflows in their l
 
 ## Phase 4 — Platform hardening
 
+- [x] MCP server (`deployerx_mcp/`) — playbooks, locale cascade, prompt assembly, and evals exposed to any MCP client; tool layer covered by the CI selftest
 - [ ] Strict YAML-only `_meta.yaml` for all L2 (migrate stubs)
 - [ ] Optional schema validation (JSON Schema or PyYAML)
 - [ ] Decision CLI prints merged constraint excerpt by default

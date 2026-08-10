@@ -38,20 +38,24 @@ def parse_locale(raw: str) -> LocaleRef:
     )
 
 
-def build_system_prompt(suite: EvalSuite, locale: LocaleRef | None) -> str:
-    prompt = suite.prompt_path.read_text(encoding="utf-8")
-    if FAQ_PLACEHOLDER in prompt:
-        prompt = prompt.replace(FAQ_PLACEHOLDER, suite.faq.strip())
+def assemble_prompt(prompt_text: str, faq: str, locale: LocaleRef | None) -> str:
+    """Assemble a deployable system prompt: playbook prompt + FAQ + locale cascade."""
+    if FAQ_PLACEHOLDER in prompt_text:
+        prompt_text = prompt_text.replace(FAQ_PLACEHOLDER, faq.strip())
     else:
-        prompt = f"{prompt.rstrip()}\n\n{suite.faq.strip()}\n"
+        prompt_text = f"{prompt_text.rstrip()}\n\n{faq.strip()}\n"
     if locale is not None:
         constraints = merged_constraints(locale)
         if constraints:
-            prompt = (
-                f"{prompt.rstrip()}\n\n"
+            prompt_text = (
+                f"{prompt_text.rstrip()}\n\n"
                 f"## Local context (merged from locale packs)\n\n{constraints}\n"
             )
-    return prompt
+    return prompt_text
+
+
+def build_system_prompt(suite: EvalSuite, locale: LocaleRef | None) -> str:
+    return assemble_prompt(suite.prompt_path.read_text(encoding="utf-8"), suite.faq, locale)
 
 
 def score_suite(suite: EvalSuite, responses: dict[str, str]) -> dict[str, list[CheckResult]]:
@@ -67,19 +71,27 @@ def score_suite(suite: EvalSuite, responses: dict[str, str]) -> dict[str, list[C
     }
 
 
-def print_scorecard(suite: EvalSuite, results: dict[str, list[CheckResult]], label: str) -> bool:
-    print(f"Eval: {suite.playbook} — {len(suite.cases)} cases — {label}")
+def format_scorecard(
+    suite: EvalSuite, results: dict[str, list[CheckResult]], label: str
+) -> tuple[str, bool]:
+    lines = [f"Eval: {suite.playbook} — {len(suite.cases)} cases — {label}"]
     passed = 0
     for case in suite.cases:
         case_results = results[case.id]
         ok = all(r.passed for r in case_results)
         passed += ok
-        print(f"  {'PASS' if ok else 'FAIL'}  {case.id}")
+        lines.append(f"  {'PASS' if ok else 'FAIL'}  {case.id}")
         for r in case_results:
             if not r.passed:
-                print(f"        - {r.name}: {r.detail}")
-    print(f"Summary: {passed}/{len(suite.cases)} passed")
-    return passed == len(suite.cases)
+                lines.append(f"        - {r.name}: {r.detail}")
+    lines.append(f"Summary: {passed}/{len(suite.cases)} passed")
+    return "\n".join(lines), passed == len(suite.cases)
+
+
+def print_scorecard(suite: EvalSuite, results: dict[str, list[CheckResult]], label: str) -> bool:
+    text, ok = format_scorecard(suite, results, label)
+    print(text)
+    return ok
 
 
 def _load_responses(path: Path) -> dict[str, str]:
@@ -278,12 +290,39 @@ def cmd_selftest(_: argparse.Namespace) -> int:
                         f"got {verdict}" + (f" ({detail})" if detail else "")
                     )
 
+    # MCP tool layer — the server wiring needs the optional `mcp` SDK, but the
+    # tool implementations are stdlib and must stay importable and correct.
+    from deployerx_mcp import tools as mcp_tools
+
+    catalog = mcp_tools.playbook_catalog()
+    for playbook_id in suites:
+        if playbook_id not in catalog:
+            failures.append(f"mcp: playbook_catalog missing {playbook_id}")
+    if "varanasi" not in mcp_tools.locale_context("in", "uttar-pradesh", "varanasi"):
+        failures.append("mcp: locale_context missing varanasi cascade")
+    mcp_prompt = mcp_tools.system_prompt(
+        suites[0], faq="MARKER-FAQ", country="in", l2="uttar-pradesh", l3="varanasi"
+    )
+    if "MARKER-FAQ" not in mcp_prompt or "Local context" not in mcp_prompt:
+        failures.append("mcp: system_prompt assembly broken")
+    for playbook_id in suites:
+        suite = load_suite(playbook_id)
+        compliant = suite.fixtures_dir / "compliant.json"
+        if compliant.exists():
+            fixture = json.loads(compliant.read_text(encoding="utf-8"))
+            scorecard = mcp_tools.eval_responses(playbook_id, fixture["responses"])
+            if f"{len(suite.cases)}/{len(suite.cases)} passed" not in scorecard:
+                failures.append(f"mcp: eval_responses wrong verdict for {playbook_id}")
+
     if failures:
         print(f"SELFTEST FAIL: {len(failures)} problem(s)")
         for f in failures:
             print(f"  - {f}")
         return 1
-    print(f"OK: eval selftest — {checked} fixture verdicts verified across {len(suites)} suites")
+    print(
+        f"OK: eval selftest — {checked} fixture verdicts verified across {len(suites)} suites; "
+        "MCP tool layer OK"
+    )
     return 0
 
 

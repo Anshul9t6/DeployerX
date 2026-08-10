@@ -17,6 +17,8 @@ open-source field kit that packages those three things:
 3. **Decisioning** — constraint questionnaire → recommended playbook + locale path
 4. **Evals** — machine-checkable behavior tests per playbook (never invent a
    price, escalate when unsure, never give medical advice)
+5. **MCP server** — plug the kit into Claude or any MCP client, so agents can
+   pick playbooks, pull locale context, assemble prompts, and grade evals
 
 India is the reference implementation. The same tree shape applies to every country.
 
@@ -62,6 +64,23 @@ The system prompt under test is assembled the same way an operator does it
 in `deploy.md`: playbook prompt + FAQ + the merged locale cascade. Run evals
 before any customer-facing use.
 
+## Agent access (MCP)
+
+The whole kit is usable by AI agents via the
+[Model Context Protocol](https://modelcontextprotocol.io) — an open standard.
+The server runs locally, reads only this repo's files (plus the FAQ text you
+pass in), and makes no network calls of its own.
+
+```bash
+pip install mcp
+claude mcp add deployerx -- python3 /absolute/path/to/DeployerX/deployerx_mcp/server.py
+```
+
+Then ask Claude: *"Set up a WhatsApp FAQ assistant for my guest house in
+Varanasi"* — it picks the playbook, pulls the locale constraints, assembles
+the prompt from your real FAQ, and grades it with the evals.
+Details + Claude Desktop config: [`deployerx_mcp/README.md`](deployerx_mcp/README.md)
+
 ## Architecture
 
 ```
@@ -74,6 +93,7 @@ locale-packs/
       l3/<slug>/    # L3 district/county/…  (deltas only)
 decision/           # resolver + CLI
 evals/              # eval runner + deterministic checks
+deployerx_mcp/      # MCP server — the kit as agent tools (optional: pip install mcp)
 docs/               # GitHub Pages (reads docs/data/progress.json)
 ```
 

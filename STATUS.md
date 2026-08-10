@@ -4,7 +4,7 @@
 > Roadmap: [`ROADMAP.md`](ROADMAP.md) · Live atlas: https://anshul9t6.github.io/DeployerX/
 
 <!-- status:meta -->
-- **Updated:** 2026-08-09
+- **Updated:** 2026-08-10
 - **Phase:** 1 — Proof (first real deployment)
 - **Branch tip:** run `git log -1 --oneline`
 <!-- /status:meta -->
@@ -20,6 +20,7 @@ Scaffold is professional and metrics are honest. Public site + India/Brazil tree
 | Locale cascade | `decision.resolve` + `merged_constraints()` |
 | Playbooks | `whatsapp-shop-faq`, `clinic-whatsapp-faq` via `_registry.yaml` |
 | Evals | `python3 -m evals.run` — `api` / `prepare`+`score` (zero cost) / `selftest` (in `make check`) |
+| MCP server | `deployerx_mcp/` — 8 tools (playbooks, locale cascade, prompt assembly, eval grading) for Claude/any MCP client; local, repo-files-only, no network |
 | CLI | `python3 -m decision.cli` |
 | Pages | `docs/` ← `docs/data/progress.json` (`make site`) |
 | India | 36 L2 metas; **1 L3 seeded** (Varanasi); 10 L3 draft |
@@ -30,7 +31,7 @@ Scaffold is professional and metrics are honest. Public site + India/Brazil tree
 
 <!-- status:metrics -->
 ```
-generated_at:     2026-08-09T18:41:03Z
+generated_at:     2026-08-10T01:53:30Z
 countries:        2
 playbooks:        2
 india_l2_seeded:  10 / index 36
@@ -61,6 +62,7 @@ field_notes:      0  ← must be >0 before Phase 1 complete
 
 | Date | What landed |
 |------|-------------|
+| 2026-08-09 | MCP server (`deployerx_mcp/`): kit exposed as 8 agent tools over stdio; SDK-free tool layer covered by `make check` selftest; setup docs for Claude Desktop/Code |
 | 2026-08-09 | Runnable eval harness: `cases.json` per playbook, deterministic checks (invented-price, escalation, forbidden content), API + zero-cost Path A modes, fixture selftest wired into `make check`/CI |
 | 2026-08-08 | City start guide + top-50 deployments; Jaipur L3 deepened for field work |
 | 2026-08-08 | Dev loop: STATUS.md + ROADMAP.md + `make status` |

@@ -1,4 +1,4 @@
-.PHONY: check site coverage resolve seed-in status help eval eval-selftest
+.PHONY: check site coverage resolve seed-in status help eval eval-selftest mcp
 
 help:
 	@echo "make status         session brief + refresh STATUS.md metrics"
@@ -8,6 +8,7 @@ help:
 	@echo "make resolve        example: make resolve ARGS='in uttar-pradesh varanasi'"
 	@echo "make eval           example: make eval ARGS='api whatsapp-shop-faq --locale in/rajasthan/jaipur'"
 	@echo "make eval-selftest  grade bundled eval fixtures (no network)"
+	@echo "make mcp            run the MCP server on stdio (needs: pip install mcp)"
 	@echo "make seed-in        seed missing India L2 stubs"
 
 status:
@@ -22,6 +23,9 @@ eval:
 
 eval-selftest:
 	python3 -m evals.run selftest
+
+mcp:
+	python3 deployerx_mcp/server.py
 
 site:
 	python3 scripts/generate_site_data.py

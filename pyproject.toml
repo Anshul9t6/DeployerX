@@ -6,5 +6,9 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 
+[project.optional-dependencies]
+api = ["anthropic"]
+mcp = ["mcp"]
+
 [tool.setuptools.packages.find]
-include = ["decision*", "evals*"]
+include = ["decision*", "evals*", "deployerx_mcp*"]
