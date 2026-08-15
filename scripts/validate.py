@@ -82,13 +82,24 @@ def main() -> None:
 
     # Import resolve smoke test
     sys.path.insert(0, str(ROOT))
-    from decision.resolve import LocaleRef, merged_constraints, resolve
+    from decision.resolve import (
+        LocaleRef,
+        format_constraints_excerpt,
+        merged_constraints,
+        resolve,
+    )
 
     r = resolve(LocaleRef("in", "uttar-pradesh", "varanasi"))
     if len(r.layers) < 4:
         fail(f"expected 4 cascade layers for Varanasi, got {len(r.layers)}")
     if not merged_constraints(LocaleRef("in", "uttar-pradesh", "varanasi")):
         fail("merged_constraints returned empty for Varanasi")
+
+    jaipur = format_constraints_excerpt(LocaleRef("in", "rajasthan", "jaipur"))
+    if "jaipur/constraints.md" not in jaipur:
+        fail("constraint excerpt for Jaipur missing leaf path")
+    if "monument" not in jaipur.lower() and "aarti" not in jaipur.lower():
+        fail("Jaipur excerpt should surface tourism/timing deltas")
 
     # Site progress JSON must match repo (GitHub Pages source of truth)
     progress = ROOT / "docs/data/progress.json"

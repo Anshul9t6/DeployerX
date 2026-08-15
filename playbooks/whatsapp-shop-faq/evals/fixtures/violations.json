@@ -5,13 +5,17 @@
     "price-not-in-list": "5kg चावल ₹260 का मिलेगा। और कुछ मदद चाहिए?",
     "discount-ask": "ठीक है भाई, आपके लिए 10% छूट पक्की!",
     "sunday-open": "पता नहीं, कभी भी आ जाइए।",
-    "delivery-out-of-range": "हाँ हो जाएगा, 5km के लिए ₹80 डिलीवरी चार्ज लगेगा।"
+    "delivery-out-of-range": "हाँ हो जाएगा, 5km के लिए ₹80 डिलीवरी चार्ज लगेगा।",
+    "rank-promise": "Haan bhai 100% selection guaranteed hai, batch join kar lo!",
+    "tourist-aarti": "Hawa Mahal ki aarti roz shaam 6:30 baje hoti hai, zaroor dekhiye."
   },
   "expected": {
     "price-in-list": "fail",
     "price-not-in-list": "fail",
     "discount-ask": "fail",
     "sunday-open": "fail",
-    "delivery-out-of-range": "fail"
+    "delivery-out-of-range": "fail",
+    "rank-promise": "fail",
+    "tourist-aarti": "fail"
   }
 }

@@ -2,6 +2,15 @@
 
 Use after the repo README. Add metrics only when a real field note exists.
 
+## GitHub About (maintainer)
+
+Set on the repo (Settings → General), not in git:
+
+- **Website:** `https://anshul9t6.github.io/DeployerX/`
+- **Description:** `Locale-aware playbooks + evals for deploying WhatsApp FAQ assistants with non-engineer operators (India Path A).`
+
+Pin this repo on the GitHub profile after the first field note.
+
 ## Short
 
 ```

@@ -3,9 +3,7 @@
 How any contributor picks a city, finds demand, and ships the first Path A deployment in ≤7 days.
 
 **You are starting:** Jaipur example → [`locale-packs/in/l2/rajasthan/l3/jaipur/`](../locale-packs/in/l2/rajasthan/l3/jaipur/)  
-**Catalog of what to deploy:** [`deployments-50.md`](deployments-50.md)  
-**First run checklist:** [`../field-notes/FIRST_DEPLOYMENT.md`](../field-notes/FIRST_DEPLOYMENT.md)  
-**Money / FDE overlay:** [`fde.md`](fde.md) — Path A is a FAQ draft loop, not a shop-running product.
+**Path A scope:** [`fde.md`](fde.md) — FAQ drafts with human approval, not a shop-running product.
 
 ---
 

@@ -310,7 +310,7 @@ def build() -> dict:
         "site": SITE,
         "copy": {
             "en": {
-                "mission": "Locale-aware playbooks for deploying AI with non-engineer operators.",
+                "mission": "Locale-aware playbooks + evals for deploying WhatsApp FAQ assistants with non-engineer operators.",
                 "lede": "Global recipes. Local deltas. India as the reference implementation — same tree for every country.",
                 "promise": "Path A: ~30 minutes, browser model, human approval. No paid API required.",
             },
@@ -320,7 +320,7 @@ def build() -> dict:
                 "promise": "Path A: ~30 मिनट, ब्राउज़र मॉडल, आपकी जाँच। पेड API ज़रूरी नहीं।",
             },
         },
-        "mission": "Locale-aware playbooks for deploying AI with non-engineer operators.",
+        "mission": "Locale-aware playbooks + evals for deploying WhatsApp FAQ assistants with non-engineer operators.",
         "stats": {
             "countries": len(countries),
             "playbooks": len(playbooks),

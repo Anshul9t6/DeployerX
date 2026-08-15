@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from decision.playbooks import pick_playbook
-from decision.resolve import LocaleRef, explain, resolve
+from decision.resolve import LocaleRef, explain, format_constraints_excerpt, resolve
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -75,6 +75,8 @@ def recommend(a: Answers) -> str:
         "   python3 -m evals.run api <playbook>       (Anthropic API)",
         "",
         explain(ref),
+        "",
+        format_constraints_excerpt(ref),
     ]
     return "\n".join(lines)
 
@@ -96,8 +98,8 @@ def main() -> None:
 
     answers = Answers(
         country=_ask("country (ISO)", "in").lower(),
-        l2=_ask("L2 slug", "uttar-pradesh").lower(),
-        l3=_ask("L3 slug (optional)", "varanasi").lower(),
+        l2=_ask("L2 slug", "rajasthan").lower(),
+        l3=_ask("L3 slug (optional)", "jaipur").lower(),
         language=_ask("customer language", "hi").lower(),
         channel=_ask("channel", "whatsapp").lower(),
         has_engineer=_ask_bool("engineer on staff?", False),

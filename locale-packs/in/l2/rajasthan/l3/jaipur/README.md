@@ -4,7 +4,7 @@ country: in
 l2: rajasthan
 l3: jaipur
 languages: [hi, en]
-maintainers: []
+maintainers: [Anshul9t6]
 status: draft
 ---
 
@@ -14,7 +14,7 @@ Hindi / Hinglish default. Strong corridors: neighborhood retail, coaching belts,
 
 **Start guide:** [`guides/city-start.md`](../../../../../../guides/city-start.md)  
 **Catalog:** [`guides/deployments-50.md`](../../../../../../guides/deployments-50.md)  
-**FDE / money:** [`guides/fde.md`](../../../../../../guides/fde.md)
+**Path A scope:** [`guides/fde.md`](../../../../../../guides/fde.md)
 
 ## First five deployments (P0)
 

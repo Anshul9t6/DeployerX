@@ -11,28 +11,28 @@
 
 ## Where we are
 
-Scaffold is professional and metrics are honest. Public site + India/Brazil trees exist. Playbook evals are runnable. MCP server exists. **FDE/money overlay is written** (`guides/fde.md`): Path A sells FAQ-draft labor, not shop-running SaaS. **No real field deployment yet** — that remains the critical path and the only thing that makes the FDE claim true.
+Scaffold is professional and metrics are honest. Public README is product-first (no “hire me” banner). Resolver prints the **leaf constraint excerpt** by default. Jaipur L3 lists maintainer `Anshul9t6`. Shop evals encode the P0 never-list (no rank promises, no invented tourist timings). **No real field deployment yet** — that remains the only thing that makes an FDE claim true.
 
 ### Works today
 
 | Capability | Notes |
 |------------|--------|
-| Locale cascade | `decision.resolve` + `merged_constraints()` |
+| Locale cascade | `decision.resolve` prints leaf excerpt by default; `--merge` for full stack |
 | Playbooks | `whatsapp-shop-faq`, `clinic-whatsapp-faq` via `_registry.yaml` |
-| Evals | `python3 -m evals.run` — `api` / `prepare`+`score` (zero cost) / `selftest` (in `make check`) |
+| Evals | shop: 7 cases (incl. rank-promise, tourist-aarti); clinic: 5; `api` / `prepare`+`score` / `selftest` |
 | MCP server | `deployerx_mcp/` — 8 tools (playbooks, locale cascade, prompt assembly, eval grading) for Claude/any MCP client; local, repo-files-only, no network |
-| CLI | `python3 -m decision.cli` |
+| CLI | `python3 -m decision.cli` (defaults to `in/rajasthan/jaipur`) |
 | Pages | `docs/` ← `docs/data/progress.json` (`make site`) |
-| India | 36 L2 metas; **1 L3 seeded** (Varanasi); 10 L3 draft |
+| India | 36 L2 metas; **1 L3 seeded** (Varanasi); 10 L3 draft; Jaipur maintainer `Anshul9t6` |
 | Brazil | 27 L2 listed/draft; São Paulo L3 scaffold; status **draft** |
 | Glossaries | seeded: hi, mr, ta · stub: bn, gu, kn, te |
-| FDE overlay | `guides/fde.md` — Path A = FAQ drafts + setup fees, not MSME SaaS |
+| Path A scope | `guides/fde.md` — FAQ drafts + setup fees, not MSME SaaS |
 
 ### Honest metrics
 
 <!-- status:metrics -->
 ```
-generated_at:     2026-08-15T17:36:29Z
+generated_at:     2026-08-15T17:48:57Z
 countries:        2
 playbooks:        2
 india_l2_seeded:  10 / index 36
@@ -50,7 +50,7 @@ field_notes:      0  ← must be >0 before Phase 1 complete
 ## Blocked / waiting on human
 
 - Real Path A Results (cannot invent)
-- GitHub repo About → Website URL
+- GitHub repo About → Website `https://anshul9t6.github.io/DeployerX/` · Description in [`SHARE.md`](SHARE.md)
 
 ## Next (do in order)
 
@@ -64,6 +64,7 @@ field_notes:      0  ← must be >0 before Phase 1 complete
 
 | Date | What landed |
 |------|-------------|
+| 2026-08-15 | Portfolio hardening: leaf constraint excerpt by default; Jaipur maintainer `Anshul9t6`; shop evals for rank-promises + invented tourist timings; README product-first with empty field-notes section |
 | 2026-08-15 | FDE path guide (`guides/fde.md`): honest automation/money/portfolio overlay; field-note template adds baseline volume, time-to-reply, eval walk |
 | 2026-08-09 | MCP server (`deployerx_mcp/`): kit exposed as 8 agent tools over stdio; SDK-free tool layer covered by `make check` selftest; setup docs for Claude Desktop/Code |
 | 2026-08-09 | Runnable eval harness: `cases.json` per playbook, deterministic checks (invented-price, escalation, forbidden content), API + zero-cost Path A modes, fixture selftest wired into `make check`/CI |

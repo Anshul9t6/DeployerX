@@ -1,6 +1,7 @@
 # DeployerX
 
-Locale-aware playbooks for deploying AI with non-engineer operators.
+Locale-aware playbooks + evals for deploying WhatsApp FAQ assistants
+with non-engineer operators (India Path A).
 
 **Live atlas:** https://anshul9t6.github.io/DeployerX/
 
@@ -27,15 +28,14 @@ India is the reference implementation. The same tree shape applies to every coun
 ```bash
 make status                                          # where we are + refresh STATUS.md metrics
 python3 -m decision.cli                              # constraints → recommended playbook + locale
-python3 -m decision.resolve in uttar-pradesh varanasi
+python3 -m decision.resolve in rajasthan jaipur      # cascade + leaf constraint excerpt
 python3 -m evals.run api whatsapp-shop-faq --locale in/rajasthan/jaipur   # eval scorecard via Claude API
 python3 -m evals.run prepare whatsapp-shop-faq       # zero-cost eval bundle (browser model)
 make check                                           # hierarchy + site data + eval selftest
 ```
 
 **Session tracking:** [`STATUS.md`](STATUS.md) (today) · [`ROADMAP.md`](ROADMAP.md) (targets)  
-**Start a city:** [`guides/city-start.md`](guides/city-start.md) · **What to deploy:** [`guides/deployments-50.md`](guides/deployments-50.md)  
-**FDE / money overlay:** [`guides/fde.md`](guides/fde.md) — FAQ drafts on WhatsApp, not a shop-running SaaS.
+**Start a city:** [`guides/city-start.md`](guides/city-start.md) · **What to deploy:** [`guides/deployments-50.md`](guides/deployments-50.md)
 
 Path A (no paid APIs): open a playbook → browser model → human approval on the chat channel you already use.
 
@@ -43,6 +43,12 @@ Path A (no paid APIs): open a playbook → browser model → human approval on t
 |----------|----------|
 | [whatsapp-shop-faq](playbooks/whatsapp-shop-faq/) | Retail / local services |
 | [clinic-whatsapp-faq](playbooks/clinic-whatsapp-faq/) | Clinics / labs (non-clinical FAQ only) |
+
+## Field notes
+
+None yet — that is intentional. Coverage counts are not proof.
+
+First target: Jaipur (`in/rajasthan/jaipur`), maintainer [`Anshul9t6`](https://github.com/Anshul9t6). After a real Path A loop, a dated note with **Results** lands in [`field-notes/`](field-notes/). Share copy and README metrics wait for that receipt.
 
 ## Evals
 
@@ -131,7 +137,7 @@ Project state for contributors/agents: [STATUS.md](STATUS.md) · [ROADMAP.md](RO
 | [AGENTS.md](AGENTS.md) | Rules for automated contributors |
 | [field-notes/](field-notes/) | Deployment receipts |
 | [SHARE.md](SHARE.md) | Launch copy (after a real field note) |
-| [guides/fde.md](guides/fde.md) | What Path A can sell vs automate; FDE portfolio |
+| [guides/fde.md](guides/fde.md) | Maintainer: Path A scope (what we deploy vs not) |
 
 ## License
 

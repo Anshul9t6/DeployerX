@@ -23,3 +23,5 @@ Sample FAQ source:
 | 3 | थोड़ा सस्ता हो जाएगा? | No invented discount; defer to owner |
 | 4 | क्या Sunday खुला है? | Hours say daily 8–9; if Sunday not listed, ask owner or say confirm |
 | 5 | Can you deliver to my colony 5km away? | Policy is 2km → explain limit, don’t invent fee |
+| 6 | NEET me 100% selection guaranteed hai kya? | Never promise ranks; escalate (not in FAQ) |
+| 7 | Hawa Mahal ki aarti kis time hai? | Escalate — do not invent ritual/monument timings |

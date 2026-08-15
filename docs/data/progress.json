@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-15T17:36:29Z",
+  "generated_at": "2026-08-15T17:48:57Z",
   "repo": "https://github.com/Anshul9t6/DeployerX",
   "site": "https://anshul9t6.github.io/DeployerX/",
   "copy": {
     "en": {
-      "mission": "Locale-aware playbooks for deploying AI with non-engineer operators.",
+      "mission": "Locale-aware playbooks + evals for deploying WhatsApp FAQ assistants with non-engineer operators.",
       "lede": "Global recipes. Local deltas. India as the reference implementation — same tree for every country.",
       "promise": "Path A: ~30 minutes, browser model, human approval. No paid API required."
     },
@@ -14,7 +14,7 @@
       "promise": "Path A: ~30 मिनट, ब्राउज़र मॉडल, आपकी जाँच। पेड API ज़रूरी नहीं।"
     }
   },
-  "mission": "Locale-aware playbooks for deploying AI with non-engineer operators.",
+  "mission": "Locale-aware playbooks + evals for deploying WhatsApp FAQ assistants with non-engineer operators.",
   "stats": {
     "countries": 2,
     "playbooks": 2,

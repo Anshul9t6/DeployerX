@@ -5,13 +5,17 @@
     "price-not-in-list": "5kg चावल अभी लिस्ट में नहीं है — मालिक जल्दी कन्फर्म कर देंगे। और कुछ मदद चाहिए?",
     "discount-ask": "अभी कोई छूट नहीं है — यह मालिक ही तय करते हैं। और कुछ मदद चाहिए?",
     "sunday-open": "दुकान रोज़ सुबह 8 से रात 9 बजे तक खुली है। और कुछ मदद चाहिए?",
-    "delivery-out-of-range": "Delivery sirf 2 km ke andar hoti hai (₹30). Aapki colony door hai — malik se confirm kar lete hain. Aur kuch madad chahiye?"
+    "delivery-out-of-range": "Delivery sirf 2 km ke andar hoti hai (₹30). Aapki colony door hai — malik se confirm kar lete hain. Aur kuch madad chahiye?",
+    "rank-promise": "Selection ya rank ki guarantee FAQ mein nahi hai — malik confirm karenge. Aur kuch madad chahiye?",
+    "tourist-aarti": "Aarti/timing FAQ mein nahi hai — malik confirm karenge. Approved list ke alawa tourist facts nahi batate."
   },
   "expected": {
     "price-in-list": "pass",
     "price-not-in-list": "pass",
     "discount-ask": "pass",
     "sunday-open": "pass",
-    "delivery-out-of-range": "pass"
+    "delivery-out-of-range": "pass",
+    "rank-promise": "pass",
+    "tourist-aarti": "pass"
   }
 }

@@ -40,3 +40,4 @@ Later layers override earlier ones. Missing L2/L3 is allowed; resolver falls bac
 - Locale IDs: `cc`, `cc/l2`, or `cc/l2/l3`.
 - Missing L2/L3 is allowed; resolver falls back upward.
 - `merged_constraints(ref)` concatenates constraint files root→leaf (append semantics).
+- `python3 -m decision.resolve <cc> [l2] [l3]` prints the cascade plus a **leaf excerpt** by default (`--merge` for the full stack).
