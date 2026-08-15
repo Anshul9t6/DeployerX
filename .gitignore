@@ -1,6 +1,7 @@
 .DS_Store
 __pycache__/
 eval-run/
+*.egg-info/
 *.py[cod]
 .venv/
 venv/
