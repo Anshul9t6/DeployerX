@@ -13,7 +13,8 @@ status: draft
 Hindi / Hinglish default. Strong corridors: neighborhood retail, coaching belts, clinic lanes, tourism/hospitality (old city, MI Road, Bani Park), jewelry & handicraft.
 
 **Start guide:** [`guides/city-start.md`](../../../../../../guides/city-start.md)  
-**Catalog:** [`guides/deployments-50.md`](../../../../../../guides/deployments-50.md)
+**Catalog:** [`guides/deployments-50.md`](../../../../../../guides/deployments-50.md)  
+**FDE / money:** [`guides/fde.md`](../../../../../../guides/fde.md)
 
 ## First five deployments (P0)
 

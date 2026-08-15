@@ -26,6 +26,7 @@ Locale-aware playbooks so non-engineer operators can run AI workflows in their l
 - [ ] Share post only after the field note (`SHARE.md`)
 - [ ] Repo About → Website set to Pages URL
 - [x] City start guide + top-50 deployment catalog (`guides/`)
+- [x] FDE path guide — what Path A can sell vs automate vs prove (`guides/fde.md`)
 
 ## Phase 2 — India depth
 

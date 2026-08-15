@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- FDE path guide (`guides/fde.md`): honest money / automation / portfolio overlay for Path A; field-note template records baseline volume, time-to-reply, and eval walk
+
 ## 0.1.0
 
 - Locale cascade L0→L1→L2→L3 with India reference + Brazil L2 scaffold

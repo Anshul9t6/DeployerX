@@ -34,7 +34,8 @@ make check                                           # hierarchy + site data + e
 ```
 
 **Session tracking:** [`STATUS.md`](STATUS.md) (today) · [`ROADMAP.md`](ROADMAP.md) (targets)  
-**Start a city:** [`guides/city-start.md`](guides/city-start.md) · **What to deploy:** [`guides/deployments-50.md`](guides/deployments-50.md)
+**Start a city:** [`guides/city-start.md`](guides/city-start.md) · **What to deploy:** [`guides/deployments-50.md`](guides/deployments-50.md)  
+**FDE / money overlay:** [`guides/fde.md`](guides/fde.md) — FAQ drafts on WhatsApp, not a shop-running SaaS.
 
 Path A (no paid APIs): open a playbook → browser model → human approval on the chat channel you already use.
 
@@ -130,6 +131,7 @@ Project state for contributors/agents: [STATUS.md](STATUS.md) · [ROADMAP.md](RO
 | [AGENTS.md](AGENTS.md) | Rules for automated contributors |
 | [field-notes/](field-notes/) | Deployment receipts |
 | [SHARE.md](SHARE.md) | Launch copy (after a real field note) |
+| [guides/fde.md](guides/fde.md) | What Path A can sell vs automate; FDE portfolio |
 
 ## License
 
