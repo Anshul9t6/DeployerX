@@ -20,4 +20,6 @@ jobs:
       - name: Site data smoke
         run: make site
       - name: Resolver smoke
-        run: make resolve ARGS="in uttar-pradesh varanasi"
+        run: |
+          make resolve ARGS="in uttar-pradesh varanasi"
+          make resolve ARGS="in rajasthan jaipur"

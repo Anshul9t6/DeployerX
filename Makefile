@@ -5,7 +5,7 @@ help:
 	@echo "make check          validate hierarchy + site data sync + eval selftest"
 	@echo "make site           regenerate docs/data/progress.json"
 	@echo "make coverage       print coverage report"
-	@echo "make resolve        example: make resolve ARGS='in uttar-pradesh varanasi'"
+	@echo "make resolve        example: make resolve ARGS='in rajasthan jaipur'"
 	@echo "make eval           example: make eval ARGS='api whatsapp-shop-faq --locale in/rajasthan/jaipur'"
 	@echo "make eval-selftest  grade bundled eval fixtures (no network)"
 	@echo "make mcp            run the MCP server on stdio (needs: pip install mcp)"

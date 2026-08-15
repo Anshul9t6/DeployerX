@@ -1,5 +1,7 @@
 # Contributing
 
+README opens with the L3 ask. This file is the folder contract.
+
 ## Principles
 
 1. Same folder contract for every country (`schema/hierarchy.md`)
@@ -17,7 +19,7 @@
 ## L3 pack
 
 ```bash
-cc=in l2=uttar-pradesh l3=your-district
+cc=in l2=rajasthan l3=your-district
 mkdir -p locale-packs/$cc/l2/$l2/l3/$l3
 cp locale-packs/_templates/l3/* locale-packs/$cc/l2/$l2/l3/$l3/
 ```

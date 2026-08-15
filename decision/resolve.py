@@ -70,6 +70,33 @@ def merged_constraints(ref: LocaleRef) -> str:
     return "\n\n".join(parts)
 
 
+def format_constraints_excerpt(ref: LocaleRef, max_chars: int = 1600) -> str:
+    """Leaf constraints.md — what a deployer actually added. Full stack via --merge."""
+    r = resolve(ref)
+    if not r.constraints_files:
+        return "--- constraints excerpt ---\n(no constraints.md in this cascade)"
+
+    leaf = r.constraints_files[-1]
+    body = leaf.read_text().strip()
+    if len(body) > max_chars:
+        body = body[: max_chars - 1].rstrip() + "…"
+
+    lines = [
+        "--- constraints excerpt (leaf wins) ---",
+        f"leaf: {leaf.relative_to(ROOT)}",
+        "",
+        body,
+    ]
+    if len(r.constraints_files) > 1:
+        earlier = ", ".join(str(p.relative_to(ROOT)) for p in r.constraints_files[:-1])
+        lines += [
+            "",
+            f"earlier layers ({len(r.constraints_files) - 1}): {earlier}",
+            "full merge: python3 -m decision.resolve <cc> [l2] [l3] --merge",
+        ]
+    return "\n".join(lines)
+
+
 def explain(ref: LocaleRef) -> str:
     r = resolve(ref)
     lines = [f"resolve {r.id}", "cascade:"]
@@ -89,11 +116,16 @@ def explain(ref: LocaleRef) -> str:
 if __name__ == "__main__":
     import sys
 
-    country = sys.argv[1] if len(sys.argv) > 1 else "in"
-    l2 = sys.argv[2] if len(sys.argv) > 2 else None
-    l3 = sys.argv[3] if len(sys.argv) > 3 else None
+    flags = {"--merge", "--no-excerpt"}
+    positionals = [a for a in sys.argv[1:] if a not in flags]
+    country = positionals[0] if len(positionals) > 0 else "in"
+    l2 = positionals[1] if len(positionals) > 1 else None
+    l3 = positionals[2] if len(positionals) > 2 else None
     ref = LocaleRef(country=country, l2=l2, l3=l3)
     print(explain(ref))
+    if "--no-excerpt" not in sys.argv:
+        print()
+        print(format_constraints_excerpt(ref))
     if "--merge" in sys.argv:
-        print("\n--- merged constraints ---\n")
+        print("\n--- merged constraints (root→leaf, local wins) ---\n")
         print(merged_constraints(ref))
