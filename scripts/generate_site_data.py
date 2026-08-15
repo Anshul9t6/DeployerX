@@ -148,10 +148,6 @@ def _india() -> dict:
         if status != "listed":
             seeded_l2 += 1
         l3_dirs = sorted((d / "l3").glob("*/README.md")) if (d / "l3").exists() else []
-        mtime = max(
-            [d.stat().st_mtime] + [r.stat().st_mtime for r in l3_dirs],
-            default=d.stat().st_mtime,
-        )
         l2_items.append(
             {
                 "slug": d.name,
@@ -159,7 +155,6 @@ def _india() -> dict:
                 "status": status,
                 "l3_count": len(l3_dirs),
                 "url": f"{REPO}/tree/main/locale-packs/in/l2/{d.name}",
-                "mtime": mtime,
             }
         )
         for readme in l3_dirs:
@@ -190,7 +185,6 @@ def _india() -> dict:
                     "languages": langs,
                     "blurb": blurb,
                     "url": f"{REPO}/tree/main/locale-packs/in/l2/{d.name}/l3/{readme.parent.name}",
-                    "mtime": readme.stat().st_mtime,
                 }
             )
 
@@ -207,7 +201,12 @@ def _india() -> dict:
             glossaries_stub.append(g.stem)
         else:
             glossaries_seeded.append(g.stem)
-    recent = sorted(l3_items, key=lambda x: x["mtime"], reverse=True)[:5]
+    # Showcase the most-complete packs first. Deterministic and independent of
+    # filesystem mtime (which is non-reproducible across fresh git checkouts).
+    _status_rank = {"seeded": 0, "verified": 0, "draft": 1}
+    recent = sorted(
+        l3_items, key=lambda x: (_status_rank.get(x["status"], 2), x["l2"], x["slug"])
+    )[:5]
     l3_seeded = sum(1 for i in l3_items if i["status"] == "seeded")
     l3_draft = sum(1 for i in l3_items if i["status"] == "draft")
 
@@ -223,10 +222,7 @@ def _india() -> dict:
         "glossaries_stub": glossaries_stub,
         "l2": sorted(l2_items, key=lambda x: (-x["l3_count"], x["name"])),
         "l3": sorted(l3_items, key=lambda x: (x["l2"], x["slug"])),
-        "recent_l3": [
-            {k: v for k, v in item.items() if k != "mtime"}
-            for item in recent
-        ],
+        "recent_l3": recent,
     }
 
 
@@ -297,12 +293,7 @@ def build() -> dict:
     playbooks = _playbooks()
     countries = _countries()
     india = _india()
-    # strip mtimes from l2/l3 public payload
-    india_public = {
-        **india,
-        "l2": [{k: v for k, v in i.items() if k != "mtime"} for i in india["l2"]],
-        "l3": [{k: v for k, v in i.items() if k != "mtime"} for i in india["l3"]],
-    }
+    india_public = india
     notes = _field_notes()
     return {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),

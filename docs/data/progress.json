@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T17:48:57Z",
+  "generated_at": "2026-08-15T17:55:57Z",
   "repo": "https://github.com/Anshul9t6/DeployerX",
   "site": "https://anshul9t6.github.io/DeployerX/",
   "copy": {
@@ -480,14 +480,14 @@
     ],
     "recent_l3": [
       {
-        "l2": "rajasthan",
-        "l2_name": "Rajasthan",
-        "slug": "jaipur",
-        "name": "Jaipur",
-        "status": "draft",
-        "languages": "[hi, en]",
-        "blurb": "Hindi / Hinglish default. Strong corridors: neighborhood retail, coaching belts, clinic lanes, tourism/hospitality (old city, MI Road, Bani Park), jewelry & han",
-        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/rajasthan/l3/jaipur"
+        "l2": "uttar-pradesh",
+        "l2_name": "Uttar Pradesh",
+        "slug": "varanasi",
+        "name": "Varanasi",
+        "status": "seeded",
+        "languages": "[hi, bho]",
+        "blurb": "Pilgrimage + local retail + hospitality. Customers message in Hindi / Bhojpuri / Hinglish. Peak seasons spike FAQs on timings, rates, availability.",
+        "url": "https://github.com/Anshul9t6/DeployerX/tree/main/locale-packs/in/l2/uttar-pradesh/l3/varanasi"
       },
       {
         "l2": "bihar",

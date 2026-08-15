@@ -1,0 +1,4 @@
+{
+  "name": "DeployerX",
+  "install": "python3 -m pip install --user --upgrade pip >/dev/null && python3 -m pip install --user -e \".[mcp]\""
+}
