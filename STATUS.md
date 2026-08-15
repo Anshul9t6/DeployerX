@@ -11,7 +11,7 @@
 
 ## Where we are
 
-Scaffold is professional and metrics are honest. Public README is product-first (no “hire me” banner). Resolver prints the **leaf constraint excerpt** by default. Jaipur L3 lists maintainer `Anshul9t6`. Shop evals encode the P0 never-list (no rank promises, no invented tourist timings). **No real field deployment yet** — that remains the only thing that makes an FDE claim true.
+Scaffold is professional and metrics are honest. Public README opens with a contribute hook (L3 district pack) and stays product-first — no invented Results. Resolver prints the **leaf constraint excerpt** by default. Jaipur L3 lists maintainer `Anshul9t6`. Shop evals encode the P0 never-list. **No real field deployment yet** — that remains the only thing that makes an FDE claim true.
 
 ### Works today
 
@@ -32,7 +32,7 @@ Scaffold is professional and metrics are honest. Public README is product-first 
 
 <!-- status:metrics -->
 ```
-generated_at:     2026-08-15T17:48:57Z
+generated_at:     2026-08-15T17:52:00Z
 countries:        2
 playbooks:        2
 india_l2_seeded:  10 / index 36
@@ -64,6 +64,7 @@ field_notes:      0  ← must be >0 before Phase 1 complete
 
 | Date | What landed |
 |------|-------------|
+| 2026-08-15 | README hook: invented-discount eval as the product; contribute table + L3 copy-paste first; CI badge |
 | 2026-08-15 | Portfolio hardening: leaf constraint excerpt by default; Jaipur maintainer `Anshul9t6`; shop evals for rank-promises + invented tourist timings; README product-first with empty field-notes section |
 | 2026-08-15 | FDE path guide (`guides/fde.md`): honest automation/money/portfolio overlay; field-note template adds baseline volume, time-to-reply, eval walk |
 | 2026-08-09 | MCP server (`deployerx_mcp/`): kit exposed as 8 agent tools over stdio; SDK-free tool layer covered by `make check` selftest; setup docs for Claude Desktop/Code |
