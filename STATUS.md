@@ -4,14 +4,14 @@
 > Roadmap: [`ROADMAP.md`](ROADMAP.md) · Live atlas: https://anshul9t6.github.io/DeployerX/
 
 <!-- status:meta -->
-- **Updated:** 2026-08-15
+- **Updated:** 2026-08-21
 - **Phase:** 1 — Proof (first real deployment)
 - **Branch tip:** run `git log -1 --oneline`
 <!-- /status:meta -->
 
 ## Where we are
 
-Scaffold is professional and metrics are honest. Public README opens with a contribute hook (L3 district pack) and stays product-first — no invented Results. Resolver prints the **leaf constraint excerpt** by default. Jaipur L3 lists maintainer `Anshul9t6`. Shop evals encode the P0 never-list. **No real field deployment yet** — that remains the only thing that makes an FDE claim true.
+Synced to `main`. World-kit language is real: `system.pt.md` + `cases-pt.json` for both playbooks; price checks accept `R$`. São Paulo L3 is **draft** (honest). [`guides/world.md`](guides/world.md) is the public “one deployer, any country” pitch. **No real field deployment yet** — that remains the only hireable FDE receipt.
 
 ### Works today
 
@@ -19,20 +19,20 @@ Scaffold is professional and metrics are honest. Public README opens with a cont
 |------------|--------|
 | Locale cascade | `decision.resolve` prints leaf excerpt by default; `--merge` for full stack |
 | Playbooks | `whatsapp-shop-faq`, `clinic-whatsapp-faq` via `_registry.yaml` |
-| Evals | shop: 7 cases (incl. rank-promise, tourist-aarti); clinic: 5; `api` / `prepare`+`score` / `selftest` |
+| Evals | 4 suites (hi + pt × shop/clinic); `selftest` 38 fixture verdicts; `--cases cases-pt.json` |
 | MCP server | `deployerx_mcp/` — 8 tools (playbooks, locale cascade, prompt assembly, eval grading) for Claude/any MCP client; local, repo-files-only, no network |
 | CLI | `python3 -m decision.cli` (defaults to `in/rajasthan/jaipur`) |
 | Pages | `docs/` ← `docs/data/progress.json` (`make site`) |
 | India | 36 L2 metas; **1 L3 seeded** (Varanasi); 10 L3 draft; Jaipur maintainer `Anshul9t6` |
-| Brazil | 27 L2 listed/draft; São Paulo L3 scaffold; status **draft** |
+| Brazil | 27 L2; São Paulo L3 **draft** (pt prompts exist; no maintainer, not seeded) |
 | Glossaries | seeded: hi, mr, ta · stub: bn, gu, kn, te |
-| Path A scope | `guides/fde.md` — FAQ drafts + setup fees, not MSME SaaS |
+| Path A scope | `guides/fde.md` + `guides/world.md` — FAQ drafts; same tree worldwide |
 
 ### Honest metrics
 
 <!-- status:metrics -->
 ```
-generated_at:     2026-08-15T17:52:00Z
+generated_at:     2026-08-21T02:41:58Z
 countries:        2
 playbooks:        2
 india_l2_seeded:  10 / index 36
@@ -64,6 +64,7 @@ field_notes:      0  ← must be >0 before Phase 1 complete
 
 | Date | What landed |
 |------|-------------|
+| 2026-08-21 | World kit: Portuguese prompts + evals; `R$` price checks; `guides/world.md`; São Paulo L3 draft (honest); CODE_OF_CONDUCT |
 | 2026-08-15 | README hook: invented-discount eval as the product; contribute table + L3 copy-paste first; CI badge |
 | 2026-08-15 | Portfolio hardening: leaf constraint excerpt by default; Jaipur maintainer `Anshul9t6`; shop evals for rank-promises + invented tourist timings; README product-first with empty field-notes section |
 | 2026-08-15 | FDE path guide (`guides/fde.md`): honest automation/money/portfolio overlay; field-note template adds baseline volume, time-to-reply, eval walk |

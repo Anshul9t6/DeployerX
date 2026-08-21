@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read the world kit
+    url: https://github.com/Anshul9t6/DeployerX/blob/main/guides/world.md
+    about: Same playbooks worldwide. Local deltas only. When to open a country.
+  - name: Live atlas
+    url: https://anshul9t6.github.io/DeployerX/
+    about: Coverage generated from the repo (honest counts).

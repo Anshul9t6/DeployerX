@@ -15,7 +15,7 @@ Playbooks are **global**. Locales overlay language and trust; they do not copy t
 | `deploy.md` | Path A (zero cost) then optional upgrades |
 | `cost.md` | Cost bands in local currency terms |
 | `prompts/` | System prompts by language |
-| `evals/` | `cases.json` (machine-checkable, run via `python3 -m evals.run`) + `fixtures/` (scorer regression tests) + human-readable summary |
+| `evals/` | `cases.json` plus optional `cases-<lang>.json` (e.g. `cases-pt.json`) + matching `fixtures/` / `fixtures-<lang>/` |
 
 ## Frontmatter (README)
 

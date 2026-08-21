@@ -84,6 +84,11 @@ def _playbooks() -> list[dict]:
                 "url": f"{REPO}/tree/main/playbooks/{p.name}",
                 "prompt_hi": f"{REPO}/blob/main/playbooks/{p.name}/prompts/system.hi.md",
                 "prompt_en": f"{REPO}/blob/main/playbooks/{p.name}/prompts/system.en.md",
+                "prompt_pt": (
+                    f"{REPO}/blob/main/playbooks/{p.name}/prompts/system.pt.md"
+                    if (p / "prompts" / "system.pt.md").exists()
+                    else ""
+                ),
                 "deploy_url": f"{REPO}/blob/main/playbooks/{p.name}/deploy.md",
             }
         )
@@ -331,7 +336,7 @@ def build() -> dict:
         "path_a": {
             "steps": [
                 {"id": "use_case", "title": "Pick a use case", "hint": "Shop FAQ or clinic FAQ"},
-                {"id": "language", "title": "Pick language", "hint": "Hindi / English prompts included"},
+                {"id": "language", "title": "Pick language", "hint": "Hindi / English / Portuguese prompts included"},
                 {"id": "playbook", "title": "Open the playbook", "hint": "Follow Path A in deploy.md"},
                 {"id": "prompt", "title": "Copy the system prompt", "hint": "Paste FAQ · approve before send"},
             ]

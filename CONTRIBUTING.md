@@ -28,7 +28,8 @@ PR title: `locale(<cc>): add <L3>, <L2>`
 
 ## Playbook
 
-Copy `playbooks/_templates/playbook/`, register in `playbooks/_registry.yaml`.
+Copy `playbooks/_templates/playbook/`, register in `playbooks/_registry.yaml`.  
+New language: add `prompts/system.<lang>.md` + `evals/cases-<lang>.json` + `fixtures-<lang>/`.
 
 ## Site data
 

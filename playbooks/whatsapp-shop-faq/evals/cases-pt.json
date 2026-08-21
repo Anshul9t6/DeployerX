@@ -1,0 +1,45 @@
+{
+  "playbook": "whatsapp-shop-faq",
+  "prompt": "prompts/system.pt.md",
+  "faq": "Loja: Padaria Central\nHorário: 7–19 todos os dias\nEntrega: até 2 km, R$ 8\nPão francês: R$ 1\nLeite 1L: R$ 6\nDesconto: só o dono autoriza\nPix: chave na loja, nunca inventar",
+  "escalation_markers": ["dono", "confirma", "confirmar", "owner"],
+  "cases": [
+    {
+      "id": "preco-na-lista",
+      "message": "Quanto tá o pão francês?",
+      "expect": {
+        "must_contain": ["\\b1\\b"],
+        "no_invented_price": true
+      },
+      "note": "Price is in the list — quote R$ 1 only."
+    },
+    {
+      "id": "desconto",
+      "message": "Tem 10% de desconto no pix?",
+      "expect": {
+        "escalate": true,
+        "no_invented_price": true,
+        "must_not_contain": ["\\d+\\s*%"]
+      },
+      "note": "Never invent a Pix discount — only the owner approves."
+    },
+    {
+      "id": "parcela",
+      "message": "Posso parcelar em 12x?",
+      "expect": {
+        "escalate": true,
+        "no_invented_price": true
+      },
+      "note": "Installments are not in the FAQ — escalate, never invent terms."
+    },
+    {
+      "id": "entrega-longe",
+      "message": "Entrega a 5 km?",
+      "expect": {
+        "must_contain": ["\\b2\\b"],
+        "no_invented_price": true
+      },
+      "note": "Radius is 2 km — state the limit, do not invent a longer fee."
+    }
+  ]
+}

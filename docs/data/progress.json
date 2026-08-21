@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T17:59:35Z",
+  "generated_at": "2026-08-21T02:41:58Z",
   "repo": "https://github.com/Anshul9t6/DeployerX",
   "site": "https://anshul9t6.github.io/DeployerX/",
   "copy": {
@@ -44,12 +44,13 @@
       "url": "https://github.com/Anshul9t6/DeployerX/tree/main/playbooks/clinic-whatsapp-faq",
       "prompt_hi": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/prompts/system.hi.md",
       "prompt_en": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/prompts/system.en.md",
+      "prompt_pt": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/prompts/system.pt.md",
       "deploy_url": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/deploy.md"
     },
     {
       "id": "whatsapp-shop-faq",
       "title": "WhatsApp shop FAQ",
-      "blurb": "Help a shop owner answer repeat customer questions on WhatsApp — in Hindi/Hinglish — without inventing prices.",
+      "blurb": "Help a shop owner answer repeat customer questions on WhatsApp — Hindi/Hinglish or Portuguese — without inventing prices.",
       "status": "seeded",
       "time_to_first_win": "~30 minutes (copy-paste + approval mode)",
       "audience": "retail, kirana, local-services",
@@ -62,6 +63,7 @@
       "url": "https://github.com/Anshul9t6/DeployerX/tree/main/playbooks/whatsapp-shop-faq",
       "prompt_hi": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/prompts/system.hi.md",
       "prompt_en": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/prompts/system.en.md",
+      "prompt_pt": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/prompts/system.pt.md",
       "deploy_url": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/deploy.md"
     }
   ],
@@ -542,7 +544,7 @@
       {
         "id": "language",
         "title": "Pick language",
-        "hint": "Hindi / English prompts included"
+        "hint": "Hindi / English / Portuguese prompts included"
       },
       {
         "id": "playbook",

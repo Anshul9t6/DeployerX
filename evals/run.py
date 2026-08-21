@@ -19,7 +19,14 @@ import json
 from pathlib import Path
 
 from decision.resolve import LocaleRef, merged_constraints
-from evals.cases import ROOT, EvalSuite, list_suites, load_suite
+from evals.cases import (
+    ROOT,
+    EvalSuite,
+    list_suite_paths,
+    list_suites,
+    load_suite,
+    load_suite_file,
+)
 from evals.checks import CheckResult, score_reply
 
 FAQ_PLACEHOLDER = "<<<FAQ>>>"
@@ -105,19 +112,24 @@ def _load_responses(path: Path) -> dict[str, str]:
 # ---------------------------------------------------------------- commands
 
 
+def _suite(args: argparse.Namespace) -> EvalSuite:
+    cases_file = getattr(args, "cases", None) or "cases.json"
+    return load_suite(args.playbook, cases_file)
+
+
 def cmd_list(_: argparse.Namespace) -> int:
-    suites = list_suites()
-    if not suites:
+    paths = list_suite_paths()
+    if not paths:
         print("no eval suites found")
         return 1
-    for playbook_id in suites:
-        suite = load_suite(playbook_id)
-        print(f"{playbook_id}: {len(suite.cases)} cases ({suite.path.relative_to(ROOT)})")
+    for path in paths:
+        suite = load_suite_file(path)
+        print(f"{suite.label}: {len(suite.cases)} cases ({path.relative_to(ROOT)})")
     return 0
 
 
 def cmd_prepare(args: argparse.Namespace) -> int:
-    suite = load_suite(args.playbook)
+    suite = _suite(args)
     locale = parse_locale(args.locale) if args.locale else None
     system_prompt = build_system_prompt(suite, locale)
 
@@ -161,7 +173,7 @@ def cmd_prepare(args: argparse.Namespace) -> int:
 
 
 def cmd_score(args: argparse.Namespace) -> int:
-    suite = load_suite(args.playbook)
+    suite = _suite(args)
     responses = _load_responses(Path(args.responses))
     results = score_suite(suite, responses)
     ok = print_scorecard(suite, results, label=f"responses: {args.responses}")
@@ -216,7 +228,7 @@ def _generate_via_api(suite: EvalSuite, system_prompt: str, model: str) -> dict[
 
 
 def cmd_api(args: argparse.Namespace) -> int:
-    suite = load_suite(args.playbook)
+    suite = _suite(args)
     locale = parse_locale(args.locale) if args.locale else None
     system_prompt = build_system_prompt(suite, locale)
 
@@ -251,26 +263,34 @@ def cmd_api(args: argparse.Namespace) -> int:
 
 def cmd_selftest(_: argparse.Namespace) -> int:
     """Grade bundled fixtures and assert the scorer reaches the expected verdicts."""
-    suites = list_suites()
-    if not suites:
+    paths = list_suite_paths()
+    if not paths:
         print("SELFTEST FAIL: no eval suites found")
         return 1
 
     failures: list[str] = []
     checked = 0
-    for playbook_id in suites:
-        suite = load_suite(playbook_id)
+    loaded: list[EvalSuite] = []
+    for path in paths:
+        suite = load_suite_file(path)
+        loaded.append(suite)
+        label = suite.label
 
         prompt = build_system_prompt(suite, None)
         if suite.faq.strip().splitlines()[0] not in prompt:
-            failures.append(f"{playbook_id}: FAQ not merged into system prompt")
-        localized = build_system_prompt(suite, LocaleRef("in", "uttar-pradesh", "varanasi"))
+            failures.append(f"{label}: FAQ not merged into system prompt")
+        locale = (
+            LocaleRef("br", "sao-paulo", "sao-paulo")
+            if path.stem.endswith("-pt")
+            else LocaleRef("in", "uttar-pradesh", "varanasi")
+        )
+        localized = build_system_prompt(suite, locale)
         if "Local context" not in localized:
-            failures.append(f"{playbook_id}: locale constraints not merged into system prompt")
+            failures.append(f"{label}: locale constraints not merged into system prompt")
 
         fixtures = sorted(suite.fixtures_dir.glob("*.json"))
         if not fixtures:
-            failures.append(f"{playbook_id}: no fixtures under {suite.fixtures_dir.relative_to(ROOT)}")
+            failures.append(f"{label}: no fixtures under {suite.fixtures_dir.relative_to(ROOT)}")
             continue
         for fixture_path in fixtures:
             fixture = json.loads(fixture_path.read_text(encoding="utf-8"))
@@ -286,7 +306,7 @@ def cmd_selftest(_: argparse.Namespace) -> int:
                         f"{r.name}: {r.detail}" for r in results[case_id] if not r.passed
                     )
                     failures.append(
-                        f"{playbook_id}/{fixture_path.name}: {case_id} expected {expected}, "
+                        f"{label}/{fixture_path.name}: {case_id} expected {expected}, "
                         f"got {verdict}" + (f" ({detail})" if detail else "")
                     )
 
@@ -295,17 +315,20 @@ def cmd_selftest(_: argparse.Namespace) -> int:
     from deployerx_mcp import tools as mcp_tools
 
     catalog = mcp_tools.playbook_catalog()
-    for playbook_id in suites:
+    playbook_ids = list_suites()
+    for playbook_id in playbook_ids:
         if playbook_id not in catalog:
             failures.append(f"mcp: playbook_catalog missing {playbook_id}")
     if "varanasi" not in mcp_tools.locale_context("in", "uttar-pradesh", "varanasi"):
         failures.append("mcp: locale_context missing varanasi cascade")
+    if "sao-paulo" not in mcp_tools.locale_context("br", "sao-paulo", "sao-paulo"):
+        failures.append("mcp: locale_context missing São Paulo cascade")
     mcp_prompt = mcp_tools.system_prompt(
-        suites[0], faq="MARKER-FAQ", country="in", l2="uttar-pradesh", l3="varanasi"
+        playbook_ids[0], faq="MARKER-FAQ", country="in", l2="uttar-pradesh", l3="varanasi"
     )
     if "MARKER-FAQ" not in mcp_prompt or "Local context" not in mcp_prompt:
         failures.append("mcp: system_prompt assembly broken")
-    for playbook_id in suites:
+    for playbook_id in playbook_ids:
         suite = load_suite(playbook_id)
         compliant = suite.fixtures_dir / "compliant.json"
         if compliant.exists():
@@ -320,7 +343,7 @@ def cmd_selftest(_: argparse.Namespace) -> int:
             print(f"  - {f}")
         return 1
     print(
-        f"OK: eval selftest — {checked} fixture verdicts verified across {len(suites)} suites; "
+        f"OK: eval selftest — {checked} fixture verdicts verified across {len(loaded)} suites; "
         "MCP tool layer OK"
     )
     return 0
@@ -337,16 +360,19 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("prepare", help="write a Path A paste bundle + responses skeleton")
     p.add_argument("playbook")
     p.add_argument("--locale", help="cc/l2-slug/l3-slug, e.g. in/rajasthan/jaipur")
+    p.add_argument("--cases", default="cases.json", help="eval file under playbooks/<id>/evals/")
     p.add_argument("--out-dir", help=f"output directory (default: {DEFAULT_OUT_DIR.name}/<playbook>/)")
     p.set_defaults(fn=cmd_prepare)
 
     p = sub.add_parser("score", help="grade a responses file")
     p.add_argument("playbook")
+    p.add_argument("--cases", default="cases.json", help="eval file under playbooks/<id>/evals/")
     p.add_argument("--responses", required=True, help="JSON file with case id -> reply")
     p.set_defaults(fn=cmd_score)
 
     p = sub.add_parser("api", help="generate replies via the Anthropic API, then grade")
     p.add_argument("playbook")
+    p.add_argument("--cases", default="cases.json", help="eval file under playbooks/<id>/evals/")
     p.add_argument("--locale", help="cc/l2-slug/l3-slug, e.g. in/rajasthan/jaipur")
     p.add_argument("--model", default=DEFAULT_MODEL)
     p.add_argument("--save", help="where to save generated replies (JSON)")

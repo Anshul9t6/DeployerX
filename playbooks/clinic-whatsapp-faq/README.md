@@ -1,7 +1,7 @@
 ---
 id: clinic-whatsapp-faq
 audience: [clinic, diagnostic-lab, pharmacy-counter]
-locales: [in]
+locales: [in, br]
 min_budget_inr: 0
 needs_engineer: false
 channels: [whatsapp]

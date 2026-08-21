@@ -4,7 +4,7 @@
 
 Repeat questions on hours, prices, delivery radius.
 
-**DeployerX path:** `whatsapp-shop-faq` + `prompts` in Portuguese overlay (use pt glossary) + human approval.
+**DeployerX path:** `whatsapp-shop-faq` + `prompts/system.pt.md` + `evals/cases-pt.json` + human approval.
 
 ## 2) Small clinic reception
 
