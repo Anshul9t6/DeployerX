@@ -7,7 +7,7 @@ DeployerX is an **individual AI-deployment kit** for the world: one person, the 
 [![Validate](https://github.com/Anshul9t6/DeployerX/actions/workflows/validate.yml/badge.svg)](https://github.com/Anshul9t6/DeployerX/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-0b1210)](LICENSE)
 
-**Live atlas:** [anshul9t6.github.io/DeployerX](https://anshul9t6.github.io/DeployerX/) · **World kit:** [`guides/world.md`](guides/world.md) · **Claim a district:** [open an L3 issue](https://github.com/Anshul9t6/DeployerX/issues/new?template=l3_pack.yml)
+**Live atlas:** [anshul9t6.github.io/DeployerX](https://anshul9t6.github.io/DeployerX/) · **World kit:** [`guides/world.md`](guides/world.md) · **Field receipt (human):** [`guides/receipt-plan.md`](guides/receipt-plan.md) · **Claim a district:** [open an L3 issue](https://github.com/Anshul9t6/DeployerX/issues/new?template=l3_pack.yml)
 
 [![Coverage atlas](docs/assets/atlas.jpg)](https://anshul9t6.github.io/DeployerX/)
 
@@ -160,6 +160,7 @@ make check    # validate hierarchy + stale site data + eval selftest
 | [field-notes/](field-notes/) | Deployment receipts |
 | [SHARE.md](SHARE.md) | Launch copy (after a real field note) |
 | [guides/world.md](guides/world.md) | Same kit, any country (open L1 only with a maintainer) |
+| [guides/receipt-plan.md](guides/receipt-plan.md) | Human-only field receipt (desk commands are in `make check`) |
 | [guides/fde.md](guides/fde.md) | Maintainer: Path A scope (what we deploy vs not) |
 
 ## License

@@ -269,7 +269,8 @@ function updatePathUI() {
     $("path-playbook-link").textContent = "Open deploy.md";
   }
   if (pb && state.path.lang) {
-    const prompt = state.path.lang === "hi" ? pb.prompt_hi : pb.prompt_en;
+    const prompts = { hi: pb.prompt_hi, en: pb.prompt_en, pt: pb.prompt_pt };
+    const prompt = prompts[state.path.lang] || pb.prompt_en;
     $("path-prompt-label").textContent = `Language: ${state.path.lang} · paste FAQ under <<<FAQ>>>`;
     $("path-prompt-link").href = prompt || pb.url;
     $("path-prompt-link").textContent = "Open system prompt";
@@ -349,6 +350,9 @@ async function main() {
   $("generated-at").setAttribute("datetime", state.data.generated_at);
   if (state.data.links?.contribute) $("claim-link").href = state.data.links.contribute;
   if (state.data.links?.claim_l3) $("issue-l3").href = state.data.links.claim_l3;
+  if (state.data.links?.receipt_plan && $("receipt-link")) {
+    $("receipt-link").href = state.data.links.receipt_plan;
+  }
 
   renderStats(state.data.stats);
   renderIndiaProgress(state.data.india);

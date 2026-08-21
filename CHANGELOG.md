@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Atlas/Path A (Português) + `guides/receipt-plan.md` (human field receipt, checked by `make check`)
 - World kit: Portuguese prompts + `cases-pt.json` (shop + clinic); `R$` price checks; `guides/world.md`; São Paulo L3 draft (honest)
 - FDE path guide (`guides/fde.md`): honest money / automation / portfolio overlay for Path A; field-note template records baseline volume, time-to-reply, and eval walk
 - Resolver prints leaf constraint excerpt by default (`python3 -m decision.resolve in rajasthan jaipur`)

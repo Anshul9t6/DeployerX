@@ -32,7 +32,7 @@ Synced to `main`. World-kit language is real: `system.pt.md` + `cases-pt.json` f
 
 <!-- status:metrics -->
 ```
-generated_at:     2026-08-21T02:41:58Z
+generated_at:     2026-08-21T02:44:44Z
 countries:        2
 playbooks:        2
 india_l2_seeded:  10 / index 36
@@ -54,16 +54,17 @@ field_notes:      0  ← must be >0 before Phase 1 complete
 
 ## Next (do in order)
 
-1. Read [`guides/fde.md`](guides/fde.md) so the operator pitch is FAQ drafts + 7-day approval, not “AI automation”
-2. Pick a Jaipur P0 operator from [`guides/deployments-50.md`](guides/deployments-50.md) (kirana / coaching / clinic / guest house)
+1. Follow [`guides/receipt-plan.md`](guides/receipt-plan.md) (desk check, then one Jaipur P0)
+2. Pick operator from [`guides/deployments-50.md`](guides/deployments-50.md) (kirana / coaching / clinic / guest house)
 3. Run [`guides/city-start.md`](guides/city-start.md) + [`field-notes/FIRST_DEPLOYMENT.md`](field-notes/FIRST_DEPLOYMENT.md)
-4. Field note `field-notes/YYYY-MM-DD-in-rajasthan-jaipur-<topic>.md` with Results (use the expanded template)
+4. Field note `field-notes/YYYY-MM-DD-in-rajasthan-jaipur-<topic>.md` with Results
 5. `make site && make check && make status`; mark Jaipur L3 verified when earned
 
 ## Session log (newest first)
 
 | Date | What landed |
 |------|-------------|
+| 2026-08-21 | Atlas + Path A (pt) aligned to world pitch; `guides/receipt-plan.md` gated by `make check`; PR template |
 | 2026-08-21 | World kit: Portuguese prompts + evals; `R$` price checks; `guides/world.md`; São Paulo L3 draft (honest); CODE_OF_CONDUCT |
 | 2026-08-15 | README hook: invented-discount eval as the product; contribute table + L3 copy-paste first; CI badge |
 | 2026-08-15 | Portfolio hardening: leaf constraint excerpt by default; Jaipur maintainer `Anshul9t6`; shop evals for rank-promises + invented tourist timings; README product-first with empty field-notes section |

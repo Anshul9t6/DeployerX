@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-08-21T02:41:58Z",
+  "generated_at": "2026-08-21T02:44:44Z",
   "repo": "https://github.com/Anshul9t6/DeployerX",
   "site": "https://anshul9t6.github.io/DeployerX/",
   "copy": {
     "en": {
-      "mission": "Locale-aware playbooks + evals for deploying WhatsApp FAQ assistants with non-engineer operators.",
-      "lede": "Global recipes. Local deltas. India as the reference implementation — same tree for every country.",
-      "promise": "Path A: ~30 minutes, browser model, human approval. No paid API required."
+      "mission": "An individual AI-deployment kit: sit with an operator, constrain the model, ship Path A.",
+      "lede": "Global playbooks. Local deltas. India is the reference tree — the same folders work in every country.",
+      "promise": "Path A: ~30 minutes, browser model, human approval. No paid API. Evals fail invented prices."
     },
     "hi": {
       "mission": "बिना इंजीनियर वाले ऑपरेटर्स के लिए लोकल-भाषा AI डिप्लॉयमेंट किट।",
@@ -14,7 +14,7 @@
       "promise": "Path A: ~30 मिनट, ब्राउज़र मॉडल, आपकी जाँच। पेड API ज़रूरी नहीं।"
     }
   },
-  "mission": "Locale-aware playbooks + evals for deploying WhatsApp FAQ assistants with non-engineer operators.",
+  "mission": "An individual AI-deployment kit: sit with an operator, constrain the model, ship Path A.",
   "stats": {
     "countries": 2,
     "playbooks": 2,
@@ -562,6 +562,8 @@
     "contribute": "https://github.com/Anshul9t6/DeployerX/blob/main/CONTRIBUTING.md",
     "hierarchy": "https://github.com/Anshul9t6/DeployerX/blob/main/schema/hierarchy.md",
     "claim_l3": "https://github.com/Anshul9t6/DeployerX/issues/new?template=l3_pack.yml",
-    "open_country": "https://github.com/Anshul9t6/DeployerX/issues/new?template=country_pack.yml"
+    "open_country": "https://github.com/Anshul9t6/DeployerX/issues/new?template=country_pack.yml",
+    "world": "https://github.com/Anshul9t6/DeployerX/blob/main/guides/world.md",
+    "receipt_plan": "https://github.com/Anshul9t6/DeployerX/blob/main/guides/receipt-plan.md"
   }
 }

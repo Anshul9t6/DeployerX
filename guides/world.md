@@ -46,4 +46,4 @@ Do not add a country to look global. Empty L1s are anti-signal.
 
 ## Next
 
-Same as [`STATUS.md`](../STATUS.md): one Jaipur Path A note. Then a second note in the same corridor. Then, if someone in Brazil will own it, deepen the município — do not mark it `seeded` from a template.
+Human receipt: [`receipt-plan.md`](receipt-plan.md). Then a second note in the same corridor. Then, if someone in Brazil will own it, deepen the município — do not mark it `seeded` from a template.

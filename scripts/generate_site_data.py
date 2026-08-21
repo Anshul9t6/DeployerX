@@ -306,9 +306,9 @@ def build() -> dict:
         "site": SITE,
         "copy": {
             "en": {
-                "mission": "Locale-aware playbooks + evals for deploying WhatsApp FAQ assistants with non-engineer operators.",
-                "lede": "Global recipes. Local deltas. India as the reference implementation — same tree for every country.",
-                "promise": "Path A: ~30 minutes, browser model, human approval. No paid API required.",
+                "mission": "An individual AI-deployment kit: sit with an operator, constrain the model, ship Path A.",
+                "lede": "Global playbooks. Local deltas. India is the reference tree — the same folders work in every country.",
+                "promise": "Path A: ~30 minutes, browser model, human approval. No paid API. Evals fail invented prices.",
             },
             "hi": {
                 "mission": "बिना इंजीनियर वाले ऑपरेटर्स के लिए लोकल-भाषा AI डिप्लॉयमेंट किट।",
@@ -316,7 +316,7 @@ def build() -> dict:
                 "promise": "Path A: ~30 मिनट, ब्राउज़र मॉडल, आपकी जाँच। पेड API ज़रूरी नहीं।",
             },
         },
-        "mission": "Locale-aware playbooks + evals for deploying WhatsApp FAQ assistants with non-engineer operators.",
+        "mission": "An individual AI-deployment kit: sit with an operator, constrain the model, ship Path A.",
         "stats": {
             "countries": len(countries),
             "playbooks": len(playbooks),
@@ -346,6 +346,8 @@ def build() -> dict:
             "hierarchy": f"{REPO}/blob/main/schema/hierarchy.md",
             "claim_l3": f"{REPO}/issues/new?template=l3_pack.yml",
             "open_country": f"{REPO}/issues/new?template=country_pack.yml",
+            "world": f"{REPO}/blob/main/guides/world.md",
+            "receipt_plan": f"{REPO}/blob/main/guides/receipt-plan.md",
         },
     }
 

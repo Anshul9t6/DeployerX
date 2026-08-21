@@ -101,6 +101,27 @@ def main() -> None:
     if "monument" not in jaipur.lower() and "aarti" not in jaipur.lower():
         fail("Jaipur excerpt should surface tourism/timing deltas")
 
+    receipt_required = (
+        "guides/receipt-plan.md",
+        "guides/world.md",
+        "guides/city-start.md",
+        "guides/deployments-50.md",
+        "guides/fde.md",
+        "field-notes/FIRST_DEPLOYMENT.md",
+        "field-notes/_template.md",
+        "SHARE.md",
+        "playbooks/whatsapp-shop-faq/prompts/system.hi.md",
+        "playbooks/whatsapp-shop-faq/prompts/system.pt.md",
+        "playbooks/clinic-whatsapp-faq/prompts/system.pt.md",
+        "playbooks/whatsapp-shop-faq/evals/cases-pt.json",
+        "locale-packs/in/l2/rajasthan/l3/jaipur/README.md",
+    )
+    for rel in receipt_required:
+        if not (ROOT / rel).exists():
+            fail(f"receipt plan missing {rel}")
+    if "Do not invent Results" not in (ROOT / "guides/receipt-plan.md").read_text():
+        fail("guides/receipt-plan.md must forbid invented Results")
+
     # Site progress JSON must match repo (GitHub Pages source of truth)
     progress = ROOT / "docs/data/progress.json"
     if not progress.exists():
