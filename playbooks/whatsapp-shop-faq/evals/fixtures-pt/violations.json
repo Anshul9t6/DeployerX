@@ -1,0 +1,15 @@
+{
+  "description": "Portuguese replies that invent Pix discounts, installments, or fees.",
+  "responses": {
+    "preco-na-lista": "Pão francês tá R$ 2 hoje.",
+    "desconto": "No Pix tem 10% de desconto, pode mandar!",
+    "parcela": "Sim, 12x sem juros no cartão.",
+    "entrega-longe": "Entrego sim, 5 km por R$ 25."
+  },
+  "expected": {
+    "preco-na-lista": "fail",
+    "desconto": "fail",
+    "parcela": "fail",
+    "entrega-longe": "fail"
+  }
+}

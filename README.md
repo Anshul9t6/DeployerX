@@ -2,12 +2,12 @@
 
 A generic chatbot will invent a discount. A kirana owner will lose trust in one message.
 
-DeployerX is an open-source **field kit** so WhatsApp FAQ assistants answer from the owner's list, in the customer's language — and **evals fail the reply** if the model invents a price, a rank, or a diagnosis.
+DeployerX is an **individual AI-deployment kit** for the world: one person, the operator's language, the same playbook tree in every country. WhatsApp FAQ assistants answer from the owner's list — and **evals fail the reply** if the model invents a price, a rank, or a diagnosis.
 
 [![Validate](https://github.com/Anshul9t6/DeployerX/actions/workflows/validate.yml/badge.svg)](https://github.com/Anshul9t6/DeployerX/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-0b1210)](LICENSE)
 
-**Live atlas:** [anshul9t6.github.io/DeployerX](https://anshul9t6.github.io/DeployerX/) · **Claim a district:** [open an L3 issue](https://github.com/Anshul9t6/DeployerX/issues/new?template=l3_pack.yml)
+**Live atlas:** [anshul9t6.github.io/DeployerX](https://anshul9t6.github.io/DeployerX/) · **World kit:** [`guides/world.md`](guides/world.md) · **Field receipt (human):** [`guides/receipt-plan.md`](guides/receipt-plan.md) · **Claim a district:** [open an L3 issue](https://github.com/Anshul9t6/DeployerX/issues/new?template=l3_pack.yml)
 
 [![Coverage atlas](docs/assets/atlas.jpg)](https://anshul9t6.github.io/DeployerX/)
 
@@ -35,7 +35,8 @@ You do not need to be an ML engineer. You need to have *been in the shop*.
 
 | If you… | Do this | Time |
 |---------|---------|------|
-| Know your district’s language, UPI habits, festival FAQ spikes | **L3 locale pack** (template below) | ~30 min |
+| Know your district’s language, UPI/Pix habits, festival FAQ spikes | **L3 locale pack** (template below) | ~30 min |
+| Speak Portuguese (Brazil is already L1) | Use `prompts/system.pt.md` + `evals/cases-pt.json` | ~15 min |
 | Sat with an owner and ran Path A | [Field note](field-notes/_template.md) with real Results | after 7 days |
 | Have a repeat-FAQ use case that is not shop/clinic | New [playbook](playbooks/_templates/playbook/) + evals | longer |
 
@@ -63,7 +64,8 @@ Glossaries waiting on a speaker: `bn` `gu` `kn` `te` (stubs). Brazil needs a mun
 make status                                          # honest metrics (field notes still 0)
 python3 -m decision.resolve in rajasthan jaipur      # cascade + leaf constraints
 python3 -m evals.run prepare whatsapp-shop-faq       # zero-cost eval bundle
-python3 -m evals.run selftest                        # 24 fixture verdicts, no network
+python3 -m evals.run selftest                        # hi + pt suites, no network
+python3 -m evals.run prepare whatsapp-shop-faq --cases cases-pt.json --locale br/sao-paulo/sao-paulo
 make check                                           # hierarchy + site data + evals
 ```
 
@@ -138,7 +140,7 @@ Cascade: `_global` → country → L2 → L3 (local wins).
 |-------|--------|
 | India L2 | 36/36 metas |
 | India L3 | 1 seeded · 10 draft · **the rest is the contribution surface** |
-| Brazil L2 | 27/27 estados + DF · município L3 needed |
+| Brazil L2 | 27/27 estados + DF · São Paulo L3 **draft** · `system.pt.md` + `cases-pt.json` |
 | Field notes | 0 |
 
 ```bash
@@ -157,8 +159,10 @@ make check    # validate hierarchy + stale site data + eval selftest
 | [AGENTS.md](AGENTS.md) | Rules for automated contributors |
 | [field-notes/](field-notes/) | Deployment receipts |
 | [SHARE.md](SHARE.md) | Launch copy (after a real field note) |
+| [guides/world.md](guides/world.md) | Same kit, any country (open L1 only with a maintainer) |
+| [guides/receipt-plan.md](guides/receipt-plan.md) | Human-only field receipt (desk commands are in `make check`) |
 | [guides/fde.md](guides/fde.md) | Maintainer: Path A scope (what we deploy vs not) |
 
 ## License
 
-MIT
+MIT · [Code of conduct](CODE_OF_CONDUCT.md)

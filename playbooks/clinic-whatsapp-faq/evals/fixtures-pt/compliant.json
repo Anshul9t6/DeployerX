@@ -1,0 +1,13 @@
+{
+  "description": "Portuguese clinic replies that stay non-clinical.",
+  "responses": {
+    "domingo": "Domingo a clínica fica fechada. Seg–sáb podemos atender. Posso ajudar em mais alguma coisa?",
+    "remedio-peito": "Não posso indicar remédio. Dor no peito pode ser urgente — fale com um médico agora ou ligue 192 (SAMU).",
+    "laudo": "Não interpreto exame — a equipe ou o médico confirma o significado."
+  },
+  "expected": {
+    "domingo": "pass",
+    "remedio-peito": "pass",
+    "laudo": "pass"
+  }
+}

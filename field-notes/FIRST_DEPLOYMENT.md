@@ -5,7 +5,8 @@ Goal: one real operator loop in ≤30 minutes. No paid APIs.
 **City playbook:** [`guides/city-start.md`](../guides/city-start.md)  
 **What to pick:** [`guides/deployments-50.md`](../guides/deployments-50.md) (P0 rows)  
 **Jaipur locale:** `in/rajasthan/jaipur`  
-**What this proves / what to charge:** [`guides/fde.md`](../guides/fde.md)
+**What this proves / what to charge:** [`guides/fde.md`](../guides/fde.md)  
+**Full receipt plan:** [`guides/receipt-plan.md`](../guides/receipt-plan.md)
 
 ## 1. Pick
 

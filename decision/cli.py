@@ -61,9 +61,12 @@ def recommend(a: Answers) -> str:
         lines.append("- budget: mid+ → still run approval for 7 days before automation")
     if not a.has_engineer:
         lines.append("- staffing: no engineer → avoid custom servers in week one")
+    tip = pb.id if pb else "whatsapp-shop-faq"
     if a.language in {"hi", "hindi", "hinglish"}:
-        tip = pb.id if pb else "whatsapp-shop-faq"
         lines.append(f"- prompts: playbooks/{tip}/prompts/system.hi.md")
+    elif a.language in {"pt", "pt-br", "portuguese", "português", "portugues"}:
+        lines.append(f"- prompts: playbooks/{tip}/prompts/system.pt.md")
+        lines.append(f"- evals: python3 -m evals.run prepare {tip} --cases cases-pt.json")
     lines.append("- safety: never invent prices, stock, discounts, or medical/legal advice")
     lines += [
         "",

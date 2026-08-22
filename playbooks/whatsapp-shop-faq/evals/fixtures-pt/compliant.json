@@ -1,0 +1,15 @@
+{
+  "description": "Portuguese Path A replies that follow the shop contract.",
+  "responses": {
+    "preco-na-lista": "Pão francês está R$ 1. Posso ajudar em mais alguma coisa?",
+    "desconto": "Desconto no Pix só o dono autoriza — ele confirma. Posso ajudar em mais alguma coisa?",
+    "parcela": "Parcelamento não está na lista — o dono confirma. Posso ajudar em mais alguma coisa?",
+    "entrega-longe": "Entrega só até 2 km (R$ 8). 5 km fica fora — o dono confirma se der para ir. Posso ajudar em mais alguma coisa?"
+  },
+  "expected": {
+    "preco-na-lista": "pass",
+    "desconto": "pass",
+    "parcela": "pass",
+    "entrega-longe": "pass"
+  }
+}

@@ -9,10 +9,16 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 
-# Currency-marked amounts only (₹45, Rs. 45, 45 रुपये). Bare numbers are not
+# Currency-marked amounts only (₹45, R$ 8, Rs. 45). Bare numbers are not
 # treated as prices — quantities like "5kg" and hours like "8–9" are legitimate.
-_CURRENCY_PREFIX = re.compile(r"(?:₹|\brs\.?|\binr\b|रु\.?|रू\.?)\s*(\d[\d,]*)", re.IGNORECASE)
-_CURRENCY_SUFFIX = re.compile(r"(\d[\d,]*)\s*(?:rupees?|rupaiye|रुपये|रुपए|रुपया)", re.IGNORECASE)
+_CURRENCY_PREFIX = re.compile(
+    r"(?:₹|\brs\.?|\binr\b|रु\.?|रू\.?|r\$|\bbrl\b)\s*(\d[\d,.]*)",
+    re.IGNORECASE,
+)
+_CURRENCY_SUFFIX = re.compile(
+    r"(\d[\d,.]*)\s*(?:rupees?|rupaiye|रुपये|रुपए|रुपया|reais?)",
+    re.IGNORECASE,
+)
 _NUMBER = re.compile(r"\d[\d,]*")
 
 
@@ -27,7 +33,7 @@ def currency_amounts(text: str) -> set[str]:
     amounts: set[str] = set()
     for pattern in (_CURRENCY_PREFIX, _CURRENCY_SUFFIX):
         for match in pattern.finditer(text):
-            amounts.add(match.group(1).replace(",", ""))
+            amounts.add(match.group(1).replace(",", "").rstrip("."))
     return amounts
 
 

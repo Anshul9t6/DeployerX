@@ -5,7 +5,7 @@ l2: sao-paulo
 l3: sao-paulo
 languages: [pt]
 maintainers: []
-status: seeded
+status: draft
 ---
 
 # São Paulo (município) (L3)

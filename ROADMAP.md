@@ -33,6 +33,7 @@ Locale-aware playbooks so non-engineer operators can run AI workflows in their l
 - [ ] ≥5 L3 packs at `seeded` (real local examples, not boilerplate)
 - [ ] Glossaries: promote stubs (`bn` `gu` `kn` `te`) or remove from claims
 - [x] One additional playbook **or** major upgrade to an existing playbook (evals + Path A) — runnable eval harness for both playbooks: `cases.json` + deterministic checks, API / zero-cost Path A / CI selftest modes
+- [x] Portuguese Path A (`system.pt.md` + `cases-pt.json`) for both playbooks — Brazil language, São Paulo L3 stays **draft** until a real município receipt
 - [ ] Home-district L3 owned by maintainer (AM or local contributor)
 
 ## Phase 3 — Multi-country
