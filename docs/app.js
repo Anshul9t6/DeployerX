@@ -265,13 +265,14 @@ function updatePathUI() {
   const pb = playbookForUse(state.path.use);
   if (pb && state.path.use) {
     $("path-playbook-label").textContent = pb.title;
-    $("path-playbook-link").href = pb.deploy_url || pb.url;
-    $("path-playbook-link").textContent = "Open deploy.md";
+    const hiDeploy = state.path.lang === "hi" && pb.deploy_hi_url;
+    $("path-playbook-link").href = hiDeploy || pb.deploy_url || pb.url;
+    $("path-playbook-link").textContent = hiDeploy ? "Open deploy.hi.md" : "Open deploy.md";
   }
   if (pb && state.path.lang) {
     const prompts = { hi: pb.prompt_hi, en: pb.prompt_en, pt: pb.prompt_pt };
     const prompt = prompts[state.path.lang] || pb.prompt_en;
-    $("path-prompt-label").textContent = `Language: ${state.path.lang} · paste FAQ under <<<FAQ>>>`;
+    $("path-prompt-label").textContent = `Language: ${state.path.lang} · decision.prompt assembles FAQ + locale`;
     $("path-prompt-link").href = prompt || pb.url;
     $("path-prompt-link").textContent = "Open system prompt";
   }

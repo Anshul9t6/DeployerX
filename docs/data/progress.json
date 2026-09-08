@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T18:06:51Z",
+  "generated_at": "2026-09-08T18:40:40Z",
   "repo": "https://github.com/Anshul9t6/DeployerX",
   "site": "https://anshul9t6.github.io/DeployerX/",
   "copy": {
@@ -45,7 +45,8 @@
       "prompt_hi": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/prompts/system.hi.md",
       "prompt_en": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/prompts/system.en.md",
       "prompt_pt": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/prompts/system.pt.md",
-      "deploy_url": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/deploy.md"
+      "deploy_url": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/deploy.md",
+      "deploy_hi_url": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/clinic-whatsapp-faq/deploy.hi.md"
     },
     {
       "id": "whatsapp-shop-faq",
@@ -64,7 +65,8 @@
       "prompt_hi": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/prompts/system.hi.md",
       "prompt_en": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/prompts/system.en.md",
       "prompt_pt": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/prompts/system.pt.md",
-      "deploy_url": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/deploy.md"
+      "deploy_url": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/deploy.md",
+      "deploy_hi_url": "https://github.com/Anshul9t6/DeployerX/blob/main/playbooks/whatsapp-shop-faq/deploy.hi.md"
     }
   ],
   "countries": [

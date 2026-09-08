@@ -33,4 +33,4 @@
 
 ---
 
-Setup करने वाले के लिए: [`deploy.md`](deploy.md) · prompt बनाने की कमांड: `python3 -m decision.prompt whatsapp-shop-faq --faq faq.txt --locale in/<state>/<district> --out prompt.txt`
+Setup: [`deploy.hi.md`](deploy.hi.md) · `python3 -m decision.prompt whatsapp-shop-faq --faq faq.txt --locale in/<state>/<district> --lang hi --out prompt.txt`

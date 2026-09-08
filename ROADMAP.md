@@ -50,8 +50,10 @@ Locale-aware playbooks so non-engineer operators can run AI workflows in their l
 - [x] Decision CLI prints merged constraint excerpt by default
 - [x] Paste-ready prompt command (`decision.prompt`) shared by evals + MCP; CLI non-interactive flags
 - [x] Unit tests (`tests/`, stdlib) in `make check` + CI
-- [ ] Operator docs in Hindi (`deploy.hi.md`, clinic owner card)
-- [ ] `decision.prompt --faq` accepts CSV export (question,answer) from a Sheet
+- [x] Operator docs in Hindi (`deploy.hi.md`, clinic owner card)
+- [x] `decision.prompt --faq` accepts CSV export (question,answer) from a Sheet
+- [x] MCP `build_system_prompt` reads `faq_path` (txt or CSV)
+- [x] `python3 -m compileall` in `make check`
 - [ ] Slimmer Pages CSS / fewer motion effects (optional)
 
 ---

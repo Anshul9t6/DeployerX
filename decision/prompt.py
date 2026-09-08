@@ -11,6 +11,8 @@ Same assembly is used by the eval runner and the MCP server.
 from __future__ import annotations
 
 import argparse
+import csv
+import io
 import sys
 from pathlib import Path
 
@@ -20,6 +22,25 @@ ROOT = Path(__file__).resolve().parents[1]
 PLAYBOOKS = ROOT / "playbooks"
 FAQ_PLACEHOLDER = "<<<FAQ>>>"
 DEFAULT_LANGUAGE = "en"
+
+# Google Sheet export headers (first row). First two columns are used if none match.
+QUESTION_ALIASES = {
+    "question",
+    "q",
+    "query",
+    "प्रश्न",
+    "सवाल",
+    "pergunta",
+    "faq",
+}
+ANSWER_ALIASES = {
+    "answer",
+    "a",
+    "reply",
+    "उत्तर",
+    "जवाब",
+    "resposta",
+}
 
 
 def parse_locale(raw: str) -> LocaleRef:
@@ -78,13 +99,60 @@ def build_prompt(
     return assemble_prompt(prompt_path(playbook_id, language).read_text(encoding="utf-8"), faq, locale)
 
 
-def _read_faq(source: str) -> str:
+def _norm_header(name: str) -> str:
+    return name.strip().lstrip("\ufeff").lower()
+
+
+def looks_like_faq_csv(text: str) -> bool:
+    """True when the first line looks like a Sheet export with Q/A headers."""
+    first = text.lstrip("\ufeff").splitlines()[0] if text.strip() else ""
+    if not first or "," not in first:
+        return False
+    cells = [_norm_header(c.strip().strip('"')) for c in first.split(",")]
+    return any(c in QUESTION_ALIASES for c in cells) and any(c in ANSWER_ALIASES for c in cells)
+
+
+def faq_from_csv(text: str) -> str:
+    """Turn a question,answer CSV (Sheet export) into the FAQ text the prompt expects."""
+    raw = text.lstrip("\ufeff")
+    reader = csv.DictReader(io.StringIO(raw))
+    if not reader.fieldnames:
+        raise SystemExit("FAQ CSV has no header row — export question,answer from the Sheet")
+    q_col = next((f for f in reader.fieldnames if _norm_header(f) in QUESTION_ALIASES), None)
+    a_col = next((f for f in reader.fieldnames if _norm_header(f) in ANSWER_ALIASES), None)
+    if q_col is None or a_col is None:
+        if len(reader.fieldnames) >= 2:
+            q_col, a_col = reader.fieldnames[0], reader.fieldnames[1]
+        else:
+            raise SystemExit("FAQ CSV needs question and answer columns (or any two columns)")
+    blocks: list[str] = []
+    for row in reader:
+        question = (row.get(q_col) or "").strip()
+        answer = (row.get(a_col) or "").strip()
+        if not question or not answer:
+            continue
+        blocks.append(f"{question}\n{answer}")
+    if not blocks:
+        raise SystemExit("FAQ CSV has no question/answer rows — write the owner's real list first")
+    return "\n\n".join(blocks) + "\n"
+
+
+def read_faq(source: str) -> str:
+    """Load FAQ text. `.csv` (or a question,answer header) is a Sheet export."""
     if source == "-":
-        return sys.stdin.read()
-    path = Path(source)
-    if not path.exists():
-        raise SystemExit(f"FAQ file not found: {source}")
-    return path.read_text(encoding="utf-8")
+        raw = sys.stdin.read()
+        as_csv = looks_like_faq_csv(raw)
+    else:
+        path = Path(source)
+        if not path.exists():
+            raise SystemExit(f"FAQ file not found: {source}")
+        raw = path.read_text(encoding="utf-8-sig")
+        as_csv = path.suffix.lower() == ".csv" or looks_like_faq_csv(raw)
+    return faq_from_csv(raw) if as_csv else raw
+
+
+def _read_faq(source: str) -> str:
+    return read_faq(source)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -93,7 +161,11 @@ def main(argv: list[str] | None = None) -> int:
         description="Write the paste-ready Path A system prompt from the owner's FAQ.",
     )
     parser.add_argument("playbook", help="e.g. whatsapp-shop-faq")
-    parser.add_argument("--faq", required=True, help="path to the owner's FAQ text, or - for stdin")
+    parser.add_argument(
+        "--faq",
+        required=True,
+        help="owner FAQ: .txt, Sheet CSV (question,answer), or - for stdin",
+    )
     parser.add_argument("--locale", help="cc[/l2[/l3]], e.g. in/rajasthan/jaipur")
     parser.add_argument("--lang", default=None, help="prompt language (hi, en, pt). Default: first of hi/en")
     parser.add_argument("--out", help="write the prompt here instead of stdout")

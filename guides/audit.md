@@ -7,10 +7,10 @@ Scored as a first-time deployer would experience it: clone, run the entry points
 | Dimension | Before | After this audit | Why |
 |-----------|-------:|-----------------:|-----|
 | Problem clarity | 9 | 9 | “Generic bot invents a discount” is a failure operators recognise. Scope is explicit (FAQ drafts, not SaaS). |
-| Operator usability | 4 | 7 | Before: `deploy.md` said “paste prompt + FAQ” but nothing assembled them; the `<<<FAQ>>>` marker was left to hand-editing. Now `decision.prompt` writes the paste-ready file; Hindi owner card exists. Still English-first docs. |
+| Operator usability | 4 | 8 | Before: `deploy.md` said “paste prompt + FAQ” but nothing assembled them; the `<<<FAQ>>>` marker was left to hand-editing. Now `decision.prompt` writes the paste-ready file; Hindi `deploy.hi.md` + owner/staff cards exist for both playbooks; Sheet CSV (`question,answer`) is a first-class FAQ. |
 | Deployer / dev usability | 5 | 8 | CLI crashed on non-TTY (`EOFError`); `prepare --out-dir` crashed outside the repo. Both fixed; CLI has flags; every recommendation ends in copy-pasteable next commands. |
 | Safety / eval rigour | 8 | 8 | Deterministic checks, four suites (hi + pt), CI selftest. No LLM-as-judge, which is a feature at this stage. |
-| Reliability / tests | 4 | 7 | Before: only fixture selftest. Now 32 unit tests on the price checker, prompt assembly, and CLI, wired into `make check` and CI. No type-check or lint yet. |
+| Reliability / tests | 4 | 8 | Before: only fixture selftest. Now stdlib unit tests on the price checker, prompt assembly, CLI, CSV FAQ, and MCP `faq_path`; `compileall` + tests in `make check` and CI. No ruff/mypy yet. |
 | Value to operator | 6 | 7 | Zero-cost, 30-minute loop that stops invented prices is real value. Ceiling is bounded until Path B (quick replies) is documented from a real deployment. |
 | Value to AM (hiring) | 5 | 5 | Architecture reads like FDE work. Unchanged because `field_notes: 0`. This number is the receipt. |
 | Honesty of metrics | 9 | 9 | Stubs do not count as seeded; São Paulo was downgraded to draft; site regenerates from the repo. |
@@ -19,7 +19,7 @@ Scored as a first-time deployer would experience it: clone, run the entry points
 | Discoverability | 5 | 5 | Pages atlas and README hook exist. GitHub About/Website still unset (human). No share post until a receipt. |
 | Proof | 2 | 2 | No field deployment. Everything else is scaffolding until this moves. |
 
-**Overall:** 5.8 → **6.7**. The next two points come from one Jaipur receipt, not from more code.
+**Overall:** 5.8 → **6.8**. The next two points still come from one Jaipur receipt, not from more code.
 
 ## What changed in this audit
 
@@ -29,17 +29,18 @@ Scored as a first-time deployer would experience it: clone, run the entry points
 - `tests/` — 32 stdlib unit tests; `make check` runs them; CI does too.
 - `playbooks/whatsapp-shop-faq/operator-card.hi.md` — one page the owner can keep at the counter.
 - `deploy.md` (both playbooks) — step 2 is now the command, with a hand-edit fallback.
+- Hindi `deploy.hi.md` + clinic `operator-card.hi.md`; `decision.prompt --faq` accepts Sheet CSV; MCP `faq_path`; `compileall` in `make check`.
 
 ## Fix next (ordered by value ÷ effort)
 
 1. **One Jaipur receipt** — [`receipt-plan.md`](receipt-plan.md). Moves Proof 2→7, Value-to-AM 5→8, Discoverability 5→7. Nothing else compares.
-2. **Operator docs in Hindi** — `deploy.hi.md` for shop and clinic, clinic owner card. Operator usability 7→8.
+2. ~~Operator docs in Hindi~~ — `deploy.hi.md` + owner/staff cards for shop and clinic.
 3. **Break → eval → fix loop in public** — after the first wrong answer, add the failing case, fix prompt or L3, link the commit from the field note. This is the hiring artifact.
-4. **`prompt --faq -` from a Google Sheet export** — accept CSV (`question,answer`) so owners never touch a text editor. Small, high operator value.
-5. **Type-check + lint in CI** — `python3 -m compileall` at minimum; `ruff`/`mypy` optional (keep the zero-dependency contract for runtime). Reliability 7→8.
+4. ~~Sheet CSV FAQ~~ — `decision.prompt --faq faq.csv` (`question,answer` / `प्रश्न,उत्तर`).
+5. **Type-check + lint in CI** — `compileall` is in `make check`; `ruff`/`mypy` still optional (keep the zero-dependency runtime contract). Reliability 8→8.5.
 6. **Path B receipt** — document WhatsApp Business quick replies only after a real 7-day clean run. Value-to-operator 7→8.
 7. **Second maintainer** — Brazil or a second Indian state. World-readiness 6→7. Do not fake it with more L2 stubs.
-8. **MCP: `build_system_prompt` from a file path** — same assembly; lets Claude Code deploy from `faq.txt` without pasting.
+8. ~~MCP `faq_path`~~ — `build_system_prompt` reads a local `.txt` or CSV.
 
 ## Do not do
 

@@ -1,5 +1,7 @@
 # Deploy — WhatsApp shop FAQ (Monday plan)
 
+हिंदी: [`deploy.hi.md`](deploy.hi.md) · Owner card: [`operator-card.hi.md`](operator-card.hi.md)
+
 ## Before you start
 
 - [ ] Write a one-page FAQ in a Google Sheet / notebook (price, hours, delivery, return policy)
@@ -10,11 +12,11 @@
 
 ## Path A — Zero budget (today)
 
-1. Save the owner's FAQ as `faq.txt` (plain text; prices, hours, delivery, never-list).
+1. Save the owner's FAQ as `faq.txt` (plain text) or export the Sheet as `faq.csv` (`question,answer` or `प्रश्न,उत्तर`).
 2. Build the paste-ready prompt (playbook rules + FAQ + your district's constraints):
 
    ```bash
-   python3 -m decision.prompt whatsapp-shop-faq --faq faq.txt --locale in/rajasthan/jaipur --lang hi --out prompt.txt
+   python3 -m decision.prompt whatsapp-shop-faq --faq faq.csv --locale in/rajasthan/jaipur --lang hi --out prompt.txt
    ```
 
    No terminal? Open `prompts/system.hi.md`, replace `<<<FAQ>>>` with the FAQ text by hand.

@@ -65,7 +65,8 @@ Glossaries waiting on a speaker: `bn` `gu` `kn` `te` (stubs). Brazil needs a mun
 python3 -m decision.cli --country in --l2 rajasthan --l3 jaipur --language hi --use-case shop_faq
 
 # 2. build the paste-ready prompt from the OWNER's FAQ + district constraints
-python3 -m decision.prompt whatsapp-shop-faq --faq faq.txt --locale in/rajasthan/jaipur --lang hi --out prompt.txt
+#    faq.txt or a Sheet export: question,answer → faq.csv
+python3 -m decision.prompt whatsapp-shop-faq --faq faq.csv --locale in/rajasthan/jaipur --lang hi --out prompt.txt
 
 # 3. eval before anyone sends a WhatsApp
 python3 -m evals.run prepare whatsapp-shop-faq --locale in/rajasthan/jaipur   # zero cost, browser model
@@ -76,7 +77,8 @@ make status                                          # honest metrics (field not
 ```
 
 Path A: `prompt.txt` → browser model → **owner sends** every reply for 7 days.  
-Owner card (Hindi, one page): [`operator-card.hi.md`](playbooks/whatsapp-shop-faq/operator-card.hi.md).
+Hindi Path A (shop): [`deploy.hi.md`](playbooks/whatsapp-shop-faq/deploy.hi.md) · owner card: [`operator-card.hi.md`](playbooks/whatsapp-shop-faq/operator-card.hi.md).  
+Hindi Path A (clinic): [`deploy.hi.md`](playbooks/clinic-whatsapp-faq/deploy.hi.md) · staff card: [`operator-card.hi.md`](playbooks/clinic-whatsapp-faq/operator-card.hi.md).
 
 | Playbook | Audience |
 |----------|----------|
