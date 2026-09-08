@@ -10,12 +10,19 @@
 
 ## Path A — Zero budget (today)
 
-1. Open ChatGPT or Claude in the browser.
-2. Paste `prompts/system.hi.md` as instructions.
-3. Paste your FAQ sheet text underneath.
+1. Save the owner's FAQ as `faq.txt` (plain text; prices, hours, delivery, never-list).
+2. Build the paste-ready prompt (playbook rules + FAQ + your district's constraints):
+
+   ```bash
+   python3 -m decision.prompt whatsapp-shop-faq --faq faq.txt --locale in/rajasthan/jaipur --lang hi --out prompt.txt
+   ```
+
+   No terminal? Open `prompts/system.hi.md`, replace `<<<FAQ>>>` with the FAQ text by hand.
+3. Open ChatGPT or Claude in the browser. Paste `prompt.txt` as instructions.
 4. When a customer messages on WhatsApp, paste their question into the AI.
 5. **You** send the reply on WhatsApp only after you check prices.
 6. Save good Q&A pairs back into the Sheet (your eval set grows).
+7. Hand the owner [`operator-card.hi.md`](operator-card.hi.md) — one page, five rules.
 
 ## Path B — Low budget (this week)
 

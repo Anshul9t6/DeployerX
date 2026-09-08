@@ -9,9 +9,15 @@
 
 ## Path A — Zero budget (today)
 
-1. Open ChatGPT or Claude in the browser.
-2. Paste `prompts/system.hi.md` (or `system.en.md`).
-3. Paste the clinic FAQ under `<<<FAQ>>>`.
+1. Save the approved clinic FAQ as `faq.txt` — include the line **bot does not give medical advice**.
+2. Build the paste-ready prompt (playbook rules + FAQ + your district's constraints):
+
+   ```bash
+   python3 -m decision.prompt clinic-whatsapp-faq --faq faq.txt --locale in/rajasthan/jaipur --lang hi --out prompt.txt
+   ```
+
+   Languages: `hi`, `en`, `pt`. No terminal? Open `prompts/system.<lang>.md` and replace `<<<FAQ>>>` by hand.
+3. Open ChatGPT or Claude in the browser. Paste `prompt.txt` as instructions.
 4. Paste each patient message → review → send on WhatsApp yourself.
 5. Save hard questions into the FAQ sheet.
 

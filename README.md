@@ -61,16 +61,22 @@ Glossaries waiting on a speaker: `bn` `gu` `kn` `te` (stubs). Brazil needs a mun
 ## Quick start
 
 ```bash
+# 1. decide — no terminal prompts needed; flags or defaults
+python3 -m decision.cli --country in --l2 rajasthan --l3 jaipur --language hi --use-case shop_faq
+
+# 2. build the paste-ready prompt from the OWNER's FAQ + district constraints
+python3 -m decision.prompt whatsapp-shop-faq --faq faq.txt --locale in/rajasthan/jaipur --lang hi --out prompt.txt
+
+# 3. eval before anyone sends a WhatsApp
+python3 -m evals.run prepare whatsapp-shop-faq --locale in/rajasthan/jaipur   # zero cost, browser model
+python3 -m evals.run selftest                                                 # hi + pt suites, no network
+
+make check                                           # hierarchy + unit tests + evals + site data
 make status                                          # honest metrics (field notes still 0)
-python3 -m decision.resolve in rajasthan jaipur      # cascade + leaf constraints
-python3 -m evals.run prepare whatsapp-shop-faq       # zero-cost eval bundle
-python3 -m evals.run selftest                        # hi + pt suites, no network
-python3 -m evals.run prepare whatsapp-shop-faq --cases cases-pt.json --locale br/sao-paulo/sao-paulo
-make check                                           # hierarchy + site data + evals
 ```
 
-Interactive: `python3 -m decision.cli` → playbook + locale.  
-Path A: open a playbook `deploy.md` → paste prompt + FAQ into a browser model → **owner sends**.
+Path A: `prompt.txt` → browser model → **owner sends** every reply for 7 days.  
+Owner card (Hindi, one page): [`operator-card.hi.md`](playbooks/whatsapp-shop-faq/operator-card.hi.md).
 
 | Playbook | Audience |
 |----------|----------|
@@ -83,7 +89,7 @@ City process: [`guides/city-start.md`](guides/city-start.md) · What to deploy (
 
 1. **Playbooks** — global recipes (do not fork per city)
 2. **Locale packs** — `_global` → country → L2 → L3
-3. **Decisioning** — constraints → recommended playbook + locale
+3. **Decisioning** — constraints → recommended playbook + locale; `decision.prompt` writes the paste-ready system prompt
 4. **Evals** — never invent a price; escalate when unsure; never give medical advice
 5. **MCP server** — the kit as agent tools (Claude / any MCP client; local files only)
 
@@ -126,8 +132,9 @@ locale-packs/
   <cc>/             # L1 country
     l2/<slug>/      # L2 state/province/…
       l3/<slug>/    # L3 district/county/…  (deltas only)
-decision/           # resolver + CLI
+decision/           # resolver + CLI + prompt assembly
 evals/              # eval runner + deterministic checks
+tests/              # unit tests (stdlib unittest) — part of make check
 deployerx_mcp/      # MCP server — optional: pip install mcp
 docs/               # GitHub Pages ← docs/data/progress.json
 ```
@@ -162,6 +169,7 @@ make check    # validate hierarchy + stale site data + eval selftest
 | [guides/world.md](guides/world.md) | Same kit, any country (open L1 only with a maintainer) |
 | [guides/receipt-plan.md](guides/receipt-plan.md) | Human-only field receipt (desk commands are in `make check`) |
 | [guides/fde.md](guides/fde.md) | Maintainer: Path A scope (what we deploy vs not) |
+| [guides/audit.md](guides/audit.md) | Product audit scorecard (/10 per dimension) + what to fix next |
 
 ## License
 

@@ -4,14 +4,14 @@
 > Roadmap: [`ROADMAP.md`](ROADMAP.md) · Live atlas: https://anshul9t6.github.io/DeployerX/
 
 <!-- status:meta -->
-- **Updated:** 2026-08-21
+- **Updated:** 2026-09-08
 - **Phase:** 1 — Proof (first real deployment)
 - **Branch tip:** run `git log -1 --oneline`
 <!-- /status:meta -->
 
 ## Where we are
 
-Synced to `main`. World-kit language is real: `system.pt.md` + `cases-pt.json` for both playbooks; price checks accept `R$`. São Paulo L3 is **draft** (honest). [`guides/world.md`](guides/world.md) is the public “one deployer, any country” pitch. **No real field deployment yet** — that remains the only hireable FDE receipt.
+Audited as a product ([`guides/audit.md`](guides/audit.md), 6.7/10). The Path A gap is closed: `python3 -m decision.prompt` writes the paste-ready prompt from the owner's real FAQ + district constraints; the CLI works without a terminal; unit tests run in `make check`. Hindi owner card exists for the shop playbook. **No real field deployment yet** — Proof scores 2/10 and is the only thing that moves the hiring signal.
 
 ### Works today
 
@@ -21,7 +21,9 @@ Synced to `main`. World-kit language is real: `system.pt.md` + `cases-pt.json` f
 | Playbooks | `whatsapp-shop-faq`, `clinic-whatsapp-faq` via `_registry.yaml` |
 | Evals | 4 suites (hi + pt × shop/clinic); `selftest` 38 fixture verdicts; `--cases cases-pt.json` |
 | MCP server | `deployerx_mcp/` — 8 tools (playbooks, locale cascade, prompt assembly, eval grading) for Claude/any MCP client; local, repo-files-only, no network |
-| CLI | `python3 -m decision.cli` (defaults to `in/rajasthan/jaipur`) |
+| CLI | `python3 -m decision.cli` — flags or `--no-input`; interactive only on a TTY |
+| Prompt | `python3 -m decision.prompt <pb> --faq faq.txt --locale cc/l2/l3 --lang hi\|en\|pt` → paste-ready `prompt.txt` |
+| Tests | `tests/` 32 stdlib unit tests (checks, prompt, CLI) — in `make check` + CI |
 | Pages | `docs/` ← `docs/data/progress.json` (`make site`) |
 | India | 36 L2 metas; **1 L3 seeded** (Varanasi); 10 L3 draft; Jaipur maintainer `Anshul9t6` |
 | Brazil | 27 L2; São Paulo L3 **draft** (pt prompts exist; no maintainer, not seeded) |
@@ -32,7 +34,7 @@ Synced to `main`. World-kit language is real: `system.pt.md` + `cases-pt.json` f
 
 <!-- status:metrics -->
 ```
-generated_at:     2026-08-21T02:44:44Z
+generated_at:     2026-09-08T17:26:16Z
 countries:        2
 playbooks:        2
 india_l2_seeded:  10 / index 36
@@ -64,6 +66,7 @@ field_notes:      0  ← must be >0 before Phase 1 complete
 
 | Date | What landed |
 |------|-------------|
+| 2026-09-08 | Product audit (`guides/audit.md`, 5.8→6.7/10): `decision.prompt` paste-ready prompt from owner FAQ; CLI flags + no-TTY fix; `prepare --out-dir` fix; 32 unit tests in `make check`; Hindi owner card |
 | 2026-08-21 | Atlas + Path A (pt) aligned to world pitch; `guides/receipt-plan.md` gated by `make check`; PR template |
 | 2026-08-21 | World kit: Portuguese prompts + evals; `R$` price checks; `guides/world.md`; São Paulo L3 draft (honest); CODE_OF_CONDUCT |
 | 2026-08-15 | README hook: invented-discount eval as the product; contribute table + L3 copy-paste first; CI badge |

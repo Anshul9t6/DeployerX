@@ -18,7 +18,8 @@ import argparse
 import json
 from pathlib import Path
 
-from decision.resolve import LocaleRef, merged_constraints
+from decision.prompt import FAQ_PLACEHOLDER, assemble_prompt, parse_locale  # noqa: F401
+from decision.resolve import LocaleRef
 from evals.cases import (
     ROOT,
     EvalSuite,
@@ -29,36 +30,16 @@ from evals.cases import (
 )
 from evals.checks import CheckResult, score_reply
 
-FAQ_PLACEHOLDER = "<<<FAQ>>>"
 DEFAULT_MODEL = "claude-opus-5"
 DEFAULT_OUT_DIR = ROOT / "eval-run"
 
 
-def parse_locale(raw: str) -> LocaleRef:
-    parts = [p for p in raw.strip("/").split("/") if p]
-    if not 1 <= len(parts) <= 3:
-        raise SystemExit(f"locale must be cc[/l2[/l3]], got: {raw}")
-    return LocaleRef(
-        country=parts[0],
-        l2=parts[1] if len(parts) > 1 else None,
-        l3=parts[2] if len(parts) > 2 else None,
-    )
-
-
-def assemble_prompt(prompt_text: str, faq: str, locale: LocaleRef | None) -> str:
-    """Assemble a deployable system prompt: playbook prompt + FAQ + locale cascade."""
-    if FAQ_PLACEHOLDER in prompt_text:
-        prompt_text = prompt_text.replace(FAQ_PLACEHOLDER, faq.strip())
-    else:
-        prompt_text = f"{prompt_text.rstrip()}\n\n{faq.strip()}\n"
-    if locale is not None:
-        constraints = merged_constraints(locale)
-        if constraints:
-            prompt_text = (
-                f"{prompt_text.rstrip()}\n\n"
-                f"## Local context (merged from locale packs)\n\n{constraints}\n"
-            )
-    return prompt_text
+def _rel(path: Path) -> str:
+    """Repo-relative when possible; absolute otherwise (e.g. --out-dir /tmp/...)."""
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
 
 
 def build_system_prompt(suite: EvalSuite, locale: LocaleRef | None) -> str:
@@ -144,8 +125,8 @@ def cmd_prepare(args: argparse.Namespace) -> int:
         "1. Paste everything between BEGIN/END SYSTEM PROMPT into a browser model",
         "   (Claude or ChatGPT) as its instructions / first message.",
         "2. Send each QUESTION below as its own message.",
-        f"3. Copy each reply into {responses.relative_to(ROOT)} under the matching id.",
-        f"4. Grade: python3 -m evals.run score {suite.playbook} --responses {responses.relative_to(ROOT)}",
+        f"3. Copy each reply into {_rel(responses)} under the matching id.",
+        f"4. Grade: python3 -m evals.run score {suite.playbook} --responses {_rel(responses)}",
         "",
         "----- BEGIN SYSTEM PROMPT -----",
         system_prompt.rstrip(),
@@ -166,9 +147,9 @@ def cmd_prepare(args: argparse.Namespace) -> int:
         json.dumps(skeleton, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
 
-    print(f"wrote {bundle.relative_to(ROOT)} ({len(suite.cases)} questions)")
-    print(f"wrote {responses.relative_to(ROOT)} — fill in the replies, then run:")
-    print(f"  python3 -m evals.run score {suite.playbook} --responses {responses.relative_to(ROOT)}")
+    print(f"wrote {_rel(bundle)} ({len(suite.cases)} questions)")
+    print(f"wrote {_rel(responses)} — fill in the replies, then run:")
+    print(f"  python3 -m evals.run score {suite.playbook} --responses {_rel(responses)}")
     return 0
 
 
@@ -254,7 +235,7 @@ def cmd_api(args: argparse.Namespace) -> int:
         + "\n",
         encoding="utf-8",
     )
-    print(f"saved replies to {save_path.relative_to(ROOT)}\n")
+    print(f"saved replies to {_rel(save_path)}\n")
 
     results = score_suite(suite, responses)
     ok = print_scorecard(suite, results, label=label)

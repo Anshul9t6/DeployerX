@@ -48,6 +48,10 @@ Locale-aware playbooks so non-engineer operators can run AI workflows in their l
 - [ ] Strict YAML-only `_meta.yaml` for all L2 (migrate stubs)
 - [ ] Optional schema validation (JSON Schema or PyYAML)
 - [x] Decision CLI prints merged constraint excerpt by default
+- [x] Paste-ready prompt command (`decision.prompt`) shared by evals + MCP; CLI non-interactive flags
+- [x] Unit tests (`tests/`, stdlib) in `make check` + CI
+- [ ] Operator docs in Hindi (`deploy.hi.md`, clinic owner card)
+- [ ] `decision.prompt --faq` accepts CSV export (question,answer) from a Sheet
 - [ ] Slimmer Pages CSS / fewer motion effects (optional)
 
 ---
