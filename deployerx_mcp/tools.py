@@ -15,9 +15,10 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from decision.playbooks import load_playbooks, pick_playbook
+from decision.prompt import assemble_prompt
 from decision.resolve import LocaleRef, explain, merged_constraints
 from evals.cases import load_suite
-from evals.run import assemble_prompt, format_scorecard, score_suite
+from evals.run import format_scorecard, score_suite
 
 LOCALE_PACKS = ROOT / "locale-packs"
 PLAYBOOK_GUIDE_FILES = ("README.md", "decide.md", "deploy.md", "cost.md")

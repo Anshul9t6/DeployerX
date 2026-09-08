@@ -59,7 +59,7 @@ claude mcp add deployerx -- python3 /absolute/path/to/DeployerX/deployerx_mcp/se
 | `get_playbook` | Full guide: when (not) to use, deploy steps, cost bands |
 | `list_locales` | Countries, or a country's L2/L3 tree |
 | `locale_context` | Merged L0→L1→L2→L3 constraints for a place |
-| `build_system_prompt` | Playbook prompt + owner FAQ + locale cascade, ready to deploy |
+| `build_system_prompt` | Playbook prompt + owner FAQ + locale cascade, ready to deploy (same assembly as `python3 -m decision.prompt`) |
 | `list_eval_cases` | Test messages + expected behavior for a playbook |
 | `run_eval` | Grade replies → deterministic scorecard (invented prices, escalation, forbidden content) |
 
