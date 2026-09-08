@@ -38,7 +38,9 @@ Prompt: `playbooks/<id>/prompts/system.hi.md` (or `.pt.md` only if the owner wri
 
 Follow [`../field-notes/FIRST_DEPLOYMENT.md`](../field-notes/FIRST_DEPLOYMENT.md) and the playbook `deploy.md`.
 
-- Written FAQ only (prices, hours, never-list)
+- Written FAQ only (prices, hours, never-list) — `faq.txt` or Sheet CSV (`question,answer`)
+- `python3 -m decision.prompt <playbook> --faq faq.csv --locale in/rajasthan/jaipur --lang hi --out prompt.txt`
+- Hindi Path A: `playbooks/<id>/deploy.hi.md` + `operator-card.hi.md`
 - Browser model
 - Owner sends every reply for 7 days
 - Walk eval cases before any customer-facing send

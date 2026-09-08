@@ -11,7 +11,7 @@
 
 ## Where we are
 
-Audited as a product ([`guides/audit.md`](guides/audit.md), 6.7/10). The Path A gap is closed: `python3 -m decision.prompt` writes the paste-ready prompt from the owner's real FAQ + district constraints; the CLI works without a terminal; unit tests run in `make check`. Hindi owner card exists for the shop playbook. **No real field deployment yet** — Proof scores 2/10 and is the only thing that moves the hiring signal.
+Path A is operator-ready in Hindi: `deploy.hi.md` + owner/staff cards for both playbooks; `decision.prompt --faq` takes a Sheet CSV; MCP reads `faq_path`. Audit 6.8/10. **No real field deployment yet** — Proof scores 2/10 and is the only thing that moves the hiring signal.
 
 ### Works today
 
@@ -20,10 +20,10 @@ Audited as a product ([`guides/audit.md`](guides/audit.md), 6.7/10). The Path A 
 | Locale cascade | `decision.resolve` prints leaf excerpt by default; `--merge` for full stack |
 | Playbooks | `whatsapp-shop-faq`, `clinic-whatsapp-faq` via `_registry.yaml` |
 | Evals | 4 suites (hi + pt × shop/clinic); `selftest` 38 fixture verdicts; `--cases cases-pt.json` |
-| MCP server | `deployerx_mcp/` — 8 tools (playbooks, locale cascade, prompt assembly, eval grading) for Claude/any MCP client; local, repo-files-only, no network |
+| MCP server | `deployerx_mcp/` — 8 tools; `build_system_prompt` accepts `faq` or `faq_path` (txt/CSV); local, no network |
 | CLI | `python3 -m decision.cli` — flags or `--no-input`; interactive only on a TTY |
-| Prompt | `python3 -m decision.prompt <pb> --faq faq.txt --locale cc/l2/l3 --lang hi\|en\|pt` → paste-ready `prompt.txt` |
-| Tests | `tests/` 32 stdlib unit tests (checks, prompt, CLI) — in `make check` + CI |
+| Prompt | `python3 -m decision.prompt <pb> --faq faq.txt\|faq.csv --locale cc/l2/l3 --lang hi\|en\|pt` → paste-ready `prompt.txt` |
+| Tests | `tests/` 45 stdlib unit tests (checks, prompt, CLI, CSV, MCP) + `compileall` — in `make check` + CI |
 | Pages | `docs/` ← `docs/data/progress.json` (`make site`) |
 | India | 36 L2 metas; **1 L3 seeded** (Varanasi); 10 L3 draft; Jaipur maintainer `Anshul9t6` |
 | Brazil | 27 L2; São Paulo L3 **draft** (pt prompts exist; no maintainer, not seeded) |
@@ -34,7 +34,7 @@ Audited as a product ([`guides/audit.md`](guides/audit.md), 6.7/10). The Path A 
 
 <!-- status:metrics -->
 ```
-generated_at:     2026-09-08T17:26:16Z
+generated_at:     2026-09-08T18:23:23Z
 countries:        2
 playbooks:        2
 india_l2_seeded:  10 / index 36
@@ -66,6 +66,7 @@ field_notes:      0  ← must be >0 before Phase 1 complete
 
 | Date | What landed |
 |------|-------------|
+| 2026-09-08 | Hindi `deploy.hi.md` + clinic staff card; Sheet CSV FAQ; MCP `faq_path`; `compileall` in `make check` |
 | 2026-09-08 | Product audit (`guides/audit.md`, 5.8→6.7/10): `decision.prompt` paste-ready prompt from owner FAQ; CLI flags + no-TTY fix; `prepare --out-dir` fix; 32 unit tests in `make check`; Hindi owner card |
 | 2026-08-21 | Atlas + Path A (pt) aligned to world pitch; `guides/receipt-plan.md` gated by `make check`; PR template |
 | 2026-08-21 | World kit: Portuguese prompts + evals; `R$` price checks; `guides/world.md`; São Paulo L3 draft (honest); CODE_OF_CONDUCT |
@@ -80,8 +81,8 @@ field_notes:      0  ← must be >0 before Phase 1 complete
 | 2026-08-08 | Initial scaffold |
 ## Agent checklist (end of session)
 
-- [ ] `ROADMAP.md` checkboxes match reality
-- [ ] This file: Updated date, Where we are, Next, Session log
-- [ ] `make status` (refresh metrics block)
-- [ ] If locale/playbook/field-note changed: `make site && make check`
-- [ ] Tell the human what’s next in one sentence
+- [x] `ROADMAP.md` checkboxes match reality
+- [x] This file: Updated date, Where we are, Next, Session log
+- [x] `make status` (refresh metrics block)
+- [x] If locale/playbook/field-note changed: `make site && make check`
+- [x] Tell the human what’s next in one sentence

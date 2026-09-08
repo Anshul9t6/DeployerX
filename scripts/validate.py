@@ -49,7 +49,14 @@ def main() -> None:
 
     for playbook_id in ("whatsapp-shop-faq", "clinic-whatsapp-faq"):
         playbook = ROOT / "playbooks" / playbook_id
-        for name in ("README.md", "decide.md", "deploy.md", "cost.md"):
+        for name in (
+            "README.md",
+            "decide.md",
+            "deploy.md",
+            "deploy.hi.md",
+            "operator-card.hi.md",
+            "cost.md",
+        ):
             if not (playbook / name).exists():
                 fail(f"playbook {playbook_id} missing {name}")
 

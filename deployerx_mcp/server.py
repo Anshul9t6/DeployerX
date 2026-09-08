@@ -99,16 +99,18 @@ def build_system_prompt(
     l2: str = "",
     l3: str = "",
     language: str = "",
+    faq_path: str = "",
 ) -> str:
     """Assemble the deployable system prompt: playbook prompt + the owner's
     FAQ + merged locale constraints. This is the exact assembly deploy.md
     describes doing by hand.
 
-    Pass the owner's real FAQ text via `faq` (prices, hours, policies).
-    If faq is empty a marked SAMPLE FAQ is used — never deploy that.
+    Pass the owner's real FAQ via `faq` (pasted text) or `faq_path` (local
+    .txt or Sheet CSV with question,answer). faq_path wins when both are set.
+    If both are empty a marked SAMPLE FAQ is used — never deploy that.
     language picks prompts/system.<language>.md (e.g. 'hi', 'en').
     """
-    return tools.system_prompt(playbook_id, faq, country, l2, l3, language)
+    return tools.system_prompt(playbook_id, faq, country, l2, l3, language, faq_path)
 
 
 @mcp.tool()

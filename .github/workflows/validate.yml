@@ -29,3 +29,6 @@ jobs:
           printf 'Shop: CI Kirana\nHours: 8-21\nAtta 1kg: ₹45\n' > /tmp/faq.txt
           python3 -m decision.prompt whatsapp-shop-faq --faq /tmp/faq.txt --locale in/rajasthan/jaipur --lang hi --out /tmp/prompt.txt
           grep -q "CI Kirana" /tmp/prompt.txt && grep -q "jaipur/constraints.md" /tmp/prompt.txt
+          printf 'question,answer\nShop?,CI Kirana CSV\nAtta 1kg?,₹45\n' > /tmp/faq.csv
+          python3 -m decision.prompt whatsapp-shop-faq --faq /tmp/faq.csv --locale in/rajasthan/jaipur --lang hi --out /tmp/prompt-csv.txt
+          grep -q "CI Kirana CSV" /tmp/prompt-csv.txt

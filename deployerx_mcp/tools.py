@@ -15,13 +15,20 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from decision.playbooks import load_playbooks, pick_playbook
-from decision.prompt import assemble_prompt
+from decision.prompt import assemble_prompt, read_faq
 from decision.resolve import LocaleRef, explain, merged_constraints
 from evals.cases import load_suite
 from evals.run import format_scorecard, score_suite
 
 LOCALE_PACKS = ROOT / "locale-packs"
-PLAYBOOK_GUIDE_FILES = ("README.md", "decide.md", "deploy.md", "cost.md")
+PLAYBOOK_GUIDE_FILES = (
+    "README.md",
+    "decide.md",
+    "deploy.md",
+    "deploy.hi.md",
+    "operator-card.hi.md",
+    "cost.md",
+)
 
 
 def _locale_ref(country: str, l2: str, l3: str) -> LocaleRef | None:
@@ -112,6 +119,7 @@ def system_prompt(
     l2: str = "",
     l3: str = "",
     language: str = "",
+    faq_path: str = "",
 ) -> str:
     suite = load_suite(playbook_id)
     prompt_path = suite.prompt_path
@@ -125,11 +133,13 @@ def system_prompt(
         prompt_path = candidate
 
     note = ""
+    if faq_path.strip():
+        faq = read_faq(faq_path.strip())
     if not faq.strip():
         faq = suite.faq
         note = (
             "NOTE: assembled with the playbook's SAMPLE FAQ. For a real deployment, "
-            "re-run with the owner's actual FAQ text.\n\n"
+            "re-run with the owner's actual FAQ text or faq_path.\n\n"
         )
     prompt = assemble_prompt(
         prompt_path.read_text(encoding="utf-8"), faq, _locale_ref(country, l2, l3)

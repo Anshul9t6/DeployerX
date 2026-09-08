@@ -90,6 +90,11 @@ def _playbooks() -> list[dict]:
                     else ""
                 ),
                 "deploy_url": f"{REPO}/blob/main/playbooks/{p.name}/deploy.md",
+                "deploy_hi_url": (
+                    f"{REPO}/blob/main/playbooks/{p.name}/deploy.hi.md"
+                    if (p / "deploy.hi.md").exists()
+                    else ""
+                ),
             }
         )
     return items

@@ -15,8 +15,8 @@ wiring around code that already exists in this repo.
 - **Repo files only:** the playbooks, locale packs, prompts, and eval cases
   in this repository — nothing else.
 - **Plus whatever the caller passes in:** e.g. the shop owner's FAQ text via
-  `build_system_prompt`. It is used to assemble the prompt and returned;
-  never stored.
+  `build_system_prompt`, or a local file via `faq_path` (`.txt` or Sheet
+  `question,answer` CSV). Used to assemble the prompt and returned; never stored.
 - **Runs locally over stdio.** The MCP client starts this process on your
   machine. The server makes **no network calls**, keeps **no state**, and
   has **no telemetry**. The AI model runs in the client (e.g. Claude), so
@@ -59,7 +59,7 @@ claude mcp add deployerx -- python3 /absolute/path/to/DeployerX/deployerx_mcp/se
 | `get_playbook` | Full guide: when (not) to use, deploy steps, cost bands |
 | `list_locales` | Countries, or a country's L2/L3 tree |
 | `locale_context` | Merged L0→L1→L2→L3 constraints for a place |
-| `build_system_prompt` | Playbook prompt + owner FAQ + locale cascade, ready to deploy (same assembly as `python3 -m decision.prompt`) |
+| `build_system_prompt` | Playbook prompt + owner FAQ + locale cascade, ready to deploy (same assembly as `python3 -m decision.prompt`). Pass `faq` or `faq_path` |
 | `list_eval_cases` | Test messages + expected behavior for a playbook |
 | `run_eval` | Grade replies → deterministic scorecard (invented prices, escalation, forbidden content) |
 
