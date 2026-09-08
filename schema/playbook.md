@@ -14,7 +14,8 @@ Playbooks are **global**. Locales overlay language and trust; they do not copy t
 | `decide.md` | When to use / when not |
 | `deploy.md` | Path A (zero cost) then optional upgrades |
 | `cost.md` | Cost bands in local currency terms |
-| `prompts/` | System prompts by language |
+| `prompts/` | System prompts by language (`system.<lang>.md`, `<<<FAQ>>>` marker; assembled by `python3 -m decision.prompt`) |
+| `operator-card.<lang>.md` | Optional one-page owner card in the operator's language (rules + daily loop) |
 | `evals/` | `cases.json` plus optional `cases-<lang>.json` (e.g. `cases-pt.json`) + matching `fixtures/` / `fixtures-<lang>/` |
 
 ## Frontmatter (README)
