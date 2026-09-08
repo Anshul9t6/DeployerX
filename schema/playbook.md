@@ -13,6 +13,7 @@ Playbooks are **global**. Locales overlay language and trust; they do not copy t
 | `README.md` | id, audience, status, one-liner, time-to-first-win |
 | `decide.md` | When to use / when not |
 | `deploy.md` | Path A (zero cost) then optional upgrades |
+| `deploy.<lang>.md` | Optional operator-language Path A (e.g. `deploy.hi.md`) |
 | `cost.md` | Cost bands in local currency terms |
 | `prompts/` | System prompts by language (`system.<lang>.md`, `<<<FAQ>>>` marker; assembled by `python3 -m decision.prompt`) |
 | `operator-card.<lang>.md` | Optional one-page owner card in the operator's language (rules + daily loop) |
