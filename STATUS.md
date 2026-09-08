@@ -34,7 +34,7 @@ Path A is operator-ready in Hindi: `deploy.hi.md` + owner/staff cards for both p
 
 <!-- status:metrics -->
 ```
-generated_at:     2026-09-08T18:23:23Z
+generated_at:     2026-09-08T18:40:40Z
 countries:        2
 playbooks:        2
 india_l2_seeded:  10 / index 36
