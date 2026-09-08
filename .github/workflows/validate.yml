@@ -23,3 +23,9 @@ jobs:
         run: |
           make resolve ARGS="in uttar-pradesh varanasi"
           make resolve ARGS="in rajasthan jaipur"
+      - name: Path A smoke (no TTY)
+        run: |
+          python3 -m decision.cli --country in --l2 rajasthan --l3 jaipur --language hi --use-case shop_faq
+          printf 'Shop: CI Kirana\nHours: 8-21\nAtta 1kg: ₹45\n' > /tmp/faq.txt
+          python3 -m decision.prompt whatsapp-shop-faq --faq /tmp/faq.txt --locale in/rajasthan/jaipur --lang hi --out /tmp/prompt.txt
+          grep -q "CI Kirana" /tmp/prompt.txt && grep -q "jaipur/constraints.md" /tmp/prompt.txt
